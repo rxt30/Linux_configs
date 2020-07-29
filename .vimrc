@@ -18,8 +18,8 @@ Plug 'https://github.com/ncm2/ncm2.git'
 Plug 'https://github.com/phpactor/phpactor.git'
 Plug 'https://github.com/phpactor/ncm2-phpactor.git'
 Plug 'tpope/vim-surround'
-Plug 'valloric/youcompleteme'
 Plug 'townk/vim-autoclose'
+Plug 'valloric/youcompleteme'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -37,4 +37,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-
+set tabstop=2 shiftwidth=2 expandtab
+set timeoutlen=1000
+set ttimeoutlen=0
