@@ -13,7 +13,7 @@ Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/StanAngeloff/php.vim'
 Plug 'https://github.com/stephpy/vim-php-cs-fixer.git'
-Plug 'https://github.com/vim-latex/vim-latex.git'
+"Plug 'https://github.com/vim-latex/vim-latex.git'
 Plug 'https://github.com/ncm2/ncm2.git'
 Plug 'https://github.com/phpactor/phpactor.git'
 Plug 'https://github.com/phpactor/ncm2-phpactor.git'
@@ -40,3 +40,6 @@ let g:syntastic_check_on_wq = 0
 set tabstop=2 shiftwidth=2 expandtab
 set timeoutlen=1000
 set ttimeoutlen=0
+set mouse=a
+set laststatus=2
+set noshowmode
