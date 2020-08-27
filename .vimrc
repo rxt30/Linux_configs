@@ -1,6 +1,6 @@
 set hlsearch
 syntax enable
-colorscheme industry
+"colorscheme industry
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -20,10 +20,12 @@ Plug 'https://github.com/phpactor/phpactor.git'
 Plug 'https://github.com/phpactor/ncm2-phpactor.git'
 Plug 'tpope/vim-surround'
 Plug 'townk/vim-autoclose'
+Plug 'RRethy/vim-illuminate'
 Plug 'valloric/youcompleteme'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
+map <C-c> 0i//
 map ] ]c
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
