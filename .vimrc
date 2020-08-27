@@ -25,7 +25,7 @@ Plug 'valloric/youcompleteme'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
-map <C-c> 0i//
+map <C-c> 0i//<Esc>
 map ] ]c
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
