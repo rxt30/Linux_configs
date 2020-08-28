@@ -19,9 +19,10 @@ Plug 'https://github.com/ncm2/ncm2.git'
 Plug 'https://github.com/phpactor/phpactor.git'
 Plug 'https://github.com/phpactor/ncm2-phpactor.git'
 Plug 'tpope/vim-surround'
-Plug 'townk/vim-autoclose'
+"Plug 'townk/vim-autoclose'
 Plug 'RRethy/vim-illuminate'
 Plug 'valloric/youcompleteme'
+Plug 'Raimondi/delimitMate'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -34,6 +35,8 @@ set omnifunc=syntaxcomplete#Complete
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
