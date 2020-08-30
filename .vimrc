@@ -27,6 +27,7 @@ call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-c> 0i//<Esc>
+map <C-f> :echo FizzBuzz(line("."))<CR>
 map ] ]c
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -49,3 +50,22 @@ set ttimeoutlen=0
 set mouse=a
 set laststatus=2
 set noshowmode
+set number
+
+
+
+
+
+
+"A dumb fizzbuzz function
+function! FizzBuzz(lineNumber)
+  if (a:lineNumber % 5) == 0 && (a:lineNumber % 3) == 0
+    return "fizzbuzz"
+  elseif (a:lineNumber % 3) == 0
+    return "fizz"
+  elseif (a:lineNumber % 5) == 0
+    return "buzz"
+  else
+    return a:lineNumber
+  endif
+endfunction
