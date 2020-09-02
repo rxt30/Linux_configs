@@ -1,6 +1,6 @@
 set hlsearch
 syntax enable
-"colorscheme industry
+autocmd vimenter * colorscheme gruvbox
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -23,6 +23,7 @@ Plug 'tpope/vim-surround'
 Plug 'RRethy/vim-illuminate'
 Plug 'valloric/youcompleteme'
 Plug 'Raimondi/delimitMate'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
