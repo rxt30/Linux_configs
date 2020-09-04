@@ -8,6 +8,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/syntastic'
 Plug 'https://github.com/preservim/nerdtree.git'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
@@ -15,13 +16,10 @@ Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/StanAngeloff/php.vim'
 Plug 'https://github.com/stephpy/vim-php-cs-fixer.git'
 "Plug 'https://github.com/vim-latex/vim-latex.git'
-Plug 'https://github.com/ncm2/ncm2.git'
-Plug 'https://github.com/phpactor/phpactor.git'
-Plug 'https://github.com/phpactor/ncm2-phpactor.git'
 Plug 'tpope/vim-surround'
 "Plug 'townk/vim-autoclose'
 Plug 'RRethy/vim-illuminate'
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 Plug 'Raimondi/delimitMate'
 Plug 'morhetz/gruvbox'
 call plug#end()
@@ -53,7 +51,9 @@ set laststatus=2
 set noshowmode
 set number
 
-
+"tabs for autocomplete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
 
