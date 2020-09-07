@@ -1,6 +1,6 @@
 set hlsearch
 syntax enable
-autocmd vimenter * colorscheme gruvbox
+"autocmd vimenter * colorscheme gruvbox
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -22,6 +22,7 @@ Plug 'RRethy/vim-illuminate'
 "Plug 'valloric/youcompleteme'
 Plug 'Raimondi/delimitMate'
 Plug 'morhetz/gruvbox'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
@@ -50,6 +51,9 @@ set mouse=a
 set laststatus=2
 set noshowmode
 set number
+
+"coc configs
+set updatetime=300
 
 "tabs for autocomplete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
