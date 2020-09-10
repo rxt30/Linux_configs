@@ -15,11 +15,8 @@ Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/StanAngeloff/php.vim'
 Plug 'https://github.com/stephpy/vim-php-cs-fixer.git'
-"Plug 'https://github.com/vim-latex/vim-latex.git'
 Plug 'tpope/vim-surround'
-"Plug 'townk/vim-autoclose'
 Plug 'RRethy/vim-illuminate'
-"Plug 'valloric/youcompleteme'
 Plug 'Raimondi/delimitMate'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
@@ -32,18 +29,16 @@ map ] ]c
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"tab as spaces config and stuff
 set tabstop=2 shiftwidth=2 expandtab
 set timeoutlen=1000
 set ttimeoutlen=0
