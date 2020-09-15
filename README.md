@@ -7,7 +7,7 @@ And you can use 'please' instead of 'sudo' [:)](https://twitter.com/ctrlshifti/s
 
 ## vim
 After placing the .vimrc in your home-directory, enter ':PlugInstall' to install the plugins.<br>
-The plugin used for autocompletion is [coc.nvim](https://github.com/neoclide/coc.nvim). For aviable autcompletes see the [List of Coc-Extensions](https://github.com/neoclide/coc.nvim)<br>
+The plugin used for autocompletion is [coc.nvim](https://github.com/neoclide/coc.nvim). For aviable autcompletes see the [List of Coc-Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions)<br>
 NerdTree, a in vim file explorere, is mapped to CTRL + n.<br>
 CTRL+C to comment out a line.$<br>
 F8 to compile*<br>
