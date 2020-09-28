@@ -10,4 +10,11 @@
 !.vim/ftplugin/
 !.vim/ftplugin/*
 
+!.local/
+.local/*
+!.local/share
+.local/share/*
+!.local/share/konsole
+!.local/share/konsole/*
+
 !.gitignore

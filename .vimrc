@@ -1,6 +1,8 @@
 set hlsearch
+set encoding=UTF-8
 syntax enable
-"autocmd vimenter * colorscheme gruvbox
+set termguicolors
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -20,7 +22,14 @@ Plug 'RRethy/vim-illuminate'
 Plug 'Raimondi/delimitMate'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
+
+let g:tokyonight_style = 'night'
+colorscheme tokyonight
+let g:lightline = {'colorscheme' : 'tokyonight'}
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-c> 0i//<Esc>
