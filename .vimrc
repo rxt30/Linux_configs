@@ -49,7 +49,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "tab as spaces config and stuff
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 set timeoutlen=1000
 set ttimeoutlen=0
 set mouse=a
