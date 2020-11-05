@@ -14,7 +14,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/syntastic'
 Plug 'https://github.com/preservim/nerdtree.git'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
-"Plug 'https://github.com/itchyny/lightline.vim'
+Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/StanAngeloff/php.vim'
 Plug 'https://github.com/stephpy/vim-php-cs-fixer.git'
 Plug 'tpope/vim-surround'
@@ -25,7 +25,7 @@ Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'liuchengxu/eleline.vim'
+"Plug 'liuchengxu/eleline.vim'
 call plug#end()
 
 let g:tokyonight_style = 'night'
