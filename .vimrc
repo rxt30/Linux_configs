@@ -25,7 +25,6 @@ Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'sheerun/vim-polyglot'
-"Plug 'liuchengxu/eleline.vim'
 call plug#end()
 
 let g:tokyonight_style = 'night'
