@@ -102,6 +102,3 @@ source $ZSH/oh-my-zsh.sh
 # Own aliases
 alias please="sudo"
 alias xclip="xclip -sel clip"
-#Rempa capslock to escape, for better ergonomics in vim
-xmodmap -e 'keycode 0x42=Escape'
-
