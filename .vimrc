@@ -23,6 +23,7 @@ Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:tokyonight_style = 'night'
