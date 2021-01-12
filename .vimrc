@@ -56,7 +56,7 @@ set noshowmode
 set number
 
 "coc configs
-set updatetime=300
+set updatetime=100
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
