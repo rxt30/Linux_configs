@@ -21,22 +21,22 @@ Plug 'Raimondi/delimitMate'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
-"Plug 'ghifarit53/tokyonight-vim'
+Plug 'ghifarit53/tokyonight-vim'
 "Plug 'sonph/onehalf', {'rtp':'vim'}
 Plug 'ayu-theme/ayu-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
-"let g:tokyonight_style = 'night'
-"colorscheme tokyonight
-"let g:lightline = {'colorscheme' : 'tokyonight'}
+let g:tokyonight_style = 'night'
+colorscheme tokyonight
+let g:lightline = {'colorscheme' : 'tokyonight'}
 
 "colorscheme onehalfdark
 "let g:lightline = {'colorscheme':'onehalfdark'}
 
-let ayucolor="dark"
-colorscheme ayu
+"let ayucolor="dark"
+"colorscheme ayu
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-c> 0i//<Esc>
