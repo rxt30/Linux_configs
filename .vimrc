@@ -42,7 +42,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-c> 0i//<Esc>
 map <C-f> :echo FizzBuzz(line("."))<CR>
 map ] ]c
-filetype plugin on
+filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
 set statusline+=%#warningmsg#
