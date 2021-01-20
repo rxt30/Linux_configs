@@ -28,15 +28,15 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
-let g:tokyonight_style = 'night'
-colorscheme tokyonight
-let g:lightline = {'colorscheme' : 'tokyonight'}
+"let g:tokyonight_style = 'night'
+"colorscheme tokyonight
+"let g:lightline = {'colorscheme' : 'tokyonight'}
 
 "colorscheme onehalfdark
 "let g:lightline = {'colorscheme':'onehalfdark'}
 
-"let ayucolor="dark"
-"colorscheme ayu
+let ayucolor="mirage"
+colorscheme ayu
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-c> 0i//<Esc>
