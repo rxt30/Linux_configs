@@ -102,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # Own aliases
 alias please="sudo"
 alias xclip="xclip -sel clip"
-alias ls="exa"
+alias lss="exa"
+alias ls="exa -l"
 alias l="exa -la"
 alias ll="exa -l"
