@@ -25,6 +25,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 "let g:tokyonight_style = 'night'
