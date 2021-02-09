@@ -73,8 +73,9 @@ nmap <silent> gr <Plug>(coc-references)
 
 "tabs for autocomplete
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+inoremap <expr> <C-@> pumvisible() ? coc#_select_confirm() : "\<Space>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 
 
 
