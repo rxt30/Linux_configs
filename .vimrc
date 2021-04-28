@@ -35,7 +35,7 @@ call plug#end()
 "colorscheme onehalfdark
 "let g:lightline = {'colorscheme':'onehalfdark'}
 
-let ayucolor="mirage"
+let ayucolor="dark"
 colorscheme ayu
 
 map <C-n> :NERDTreeToggle<CR>
