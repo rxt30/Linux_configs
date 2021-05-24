@@ -1,5 +1,6 @@
 # Linux_configs
-Configs for zsh and vim
+Configs for zsh and vim    
+Configs for kitty and neofetch are taken from [Dragonsight91 dotfiles](https://github.com/Dragonsight91/dotfiles)
 
 ## zsh
 The .zshrc file is configured for using with [oh-my-zsh](https://ohmyz.sh/).<br>

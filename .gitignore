@@ -11,3 +11,9 @@
 !.vim/ftplugin/*
 
 !.gitignore
+!.config/
+.config/*
+!.config/kitty/
+!.config/kitty/*
+!.config/neofetch/
+!.config/neofetch/*
