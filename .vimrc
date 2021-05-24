@@ -21,7 +21,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
-Plug 'ayu-theme/ayu-vim'
+Plug 'rxt30/ayu-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
@@ -37,6 +37,7 @@ call plug#end()
 
 let ayucolor="dark"
 colorscheme ayu
+hi Normal guibg=NONE ctermbg=NONE
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-c> 0i//<Esc>
