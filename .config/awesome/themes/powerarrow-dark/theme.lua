@@ -181,7 +181,7 @@ local mem = lain.widget.mem({
 local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
 local cpu = lain.widget.cpu({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
+        widget:set_markup(markup.fontfg(theme.font, '#222222', " " .. cpu_now.usage .. "% "))
     end
 })
 
@@ -320,22 +320,22 @@ function theme.at_screen_connect(s)
             wibox.widget.systray(),
             keyboardlayout,
             spr,
-            arrl_ld,
-            wibox.container.background(mpdicon, theme.bg_focus),
-            wibox.container.background(theme.mpd.widget, theme.bg_focus),
-            arrl_dl,
+            separators.arrow_left('alpha', '#700000'),
+            wibox.container.background(mpdicon, '#700000'),
+            wibox.container.background(theme.mpd.widget, '#700000'),
+            separators.arrow_left('#700000', 'alpha'),
             volicon,
             theme.volume.widget,
-            arrl_ld,
-            wibox.container.background(mailicon, theme.bg_focus),
+            separators.arrow_left('alpha', '#006000'),
+            wibox.container.background(mailicon, '#006000'),
             --wibox.container.background(theme.mail.widget, theme.bg_focus),
-            arrl_dl,
+            separators.arrow_left('#006000', 'alpha'),
             memicon,
             mem.widget,
-            arrl_ld,
-            wibox.container.background(cpuicon, theme.bg_focus),
-            wibox.container.background(cpu.widget, theme.bg_focus),
-            arrl_dl,
+            separators.arrow_left('alpha', '#CCCCCC'),
+            wibox.container.background(cpuicon, '#CCCCCC'),
+            wibox.container.background(cpu.widget, '#CCCCCC'),
+            separators.arrow_left('#CCCCCC', 'alpha'),
             tempicon,
             temp.widget,
             arrl_ld,
