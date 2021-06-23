@@ -19,3 +19,5 @@
 !.config/kitty/*
 !.config/neofetch/
 !.config/neofetch/*
+!.package_list/
+!.package_list/*

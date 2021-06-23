@@ -77,7 +77,7 @@ function M.create_tags(s)
 --                icon_only = true,
                 layout = tag.layout or awful.layout.suit.spiral.dwindle,
                 gap_single_client = true,
-                gap = dpi(5),
+                gap = dpi(2),
                 screen = s,
                 --default_app = tag.default_app,
                 selected = i == 1
