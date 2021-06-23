@@ -52,6 +52,20 @@ awful.rules.rules = {
             properties = {
                 titlebars_enabled = true
             }
+        },
+
+        {
+            id = 'dialog',
+            rule_any = {
+                type = {'dialog'}
+            },
+            properties = {
+                titlebars_enabled = false,
+                floating = true,
+                above = true,
+                skip_decoration = true,
+                placement = awful.placement.centered
+            }
         }
 }
 
