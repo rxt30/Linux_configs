@@ -37,8 +37,8 @@ awful.rules.rules = {
                 name = {'Discord Updater'}
             },
             properties = {
-                round_corner = true,
-                shape = beautiful.client_shape_rounded
+                --round_corner = true
+                --shape = beautiful.client_shape_rounded
             }
         },
 
@@ -72,7 +72,7 @@ awful.rules.rules = {
 client.connect_signal(
     'manage',
     function (c)
-        c.shape = gears.shape.rounded_rect
+        --c.shape = gears.shape.rounded_rect
         if awesome.startup
             and not c.size_hints.user_position
             and not c.size_hints.program_position then
