@@ -11,14 +11,12 @@ endif
 
 call plug#begin('~/vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'scrooloose/syntastic'
+Plug 'puremourning/vimspector'
 Plug 'https://github.com/preservim/nerdtree.git'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'tpope/vim-surround'
 Plug 'RRethy/vim-illuminate'
-Plug 'Raimondi/delimitMate'
-Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ayu-theme/ayu-vim'
@@ -79,6 +77,7 @@ inoremap <expr> <C-@> pumvisible() ? coc#_select_confirm() : "\<Space>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
+let g:vimspector_enable_mappings = 'HUMAN'
 
 "A dumb fizzbuzz function
 function! FizzBuzz(lineNumber)
