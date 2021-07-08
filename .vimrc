@@ -79,6 +79,13 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:vimspector_enable_mappings = 'HUMAN'
 
+"Improve navigation between windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-v> <C-w>v
+
 "A dumb fizzbuzz function
 function! FizzBuzz(lineNumber)
   if (a:lineNumber % 5) == 0 && (a:lineNumber % 3) == 0
