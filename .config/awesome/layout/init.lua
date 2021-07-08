@@ -1,6 +1,7 @@
 local awful = require('awful')
 local beautiful = require('beautiful')
 local gears = require('gears')
+local top_panel = require('layout.top_bar')
 local tag_creation = require('layout.tags')
 local theme = require('themes.powerarrow-dark.theme')
 
@@ -35,7 +36,7 @@ awful.util.tasklist_buttons = gears.table.join(
 awful.screen.connect_for_each_screen(function(s)
 
         tag_creation.create_tags(s)
-        --top_panel(s)
+--        top_panel(s)
         theme.at_screen_connect(s)
 
     end
