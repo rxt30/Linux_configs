@@ -17,3 +17,8 @@ F10 to debug program*<br>
 <br>
 \* = C,C++,Java,Python<br>
 $ = Python,Latex,C-like Syntax
+
+### vimspector
+For debugging inside vim the plugin [vimspector](https://github.com/puremourning/vimspector) is used.    
+To use the debugger, a [.vimspector.json](https://github.com/puremourning/vimspector#debug-profile-configuration) must be defined inside the root directory of the program.    
+For more information about the hotkeys [see here](https://github.com/puremourning/vimspector#human-mode).
