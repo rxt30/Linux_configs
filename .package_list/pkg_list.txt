@@ -54,6 +54,7 @@ sed
 sudo
 thunar
 ttf-roboto
+playerctl
 vim
 which
 xclip
