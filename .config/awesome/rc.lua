@@ -3,6 +3,7 @@ local awful = require('awful')
 require('awful.autofocus')
 local naughty = require('naughty')
 local gears = require('gears')
+local bling = require('modules.bling')
 
 awful.util.shell = 'sh'
 awful.util.terminal = 'kitty'
@@ -17,6 +18,9 @@ root.keys(require('configuration.keys.global'))
 
 -- Start picom for transparent terminal windows
 awful.spawn.easy_async_with_shell('picom -b --experimental-backends --dbus')
+bling.signal.playerctl.enable{
+    backend = "playerctl_lib"
+}
 
 if awesome.startup_errors then
     naughty.notify({preset = naughty.config.presets.critical,

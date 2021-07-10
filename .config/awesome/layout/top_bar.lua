@@ -46,10 +46,11 @@ local date_pill = wibox.widget {
  -- Clock
 
 local time_text = wibox.widget {
-   format = "%H:%M:%S",
+   format = "%H:%M",
    align = "center",
    valign = "center",
-   widget = wibox.widget.textclock
+   widget = wibox.widget.textclock,
+   refresh = 1
 }
 
 time_text:connect_signal("widget::redraw_needed", function ()
@@ -67,6 +68,89 @@ local time_pill = wibox.widget {
     widget = wibox.container.margin
 }
 
+-- Musicplayer
+
+local song_art = wibox.widget {
+    resize = true,
+    widget = wibox.widget.imagebox
+}
+
+
+local song_title = wibox.widget {
+    markup = "Nothing Playing",
+    align = "center",
+    valign = "center",
+    widget = wibox.widget.textbox
+}
+
+local song_artist = wibox.widget {
+    markup = "nothing playing",
+    align = "center",
+    valign = "center",
+    widget = wibox.widget.textbox
+}
+
+local playerctl_bar = wibox.widget {
+    {
+        {
+         song_art,
+         top = dpi(5),
+         left = dpi(5),
+         right = dpi(5),
+         bottom = dpi(5),
+         widget = wibox.container.margin
+        },
+        {
+            {
+                song_title,
+                expand = "outside",
+                layout = wibox.layout.align.vertical
+            },
+            top = dpi(1),
+            left = dpi(10),
+            right = dpi(10),
+            widget = wibox.container.margin
+        },
+        {
+            {
+                song_artist,
+                expand = "outside",
+                layout = wibox.layout.align.vertical
+            },
+            top = dpi(1),
+            left = dpi(10),
+            widget = wibox.container.margin
+        },
+        spacing = 1,
+        spacing_widget = {
+            bg = beautiful.xcolor8,
+            shape = gears.shape.powerline,
+            widget = wibox.container.background
+        },
+        layout = wibox.layout.fixed.horizontal
+    },
+    left = dpi(10),
+    right = dpi(13),
+    widget = wibox.container.margin
+}
+
+playerctl_bar.visible = false
+
+awesome.connect_signal("bling::playerctl::no_players",
+    function ()
+        playerctl_bar.visible = false
+    end)
+
+awesome.connect_signal("bling::playerctl::title_artist_album",
+    function (title, artist, art_path)
+        playerctl_bar.visible = true
+        song_title.markup = '<span foreground="' .. beautiful.xcolor5 .. '">' ..
+                            title .. "</span>"
+        song_artist.markup = '<span foreground="' .. beautiful.xcolor4 .. '">' ..
+                            artist .. "</span>"
+        song_art.image = gears.surface.load_uncached(art_path)
+end)
+
 -- Systray
 
 local mysystray = wibox.widget.systray()
@@ -77,6 +161,18 @@ local mysystray_container = {
     right = dpi(8),
     widget = wibox.container.margin
 }
+
+-- Tasklist Buttons
+
+local tasklist_buttons = gears.table.join(
+        awful.button({}, 1, function (c)
+            if c == client.focus then
+                c.minimized = true
+            else 
+                c:emit_signal("request::activate", "tasklist", {raise=true})
+            end
+        end)
+    )
 
 -- Panel bar
 local final_systray = wibox.widget {
@@ -136,7 +232,7 @@ local top_panel = function(s)
     s.mytasklist = awful.widget.tasklist {
         screen = s,
         filter = awful.widget.tasklist.filter.currenttags,
-        buttons = taglist_buttons,
+        buttons = tasklist_buttons,
         bg = beautiful.wibar_bg,
         style = {bg = beautiful.xcolor2, shape = helpers.rrect(10)},
         layout = {
@@ -201,6 +297,7 @@ local top_panel = function(s)
                 },
                 nil,
                 {
+                    wrap_widget(make_pill(playerctl_bar, beautiful.xcolor8)),
                     wrap_widget(make_pill(time_pill, beautiful.xcolor0)),
                     wrap_widget(make_pill(date_pill, beautiful.xcolor0)),
                     wrap_widget(make_pill({
