@@ -36,8 +36,8 @@ awful.util.tasklist_buttons = gears.table.join(
 awful.screen.connect_for_each_screen(function(s)
 
         tag_creation.create_tags(s)
---        top_panel(s)
-        theme.at_screen_connect(s)
+        top_panel(s)
+--        theme.at_screen_connect(s)
 
     end
 )

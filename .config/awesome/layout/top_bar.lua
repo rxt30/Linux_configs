@@ -5,6 +5,26 @@ local beautiful = require('beautiful')
 local wibox = require('wibox')
 local dpi = require("beautiful.xresources").apply_dpi
 
+-- System-icon
+local sys_icon = wibox.widget {
+    widget = wibox.widget.imagebox,
+    image = beautiful.system_icon,
+    resize = true
+}
+
+local awesome_icon = wibox.widget {
+    {
+        sys_icon,
+        top = dpi(5),
+        bottom = dpi(5),
+        left = dpi(10),
+        right = dpi(5),
+        widget = wibox.container.margin,
+    },
+    bg = beautiful.xcolor0,
+    widget = wibox.container.background
+}
+
 -- Date
 
 local date_text = wibox.widget {
@@ -32,6 +52,11 @@ local time_text = wibox.widget {
    widget = wibox.widget.textclock
 }
 
+time_text:connect_signal("widget::redraw_needed", function ()
+        time_text.markup = "<span foreground='" .. beautiful.xcolor5 .. "'>" ..
+                           time_text.text .. "</span>"
+                       end)
+
 local time_pill = wibox.widget {
     {
         {time_text, top = dpi(1), widget = wibox.container.margin},
@@ -57,22 +82,23 @@ local mysystray_container = {
 local final_systray = wibox.widget {
     {
         mysystray_container,
-        top = dpi(8),
+        top = dpi(6),
         left = dpi(3),
         right = dpi(3),
         layout = wibox.container.margin
     },
     bg = beautiful.xcolor8,
+    shape = helpers.rrect(10),
     widget = wibox.container.background
 }
 
 local wrap_widget = function(w)
     local wrapped = wibox.widget {
         w,
-        top = dpi(0),
-        left = dpi(0),
-        bottom = dpi(0),
-        right = dpi(0),
+        top = dpi(5),
+        left = dpi(4),
+        bottom = dpi(5),
+        right = dpi(4),
         widget = wibox.container.margin
     }
     return wrapped
@@ -82,6 +108,7 @@ local make_pill = function(w, c)
     local pill = wibox.widget {
         w,
         bg = c or beautiful.xcolor0,
+        shape = helpers.rrect(10),
         widget = wibox.container.background
     }
     return pill
@@ -89,12 +116,16 @@ end
 
 local top_panel = function(s)
      
+    local wallpaper = beautiful.wallpaper
+    gears.wallpaper.maximized(wallpaper, s, true)
+
     s.mypromptbox = awful.widget.prompt()
 
     s.mylayoutbox =awful.widget.layoutbox(s)
 
     s.mywibox = awful.wibar({
             position = "top",
+            height = dpi(40),
             screen = s,
             type = "dock",
             ontop = true
@@ -105,39 +136,38 @@ local top_panel = function(s)
     s.mytasklist = awful.widget.tasklist {
         screen = s,
         filter = awful.widget.tasklist.filter.currenttags,
+        buttons = taglist_buttons,
         bg = beautiful.wibar_bg,
-        style = {bg = beautiful.xcolor0},
+        style = {bg = beautiful.xcolor2, shape = helpers.rrect(10)},
         layout = {
-            spacing = dpi(0),
-            spacing_widget = {
-                bg = beautiful.xcolor8,
-                widget = wibox.container.background
-            },
+            spacing = dpi(8),
             layout = wibox.layout.fixed.horizontal
         },
         widget_template = {
             {
                 {
                     {
-                        awful.widget.clienticon,
-                        top = dpi(3),
-                        bottom = dpi(3),
-                        right = dpi (3),
-                        layout = wibox.container.margin
+                        {
+                            id = "icon_role",
+                            widget = wibox.widget.imagebox,
+                        },
+                        margins = 2,
+                        widget = wibox.container.margin
                     },
                     helpers.horizontal_pad(6),
-                    {id = 'text_role', widget = wibox.widget.textbox},
-                    layout = wibox.layout.fixed.horizontal
+                    {
+                        id = 'text_role',
+                        widget = wibox.widget.textbox,
+                    },
+                    layout = wibox.layout.fixed.horizontal,
                 },
-                top = dpi(5),
-                bottom = dpi(5),
                 left = dpi(10),
                 right = dpi(10),
                 widget = wibox.container.margin
-            },
-            id = "background_role",
-            widget = wibox.container.background
-        }
+                },
+                id = 'background_role',
+                widget = wibox.container.background
+            }
     }
 
     s.mywibox:setup {
@@ -149,9 +179,10 @@ local top_panel = function(s)
                 expand = "none",
                 {
                     layout = wibox.layout.fixed.horizontal,
-                    
+                    helpers.horizontal_pad(4),
                     wrap_widget(
                         make_pill({
+                                awesome_icon,
                             {
                                 s.mytaglist,
                                 helpers.horizontal_pad(4),
@@ -166,11 +197,9 @@ local top_panel = function(s)
                             layout = wibox.layout.fixed.horizontal
                             })),
                     s.mypromptbox,
+                    wrap_widget(s.mytasklist)
                 },
-                {
-                    wrap_widget(s.mytasklist),
-                    widget = wibox.container.constraint
-                },
+                nil,
                 {
                     wrap_widget(make_pill(time_pill, beautiful.xcolor0)),
                     wrap_widget(make_pill(date_pill, beautiful.xcolor0)),
@@ -183,6 +212,7 @@ local top_panel = function(s)
                         widget = wibox.container.margin
                         }, beautiful.xcolor8)),
                     wrap_widget(make_pill(final_systray, beautiful.xcolor0)),
+                    helpers.horizontal_pad(4),
                     layout = wibox.layout.fixed.horizontal
                 }
             },
