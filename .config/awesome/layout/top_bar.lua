@@ -43,9 +43,10 @@ local tasklist_buttons = gears.table.join(
 local final_systray = wibox.widget {
     {
         mysystray_container,
-        top = dpi(6),
+        bottom = dpi(5),
         left = dpi(3),
         right = dpi(3),
+        top = dpi(5),
         layout = wibox.container.margin
     },
     bg = beautiful.xcolor8,

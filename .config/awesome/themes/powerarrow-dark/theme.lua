@@ -86,6 +86,7 @@ theme.xcolor7                                   = "#ffffff"
 theme.xcolor8                                   = "#3b4b58"
 theme.xcolor9                                   = "#fca2aa"
 theme.wibar_bg                                  = "#1a2026"
+theme.bg_systray                                = theme.xcolor8 
 
 theme.useless_gap                               = dpi(0)
 theme.titlebar_close_button_focus               = theme.dir .. "/icons/titlebar/close_focus.png"
