@@ -77,8 +77,7 @@ end
 
 local top_panel = function(s)
      
-    local wallpaper = beautiful.wallpaper
-    gears.wallpaper.maximized(wallpaper, s, true)
+    gears.wallpaper.maximized(beautiful.wallpaper_self, s, true)
 
     s.mypromptbox = awful.widget.prompt()
 
