@@ -30,7 +30,7 @@ local getBatteryInfo = function ()
 end
 
 local battery_timer = gears.timer {
-    timeout = 5,
+    timeout = 10,
     autostart = true,
     call_now = true,
     callback = getBatteryInfo

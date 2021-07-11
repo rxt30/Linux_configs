@@ -13,6 +13,8 @@ local date_pill = require('layout.items.date')
 local time_pill = require('layout.items.time')
 -- Musicplayer
 local playerctl_bar = require('layout.items.music')
+-- Battery
+local battery_pill = require('layout.items.battery')
 
 -- Systray
 
@@ -161,6 +163,7 @@ local top_panel = function(s)
                 nil,
                 {
                     wrap_widget(make_pill(playerctl_bar, beautiful.xcolor8)),
+                    wrap_widget(make_pill(battery_pill, beautiful.xcolor8)),
                     wrap_widget(make_pill(time_pill, beautiful.xcolor0)),
                     wrap_widget(make_pill(date_pill, beautiful.xcolor0)),
                     wrap_widget(make_pill({
