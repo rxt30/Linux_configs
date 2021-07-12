@@ -1,31 +1,31 @@
 local awful = require('awful')
+local naughty = require('naughty')
 local gears = require('gears')
+
+batteryStatus = ""
+batteryPercentage = 0
 
 local getBatteryStatus = function ()
    return awful.spawn.easy_async_with_shell(
-        [[sh -c "
-        upower -i $(upower -e | grep BAT) | grep state | awk '{print \$2}' | td -d '\n'
-        "]],
+        "upower -i $(upower -e | grep BAT) | grep state | awk '{print $2}' | tr -d ''",
         function (stdout)
-            return stdout:gsub('%\n', '')
+            batteryStatus = stdout:gsub('%\n', '')
         end
        )
 end
 
 local getBatteryPercentage = function ()
    return awful.spawn.easy_async_with_shell(
-        [[sh -c "
-        upower -i $(upower -e | grep BAT) | grep percentage | awk '{print \$2}' | td -d '\n%'
-        "]],
+        "upower -i $(upower -e | grep BAT) | grep percentage | awk '{print $2}' | tr -d '%'",
         function (stdout)
-            return tonumber(stdout)
+            batteryPercentage = tonumber(stdout)
+            naughty.notify({text = "test" .. batteryPercentage})
         end
        )
 end
 
 local getBatteryInfo = function ()
-   local batteryStatus = getBatteryStatus
-   local batteryPercentage = getBatteryPercentage
+   -- naughty.notify({text = batteryStatus .. "+" .. batteryPercentage})
    awesome.emit_signal("signal::battery", batteryStatus, batteryPercentage)
 end
 

@@ -99,11 +99,10 @@ awesome.connect_signal("signal::battery",
             battery_pill.visible = true
         else
             battery_icon.image = gears.surface.load_uncached(beautiful.battery_alert_red)
-            battery_pill.visible = false
-            return
+            battery_pill.visible = true
         end
         battery_text.markup = "<span foreground='" .. beautiful.xcolor8 .. "'>" ..
-                              string.format("%1d", batteryPercentage) .. "%" .. "</span>"
+                              batteryPercentage .. "%" .. "</span>"
     end
     )
 
