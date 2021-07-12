@@ -1,5 +1,6 @@
 local beautiful = require('beautiful')
 local dpi = require('beautiful.xresources').apply_dpi
+local naughty = require('naughty')
 local gears = require('gears')
 local wibox = require('wibox')
 
@@ -8,6 +9,7 @@ battery_timer:start()
 
 local battery_text = wibox.widget {
     font = beautiful.font,
+    text = "test",
     align = "center",
     valign = "center",
     widget = wibox.widget.textbox
@@ -101,8 +103,7 @@ awesome.connect_signal("signal::battery",
             battery_icon.image = gears.surface.load_uncached(beautiful.battery_alert_red)
             battery_pill.visible = true
         end
-        battery_text.markup = "<span foreground='" .. beautiful.xcolor8 .. "'>" ..
-                              batteryPercentage .. "%" .. "</span>"
+        battery_text.text = batteryPercentage .. "%"
     end
     )
 
