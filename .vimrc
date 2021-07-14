@@ -26,12 +26,6 @@ Plug 'lervag/vimtex'
 Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
-"let g:tokyonight_style = 'night'
-"colorscheme tokyonight
-"let g:lightline = {'colorscheme' : 'tokyonight'}
-
-"colorscheme onehalfdark
-"let g:lightline = {'colorscheme':'onehalfdark'}
 
 let ayucolor="dark"
 colorscheme ayu
@@ -42,16 +36,6 @@ map <C-c> 0i//<Esc>
 map <C-f> :echo FizzBuzz(line("."))<CR>
 map ] ]c
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 "tab as spaces config and stuff
 set tabstop=4 shiftwidth=4 expandtab
