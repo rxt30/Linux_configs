@@ -15,9 +15,23 @@ local mem_text = wibox.widget {
     widget = wibox.widget.textbox
 }
 
+local mem_icon = wibox.widget {
+    image = beautiful.memory,
+    resize = true,
+    widget = wibox.widget.imagebox
+}
+
 
 local mem_pill = wibox.widget {
     {
+        {
+            mem_icon,
+            top = dpi(5),
+            right = dpi(5),
+            left = dpi(5),
+            bottom = dpi(5),
+            widget = wibox.container.margin
+        },
         {
             {
                 mem_text,
@@ -25,14 +39,14 @@ local mem_pill = wibox.widget {
                 layout = wibox.layout.align.vertical
             },
             top = dpi(1),
-            left = dpi(10),
-            right = dpi(10),
+            left = dpi(5),
+            right = dpi(5),
             widget = wibox.container.margin
         },
         layout = wibox.layout.fixed.horizontal,
     },
     left = dpi(10),
-    right = dpi(13),
+    right = dpi(10),
     widget = wibox.container.margin,
     visible = true
 }

@@ -38,14 +38,14 @@ local battery_pill = wibox.widget {
                 layout = wibox.layout.align.vertical
             },
             top = dpi(1),
-            left = dpi(10),
-            right = dpi(10),
+            left = dpi(5),
+            right = dpi(5),
             widget = wibox.container.margin
         },
         layout = wibox.layout.fixed.horizontal,
     },
     left = dpi(10),
-    right = dpi(13),
+    right = dpi(10),
     widget = wibox.container.margin,
     visible = false
 }

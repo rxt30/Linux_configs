@@ -74,6 +74,7 @@ theme.battery_discharging_90                    = theme.dir .. "/../../icons/bat
 theme.battery_discharging_100                   = theme.dir .. "/../../icons/battery-discharging-100.svg"
 theme.battery_fully_charged                     = theme.dir .. "/../../icons/battery-fully-charged.svg"
 theme.battery                                   = theme.dir .. "/../../icons/battery.svg"
+theme.memory                                    = theme.dir .. "/../../icons/memory.svg"
 
 theme.xcolor0                                   = "#29343d"
 theme.xcolor1                                   = "#f9929b"
