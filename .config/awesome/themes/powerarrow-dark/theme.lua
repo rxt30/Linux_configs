@@ -86,6 +86,7 @@ theme.xcolor6                                   = "#9ce5c0"
 theme.xcolor7                                   = "#ffffff"
 theme.xcolor8                                   = "#3b4b58"
 theme.xcolor9                                   = "#fca2aa"
+theme.xcolor10                                  = "#2b3b38"
 theme.wibar_bg                                  = "#1a2026"
 theme.bg_systray                                = theme.xcolor8 
 

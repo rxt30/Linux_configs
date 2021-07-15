@@ -17,6 +17,8 @@ local playerctl_bar = require('layout.items.music')
 local battery_pill = require('layout.items.battery')
 -- RAM Usage
 local mem_pill = require('layout.items.mem')
+-- CPU Usage
+local cpu_pill = require('layout.items.cpu')
 
 -- Systray
 
@@ -166,6 +168,7 @@ local top_panel = function(s)
                 {
                     wrap_widget(make_pill(playerctl_bar, beautiful.xcolor8)),
                     wrap_widget(make_pill(battery_pill, beautiful.xcolor8)),
+                    wrap_widget(make_pill(cpu_pill, beautiful.xcolor8)),
                     wrap_widget(make_pill(mem_pill, beautiful.xcolor8)),
                     wrap_widget(make_pill(time_pill, beautiful.xcolor0)),
                     wrap_widget(make_pill(date_pill, beautiful.xcolor0)),
