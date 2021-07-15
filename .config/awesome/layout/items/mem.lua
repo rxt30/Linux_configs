@@ -16,7 +16,7 @@ local mem_text = wibox.widget {
 }
 
 local mem_icon = wibox.widget {
-    image = beautiful.memory,
+    image = beautiful.ram,
     resize = true,
     widget = wibox.widget.imagebox
 }

@@ -1,4 +1,5 @@
 local awful = require('awful')
+local dpi = require('beautiful.xresources').apply_dpi
 local gears = require('gears')
 local wibox = require('wibox')
 
@@ -20,14 +21,15 @@ client.connect_signal("request::titlebars",
                 buttons = buttons,
                 layout = wibox.layout.flex.horizontal
             },
-            {
-                awful.titlebar.widget.floatingbutton(c),
+            {{
+                awful.titlebar.widget.minimizebutton(c),
                 awful.titlebar.widget.maximizedbutton(c),
-                awful.titlebar.widget.stickybutton(c),
-                awful.titlebar.widget.ontopbutton(c),
                 awful.titlebar.widget.closebutton(c),
-                layout = wibox.layout.fixed.horizontal
-            }
+                layout = wibox.layout.fixed.horizontal,
+            },
+            margins = dpi(3),
+            widget = wibox.container.margin
+        }
         } 
     end
 )

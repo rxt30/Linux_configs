@@ -10,7 +10,7 @@ cpu_timer:start()
 local cpu_text = wibox.widget {
     font = beautiful.font,
     text = "test",
-    align = "center",
+    align = "right",
     valign = "center",
     widget = wibox.widget.textbox
 }
@@ -47,6 +47,7 @@ local cpu_pill = wibox.widget {
     },
     left = dpi(10),
     right = dpi(10),
+    forced_width = dpi(95),
     widget = wibox.container.margin,
     visible = true
 }
