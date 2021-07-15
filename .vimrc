@@ -29,6 +29,7 @@ call plug#end()
 
 let ayucolor="dark"
 colorscheme ayu
+hi LineNr guifg=#466CB0
 hi Normal guibg=NONE ctermbg=NONE
 
 map <C-n> :NERDTreeToggle<CR>
@@ -69,6 +70,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-v> <C-w>v
+
+"Additional color configs
 
 "A dumb fizzbuzz function
 function! FizzBuzz(lineNumber)

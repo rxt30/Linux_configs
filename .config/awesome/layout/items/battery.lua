@@ -101,7 +101,8 @@ awesome.connect_signal("signal::battery",
             battery_pill.visible = true
         else
             battery_icon.image = gears.surface.load_uncached(beautiful.battery_alert_red)
-            battery_pill.visible = true
+            battery_pill.visible = false
+            return
         end
         battery_text.text = batteryPercentage .. "%"
     end
