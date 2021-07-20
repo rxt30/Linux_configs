@@ -31,8 +31,8 @@ local global_keys = awful.util.table.join(
         ),
 
     awful.key(
-        {modkey, 'Shift'},
-        'j',
+        {modkey},
+        'h',
         function()
             awful.screen.focus_relative(-1)
         end,
@@ -40,8 +40,8 @@ local global_keys = awful.util.table.join(
         ),
 
     awful.key(
-        {modkey, 'Shift'},
-        'k',
+        {modkey},
+        'l',
         function()
             awful.screen.focus_relative(1)
         end,
@@ -52,18 +52,18 @@ local global_keys = awful.util.table.join(
         {modkey},
         'Left',
         function()
-            awful.screen.focus_relative(-1)
+            awful.client.swap.byidx(-1)
         end,
-        { description = 'focus the previous screen', group = 'screen'}
+        { description = 'Swap client with the previous client', group = 'screen'}
         ),
 
     awful.key(
         {modkey},
         'Right',
         function()
-            awful.screen.focus_relative(1)
+            awful.client.swap.byidx(1)
         end,
-        { description = 'focus the next screen', group = 'screen'}
+        { description = 'Swap client with the next client', group = 'screen'}
         ),
 
     awful.key(
@@ -97,7 +97,7 @@ local global_keys = awful.util.table.join(
         ),
 
     awful.key(
-        {modkey},
+        {altkey},
         'l',
         function()
             awful.spawn(apps.default.lock, false)
@@ -158,6 +158,14 @@ local global_keys = awful.util.table.join(
             if client.focus then
                 client.focus:move_to_screen(client.focus.screen.index + 1)
             end
+        end
+    ),
+
+    awful.key(
+        {modkey},
+        'Tab',
+        function()
+            awful.client.cycle()
         end
     )
 )
