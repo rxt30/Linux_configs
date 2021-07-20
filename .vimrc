@@ -24,6 +24,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'dbeniamine/cheat.sh-vim'
 call plug#end()
 
 
