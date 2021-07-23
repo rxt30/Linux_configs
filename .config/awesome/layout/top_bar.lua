@@ -103,7 +103,10 @@ local top_panel = function(s)
         filter = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons,
         bg = beautiful.wibar_bg,
-        style = {bg = beautiful.xcolor2, shape = helpers.rrect(10)},
+        style = {
+            bg = beautiful.xcolor2,
+            shape = helpers.rrect(10),
+        },
         layout = {
             spacing = dpi(8),
             layout = wibox.layout.fixed.horizontal

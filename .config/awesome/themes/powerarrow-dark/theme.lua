@@ -31,6 +31,7 @@ theme.tasklist_fg_normal                        = "#ffffff"
 theme.tasklist_fg_focus                         = "#009900"
 theme.tasklist_bg_focus                         = "#29444a"
 theme.tasklist_bg_normal                        = "#49242a"
+theme.tasklist_bg_minimize                      = "#49347a"
 theme.titlebar_bg_focus                         = theme.bg_focus
 theme.titlebar_bg_normal                        = theme.bg_normal
 theme.titlebar_fg_focus                         = theme.fg_focus
@@ -55,6 +56,8 @@ theme.widget_ac                                 = theme.dir .. "/icons/ac.png"
 theme.system_icon                               = theme.dir .. "/icons/anarchy.png"
 theme.tasklist_plain_task_name                  = false
 theme.tasklist_disable_icon                     = false
+theme.tasklist_disable_task_name                = true
+theme.tasklist_disable_task_name_focus          = false
 
 theme.battery_alert_red                         = theme.dir .. "/../../icons/battery-alert-red.svg"
 theme.battery_alert                             = theme.dir .. "/../../icons/battery-alert.svg"
