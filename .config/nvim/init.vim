@@ -11,7 +11,7 @@ endif
 
 call plug#begin('~/vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'puremourning/vimspector'
+"Plug 'puremourning/vimspector'
 Plug 'https://github.com/preservim/nerdtree.git'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 Plug 'https://github.com/itchyny/lightline.vim'
