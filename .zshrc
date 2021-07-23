@@ -103,7 +103,12 @@ source $ZSH/oh-my-zsh.sh
 alias please="sudo"
 alias xclip="xclip -sel clip"
 alias lss="exa"
-alias ls="exa -l"
-alias l="exa -la"
-alias ll="exa -l"
+if [ -x "$(command -v exa)" ]; then
+    alias ls="exa -l"
+    alias l="exa -la"
+    alias ll="exa -l"
+fi
+if [ -x "$(command -v nvim)" ]; then
+    alias vim="nvim"
+fi
 alias cht="cht.sh"

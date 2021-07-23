@@ -21,3 +21,5 @@
 !.config/neofetch/*
 !.package_list/
 !.package_list/*
+!.config/nvim
+!.config/nvim/**/*
