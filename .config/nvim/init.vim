@@ -10,13 +10,13 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/vim/plugged')
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'puremourning/vimspector'
-Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'hrsh7th/nvim-compe'
-Plug 'onsails/lspkind-nvim'
-Plug 'ray-x/lsp_signature.nvim'
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'kabouzeid/nvim-lspinstall'
+"Plug 'hrsh7th/nvim-compe'
+"Plug 'onsails/lspkind-nvim'
+"Plug 'ray-x/lsp_signature.nvim'
 Plug 'https://github.com/preservim/nerdtree.git'
 Plug 'https://github.com/Xuyuanp/nerdtree-git-plugin.git'
 Plug 'https://github.com/itchyny/lightline.vim'
@@ -61,6 +61,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-v> <C-w>v
 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+inoremap <expr> <C-@> pumvisible() ? coc#_select_confirm(): "\<Space>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "Additional color configs
 
 "A dumb fizzbuzz function
@@ -77,9 +81,14 @@ function! FizzBuzz(lineNumber)
 endfunction
 
 "autocomplete settings
-set completeopt=menuone,noselect
+"set completeopt=menuone,noselect
+
+"set shortmess+=c
 lua << EOF
 --vim.o.completeopt = "menuone, noselect"
+--[[require'lsp_signature'.setup({
+    floating_window = false
+})
 
 -- Compe setup
 require'compe'.setup {
@@ -98,6 +107,7 @@ require'compe'.setup {
 
   source = {
     path = true;
+--    buffer = true;
     nvim_lsp = true;
   };
 }
@@ -141,8 +151,9 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 --This line is important for auto-import
-vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
+vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<CR>")', { expr = true })
 vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
+
 
 
 -- Install language server
@@ -160,4 +171,44 @@ require'lspinstall'.post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
+-- Fancy lspkind :)
+require('lspkind').init({
+    -- enables text annotations
+    --
+    -- default: true
+    with_text = true,
+
+    -- default symbol map
+    -- can be either 'default' or
+    -- 'codicons' for codicon preset (requires vscode-codicons font installed)
+    --
+    -- default: 'default'
+    preset = 'codicons',
+
+    -- override preset symbols
+    --
+    -- default: {}
+    symbol_map = {
+      Text = '',
+      Method = 'ƒ',
+      Function = '',
+      Constructor = '',
+      Variable = '',
+      Class = '',
+      Interface = 'ﰮ',
+      Module = '',
+      Property = '',
+      Unit = '',
+      Value = '',
+      Enum = '了',
+      Keyword = '',
+      Snippet = '﬌',
+      Color = '',
+      File = '',
+      Folder = '',
+      EnumMember = '',
+      Constant = '',
+      Struct = ''
+    },
+})]]--
 EOF
