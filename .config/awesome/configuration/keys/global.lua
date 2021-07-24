@@ -1,18 +1,18 @@
 local awful = require('awful')
 local apps = require('configuration.apps')
-local hotkeys_popup = require('awful.hotkeys_popup').widget
+local hotkeys_popup = require('awful.hotkeys_popup')
 
 local modkey = 'Mod1'
 local altkey = 'Mod4'
 
-local global_keys = awful.util.table.join(
+awful.keyboard.append_global_keybindings({
 
-    awful.key(
-        {altkey},
-        nil,
-        hotkeys_popup.show_help,
-        {description = 'reload awesome', group = 'awesome'}
-        ),
+    --awful.key(
+     --   {altkey},
+      --  nil,
+       -- hotkeys_popup.show_help,
+        --{description = 'reload awesome', group = 'awesome'}
+        --),
 
     awful.key(
         {modkey, 'Control'},
@@ -168,7 +168,7 @@ local global_keys = awful.util.table.join(
             awful.client.cycle()
         end
     )
-)
+})
 
 for i = 1, 9 do
 	-- Hack to only show tags 1 and 9 in the shortcut window (mod+s)
@@ -179,9 +179,7 @@ for i = 1, 9 do
 		descr_move = {description = 'move focused client to tag #', group = 'tag'}
 		descr_toggle_focus = {description = 'toggle focused client on tag #', group = 'tag'}
 	end
-	global_keys =
-		awful.util.table.join(
-		global_keys,
+	awful.keyboard.append_global_keybindings({
 		-- View tag only.
 		awful.key(
 			{modkey},
@@ -237,7 +235,7 @@ for i = 1, 9 do
 			end,
 			descr_toggle_focus
 		)
-	)
+    })
 end
 
-return global_keys
+--return global_keys
