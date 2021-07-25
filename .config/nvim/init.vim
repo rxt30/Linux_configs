@@ -2,6 +2,7 @@ set hlsearch
 set encoding=UTF-8
 syntax enable
 set termguicolors
+set clipboard+=unnamedplus
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -11,7 +12,7 @@ endif
 
 call plug#begin('~/vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 "Plug 'neovim/nvim-lspconfig'
 "Plug 'kabouzeid/nvim-lspinstall'
 "Plug 'hrsh7th/nvim-compe'
@@ -61,10 +62,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-v> <C-w>v
 
+"Autocompletion
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
 inoremap <expr> <C-@> pumvisible() ? coc#_select_confirm(): "\<Space>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set signcolumn=number
+
+
+
 "Additional color configs
 
 "A dumb fizzbuzz function

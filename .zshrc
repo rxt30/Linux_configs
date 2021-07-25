@@ -108,7 +108,7 @@ if [ -x "$(command -v exa)" ]; then
     alias l="exa -la"
     alias ll="exa -l"
 fi
-if [ -x "$(command -v nvim)" ]; then
-    alias vim="nvim"
-fi
+#if [ -x "$(command -v nvim)" ]; then
+#    alias vim="nvim"
+#fi
 alias cht="cht.sh"

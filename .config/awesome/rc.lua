@@ -22,7 +22,7 @@ bling.signal.playerctl.enable{
     ignore = "firefox"
 }
 
-if awesome.startup_errors then
+if awesome.startup_errors then 
     naughty.notify({preset = naughty.config.presets.critical,
                     title = "Error",
                     text = awesome.startup_errors })
