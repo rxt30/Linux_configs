@@ -22,4 +22,6 @@
 !.package_list/
 !.package_list/*
 !.config/nvim
-!.config/nvim/init.vim
+!.config/nvim/lua
+!.config/nvim/init.lua
+!.config/nvim/lua/**/*
