@@ -57,7 +57,7 @@ theme.system_icon                               = theme.dir .. "/icons/anarchy.p
 theme.tasklist_plain_task_name                  = false
 theme.tasklist_disable_icon                     = false
 theme.tasklist_disable_task_name                = true 
-theme.tasklist_disable_task_name_focus          = false 
+--theme.tasklist_disable_task_name_focus          = false 
 
 theme.battery_alert_red                         = theme.dir .. "/../../icons/battery-alert-red.svg"
 theme.battery_alert                             = theme.dir .. "/../../icons/battery-alert.svg"

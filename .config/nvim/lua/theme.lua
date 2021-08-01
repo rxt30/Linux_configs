@@ -1,4 +1,4 @@
-vim.g.nvchad_theme = "onedark"
+vim.g.nvchad_theme = "tomorrow-night"
 
 local present, base16 = pcall(require, "base16")
 

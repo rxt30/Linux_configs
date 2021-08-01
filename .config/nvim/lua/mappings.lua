@@ -29,11 +29,6 @@ map("", "k", 'v:count ? "k" : "gk"', {expr = true})
 map("", "<Down>", 'v:count ? "j" : "gj"', {expr = true})
 map("", "<Up>", 'v:count ? "k" : "gk"', {expr = true})
 
--- OPEN TERMINALS --
-map("n", "<C-l>", ":vnew +terminal | setlocal nobuflisted <CR>", opt) -- term over right
-map("n", "<C-x>", ":10new +terminal | setlocal nobuflisted <CR>", opt) --  term bottom
-map("n", "<C-t>t", ":<Cmd> terminal <CR>", opt) -- term buffer
-
 -- copy whole file content
 map("n", "<C-a>", ":%y+<CR>", opt)
 
@@ -162,3 +157,10 @@ map("n", "<Leader>gs", ":Git<CR>", opt)
 map("n", "<Leader>gh", ":diffget //2<CR>", opt)
 map("n", "<Leader>gl", ":diffget //3<CR>", opt)
 map("n", "<Leader>gb", ":Git blame<CR>", opt)
+
+-- Easy change between tabs
+map("n", "<C-h>", "<C-w>h", opt)
+map("n", "<C-j>", "<C-w>j", opt)
+map("n", "<C-k>", "<C-w>k", opt)
+map("n", "<C-l>", "<C-w>l", opt)
+map("n", "<C-v>", "<C-w>v", opt)

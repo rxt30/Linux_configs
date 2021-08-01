@@ -41,8 +41,8 @@ end
 fg("IndentBlanklineChar", line)
 
 -- misc --
-fg("LineNr", grey)
-fg("Comment", grey_fg)
+fg("LineNr", blue)
+fg("Comment", nord_blue)
 fg("NvimInternalError", red)
 fg("VertSplit", line)
 fg("EndOfBuffer", black)
@@ -116,4 +116,4 @@ bg("FloatBorder", black2)
 fg("FloatBorder", black2)
 
 -- set bg color for nvim
--- bg("Normal", black)
+bg("Normal", "NULL")
