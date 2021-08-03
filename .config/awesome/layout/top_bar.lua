@@ -1,4 +1,5 @@
 local awful = require('awful')
+local naughty = require('naughty')
 local helpers = require('helpers')
 local gears = require('gears')
 local beautiful = require('beautiful')
@@ -124,7 +125,7 @@ local top_panel = function(s)
                     },
                     helpers.horizontal_pad(6),
                     {
-                        id = 'text_role',
+                        id = 'task_text',
                         widget = wibox.widget.textbox,
                     },
                     layout = wibox.layout.fixed.horizontal,
@@ -134,7 +135,21 @@ local top_panel = function(s)
                 widget = wibox.container.margin
                 },
                 id = 'background_role',
-                widget = wibox.container.background
+                widget = wibox.container.background,
+                update_callback = function(self, c)
+                  if c.active then
+                    self:get_children_by_id('task_text')[1].markup = "<span foreground='" .. beautiful.tasklist_fg_focus .. "'>" .. c.name .. "</span>"
+                  else
+                    self:get_children_by_id('task_text')[1].markup = ""
+                  end
+                end,
+                create_callback = function(self, c)
+                  if c.active then
+                    self:get_children_by_id('task_text')[1].markup = "<span foreground='" .. beautiful.tasklist_fg_focus .. "'>" .. c.name .. "</span>"
+                  else
+                    self:get_children_by_id('task_text')[1].text = ""
+                  end
+                end
             }
     }
 

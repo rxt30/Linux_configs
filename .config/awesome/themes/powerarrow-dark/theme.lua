@@ -56,7 +56,7 @@ theme.widget_ac                                 = theme.dir .. "/icons/ac.png"
 theme.system_icon                               = theme.dir .. "/icons/anarchy.png"
 theme.tasklist_plain_task_name                  = false
 theme.tasklist_disable_icon                     = false
-theme.tasklist_disable_task_name                = true 
+theme.tasklist_disable_task_name                = false 
 --theme.tasklist_disable_task_name_focus          = false 
 
 theme.battery_alert_red                         = theme.dir .. "/../../icons/battery-alert-red.svg"
@@ -92,6 +92,7 @@ theme.xcolor8                                   = "#3b4b58"
 theme.xcolor9                                   = "#fca2aa"
 theme.xcolor10                                  = "#2b3b38"
 theme.wibar_bg                                  = "#1a2026"
+--theme.wibar_bg                                  = "#AARRGGBB"
 theme.bg_systray                                = theme.xcolor8 
 
 theme.useless_gap                               = dpi(0)
