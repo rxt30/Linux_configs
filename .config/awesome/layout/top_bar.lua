@@ -25,16 +25,21 @@ local cpu_pill = require('layout.items.cpu')
 
 local mysystray = wibox.widget.systray()
 
-local checkFocused = function ()
-  
-end
-
 local mysystray_container = {
     mysystray,
     left = dpi(8),
     right = dpi(8),
     widget = wibox.container.margin
 }
+
+-- Only show name of the focused client
+local showFocused = function (self, c)
+  if c.active then
+    self:get_children_by_id('task_text')[1].markup = "<span foreground='" .. beautiful.tasklist_fg_focus .. "'>" .. c.name .. "</span>"
+  else
+    self:get_children_by_id('task_text')[1].markup = ""
+  end
+end
 
 -- Tasklist Buttons
 
@@ -94,8 +99,8 @@ local top_panel = function(s)
     s.mylayoutbox =awful.widget.layoutbox(s)
 
     s.mywibox = awful.wibar({
-            position = "bottom",
-            height = dpi(40),
+            position = "top",
+            height = dpi(38),
             screen = s,
             type = "dock",
             ontop = true,
@@ -140,20 +145,8 @@ local top_panel = function(s)
                 },
                 id = 'background_role',
                 widget = wibox.container.background,
-                update_callback = function(self, c)
-                  if c.active then
-                    self:get_children_by_id('task_text')[1].markup = "<span foreground='" .. beautiful.tasklist_fg_focus .. "'>" .. c.name .. "</span>"
-                  else
-                    self:get_children_by_id('task_text')[1].markup = ""
-                  end
-                end,
-                create_callback = function(self, c)
-                  if c.active then
-                    self:get_children_by_id('task_text')[1].markup = "<span foreground='" .. beautiful.tasklist_fg_focus .. "'>" .. c.name .. "</span>"
-                  else
-                    self:get_children_by_id('task_text')[1].text = ""
-                  end
-                end
+                update_callback = showFocused,
+                create_callback = showFocused
             }
     }
 
