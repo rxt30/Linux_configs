@@ -25,6 +25,10 @@ local cpu_pill = require('layout.items.cpu')
 
 local mysystray = wibox.widget.systray()
 
+local checkFocused = function ()
+  
+end
+
 local mysystray_container = {
     mysystray,
     left = dpi(8),
@@ -90,11 +94,11 @@ local top_panel = function(s)
     s.mylayoutbox =awful.widget.layoutbox(s)
 
     s.mywibox = awful.wibar({
-            position = "top",
+            position = "bottom",
             height = dpi(40),
             screen = s,
             type = "dock",
-            ontop = true
+            ontop = true,
         })
 
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
