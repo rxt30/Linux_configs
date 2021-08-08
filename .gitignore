@@ -25,3 +25,7 @@
 !.config/nvim/lua
 !.config/nvim/init.lua
 !.config/nvim/lua/**/*
+!.config/i3
+!.config/polybar
+!.config/i3/**/*
+!.config/polybar/**/*
