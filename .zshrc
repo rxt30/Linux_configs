@@ -111,4 +111,7 @@ fi
 if [ -x "$(command -v nvim)" ]; then
     alias vim="nvim"
 fi
+if [ "$TERM" = "xterm-kitty" ]; then
+  alias ssh="kitty +kitten ssh"
+fi
 alias cht="cht.sh"
