@@ -109,7 +109,7 @@ if [ -x "$(command -v exa)" ]; then
     alias ll="exa -l"
 fi
 if [ -x "$(command -v nvim)" ]; then
-    alias vim="nvim"
+    alias vim="vim"
 fi
 if [ "$TERM" = "xterm-kitty" ]; then
   alias ssh="kitty +kitten ssh"
