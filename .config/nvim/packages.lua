@@ -92,9 +92,29 @@ return packer.startup(
         }
 
         use {
+            "windwp/nvim-autopairs",
+            after = "nvim-compe",
+            config = function ()
+                require "plugins.autopairs"
+            end
+        }
+
+        use {
+            "andymass/vim-matchup",
+            event = "CursorMoved"
+        }
+
+        use {
             "sbdchd/neoformat",
             cmd = "Neoformat"
         }
 
+        use {
+            "karb94/neoscroll.nvim",
+            event = "WinScrolled",
+            config = function ()
+               require("plugins.others").neoscroll()
+            end
+        }
     end
 )
