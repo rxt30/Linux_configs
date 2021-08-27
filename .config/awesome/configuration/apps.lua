@@ -10,6 +10,6 @@ return {
 
         lock = "i3lock-fancy",
 
-        launcher = "rofi -show run"
+        launcher = "rofi -modi drun,run -show drun"
     }
 }

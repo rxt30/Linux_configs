@@ -115,4 +115,6 @@ theme.titlebar_maximized_button_normal_inactive_hover = theme.dir .. "/../../ico
 theme.titlebar_minimize_button_focus_hover      = theme.dir .. "/../../icons/stoplight/minimize_focus_hover.svg"
 theme.titlebar_minimize_button_normal_hover     = theme.dir .. "/../../icons/stoplight/minimize_normal_hover.svg"
 
+theme.notification_max_height = dpi(30)
+
 return theme
