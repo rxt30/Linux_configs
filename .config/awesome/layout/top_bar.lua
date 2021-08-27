@@ -106,7 +106,7 @@ local top_panel = function(s)
             ontop = true,
         })
 
-    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons)
+    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all , awful.util.taglist_buttons)
 
     s.mytasklist = awful.widget.tasklist {
         screen = s,
@@ -145,8 +145,8 @@ local top_panel = function(s)
                 },
                 id = 'background_role',
                 widget = wibox.container.background,
-                update_callback = showFocused,
-                create_callback = showFocused
+                --update_callback = showFocused,
+                --create_callback = showFocused
             }
     }
 

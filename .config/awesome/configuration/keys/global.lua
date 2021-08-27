@@ -31,7 +31,7 @@ awful.keyboard.append_global_keybindings({
         ),
 
     awful.key(
-        {modkey},
+        {modkey, 'Shift'},
         'h',
         function()
             awful.screen.focus_relative(-1)
@@ -40,7 +40,7 @@ awful.keyboard.append_global_keybindings({
         ),
 
     awful.key(
-        {modkey},
+        {modkey, 'Shift'},
         'l',
         function()
             awful.screen.focus_relative(1)
@@ -68,18 +68,36 @@ awful.keyboard.append_global_keybindings({
 
     awful.key(
         {modkey},
-        'j',
+        'h',
         function()
-            awful.client.focus.byidx(-1)
+            awful.client.focus.bydirection("left")
         end,
         { description = 'focus previous by index', group = 'screen'}
         ),
 
     awful.key(
         {modkey},
+        'j',
+        function()
+            awful.client.focus.bydirection("down")
+        end,
+        { description = 'focus next by index', group = 'screen'}
+        ),
+
+    awful.key(
+        {modkey},
         'k',
         function()
-            awful.client.focus.byidx(1)
+            awful.client.focus.bydirection("up")
+        end,
+        { description = 'focus previous by index', group = 'screen'}
+        ),
+
+    awful.key(
+        {modkey},
+        'l',
+        function()
+            awful.client.focus.bydirection("right")
         end,
         { description = 'focus next by index', group = 'screen'}
         ),
