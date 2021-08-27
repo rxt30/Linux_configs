@@ -106,7 +106,7 @@ local top_panel = function(s)
             ontop = true,
         })
 
-    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all , awful.util.taglist_buttons)
+    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.noempty , awful.util.taglist_buttons)
 
     s.mytasklist = awful.widget.tasklist {
         screen = s,
@@ -134,7 +134,7 @@ local top_panel = function(s)
                     },
                     helpers.horizontal_pad(6),
                     {
-                        id = 'task_text',
+                        id = 'text_role',
                         widget = wibox.widget.textbox,
                     },
                     layout = wibox.layout.fixed.horizontal,

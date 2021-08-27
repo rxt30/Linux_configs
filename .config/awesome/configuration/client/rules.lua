@@ -66,6 +66,15 @@ awful.rules.rules = {
                 skip_decoration = true,
                 placement = awful.placement.centered
             }
+        },
+        {
+            id = 'terminal',
+            rule_any = {
+                class = {'kitty'}
+            },
+            properties = {
+                titlebars_enabled = false
+            }
         }
 }
 
