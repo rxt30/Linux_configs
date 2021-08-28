@@ -2,7 +2,7 @@ local awful = require('awful')
 local autoRunApps = {
     "nm-applet",
     --"picom -b --experimental-backends --dbus"
-    "useless"
+    "pasystray"
 }
 
 for i, app in ipairs(autoRunApps) do
