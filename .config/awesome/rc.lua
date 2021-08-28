@@ -14,6 +14,7 @@ require('layout')
 -- Configurations
 require('configuration.keys')
 require('configuration.client')
+require('configuration.autorun')
 
 -- Start picom for transparent terminal windows
 --awful.spawn.easy_async_with_shell('picom -b --experimental-backends --dbus')
