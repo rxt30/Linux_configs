@@ -41,7 +41,7 @@ end
 function helpers.screen_mask(s, bg)
     local mask = wibox({
         visible = false,
-        ontop = true,
+        ontop = false,
         type = "splash",
         screen = s
     })

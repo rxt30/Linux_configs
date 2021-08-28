@@ -103,7 +103,7 @@ local top_panel = function(s)
             height = dpi(38),
             screen = s,
             type = "dock",
-            ontop = true,
+            ontop = false,
         })
 
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.noempty , awful.util.taglist_buttons)
@@ -150,59 +150,97 @@ local top_panel = function(s)
             }
     }
 
-    s.mywibox:setup {
-        layout = wibox.layout.align.vertical,
-        nil,
-        {
+    naughty.notify({ title = ""})
+
+    if s == screen.primary then
+        s.mywibox:setup {
+            layout = wibox.layout.align.vertical,
+            nil,
             {
-                layout = wibox.layout.align.horizontal,
-                expand = "none",
                 {
-                    layout = wibox.layout.fixed.horizontal,
-                    helpers.horizontal_pad(4),
-                    wrap_widget(
-                        make_pill({
-                                awesome_icon,
-                            {
-                                s.mytaglist,
-                                helpers.horizontal_pad(4),
+                    layout = wibox.layout.align.horizontal,
+                    expand = "none",
+                    {
+                        layout = wibox.layout.fixed.horizontal,
+                        helpers.horizontal_pad(4),
+                        wrap_widget(
+                            make_pill({
+                                    awesome_icon,
+                                {
+                                    s.mytaglist,
+                                    helpers.horizontal_pad(4),
+                                    layout = wibox.layout.fixed.horizontal
+                                },
+                                spacing = 14,
+                                spacing_widget = {
+                                    color = beautiful.xcolor8,
+                                    shape = gears.shape.powerline,
+                                    widget = wibox.widget.separator
+                                },
                                 layout = wibox.layout.fixed.horizontal
-                            },
-                            spacing = 14,
-                            spacing_widget = {
-                                color = beautiful.xcolor8,
-                                shape = gears.shape.powerline,
-                                widget = wibox.widget.separator
-                            },
-                            layout = wibox.layout.fixed.horizontal
-                            })),
-                    s.mypromptbox,
-                    wrap_widget(s.mytasklist)
+                                })),
+                        s.mypromptbox,
+                        wrap_widget(s.mytasklist)
+                    },
+                    nil,
+                    {
+                        wrap_widget(make_pill(playerctl_bar, beautiful.xcolor8)),
+                        wrap_widget(make_pill(battery_pill, beautiful.xcolor8)),
+                        wrap_widget(make_pill(cpu_pill, beautiful.xcolor8)),
+                        wrap_widget(make_pill(mem_pill, beautiful.xcolor8)),
+                        wrap_widget(make_pill(time_pill, beautiful.xcolor0)),
+                        wrap_widget(make_pill(date_pill, beautiful.xcolor0)),
+                        wrap_widget(make_pill({
+                            s.mylayoutbox,
+                            top = dpi(7),
+                            bottom = dpi(7),
+                            right = dpi(7),
+                            left = dpi(7),
+                            widget = wibox.container.margin
+                            }, beautiful.xcolor8)),
+                        wrap_widget(make_pill(final_systray, beautiful.xcolor0)),
+                        helpers.horizontal_pad(4),
+                        layout = wibox.layout.fixed.horizontal
+                    }
                 },
-                nil,
-                {
-                    wrap_widget(make_pill(playerctl_bar, beautiful.xcolor8)),
-                    wrap_widget(make_pill(battery_pill, beautiful.xcolor8)),
-                    wrap_widget(make_pill(cpu_pill, beautiful.xcolor8)),
-                    wrap_widget(make_pill(mem_pill, beautiful.xcolor8)),
-                    wrap_widget(make_pill(time_pill, beautiful.xcolor0)),
-                    wrap_widget(make_pill(date_pill, beautiful.xcolor0)),
-                    wrap_widget(make_pill({
-                        s.mylayoutbox,
-                        top = dpi(7),
-                        bottom = dpi(7),
-                        right = dpi(7),
-                        left = dpi(7),
-                        widget = wibox.container.margin
-                        }, beautiful.xcolor8)),
-                    wrap_widget(make_pill(final_systray, beautiful.xcolor0)),
-                    helpers.horizontal_pad(4),
-                    layout = wibox.layout.fixed.horizontal
-                }
-            },
-            widget = wibox.container.background,
+                widget = wibox.container.background,
+            }
         }
-    }
+    else
+        s.mywibox:setup {
+            layout = wibox.layout.align.vertical,
+            nil,
+            {
+                {
+                    layout = wibox.layout.align.horizontal,
+                    expand = "none",
+                    {
+                        layout = wibox.layout.fixed.horizontal,
+                        helpers.horizontal_pad(4),
+                        wrap_widget(
+                            make_pill({
+                                    awesome_icon,
+                                {
+                                    s.mytaglist,
+                                    helpers.horizontal_pad(4),
+                                    layout = wibox.layout.fixed.horizontal
+                                },
+                                spacing = 14,
+                                spacing_widget = {
+                                    color = beautiful.xcolor8,
+                                    shape = gears.shape.powerline,
+                                    widget = wibox.widget.separator
+                                },
+                                layout = wibox.layout.fixed.horizontal
+                                })),
+                        s.mypromptbox,
+                        wrap_widget(s.mytasklist)
+                    },
+                },
+                widget = wibox.container.background,
+            }
+        }
+    end
 end
 
 return top_panel

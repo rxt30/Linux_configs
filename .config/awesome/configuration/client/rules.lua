@@ -22,7 +22,7 @@ awful.rules.rules = {
                 keys = client_keys,
                 buttons = client_buttons,
                 screen = awful.screen.preferred,
-                titlebars_enabled = true
+                titlebars_enabled = false
             }
         },
 
@@ -71,6 +71,15 @@ awful.rules.rules = {
             id = 'terminal',
             rule_any = {
                 class = {'kitty'}
+            },
+            properties = {
+                titlebars_enabled = false
+            }
+        },
+        {
+            id = 'fullscreen',
+            rule_any = {
+                fullscreen = true
             },
             properties = {
                 titlebars_enabled = false

@@ -34,7 +34,7 @@ awful.keyboard.append_global_keybindings({
         {modkey, 'Shift'},
         'h',
         function()
-            awful.screen.focus_relative(-1)
+            awful.screen.focus_bydirection("left")
         end,
         { description = 'focus the previous screen', group = 'screen'}
         ),
@@ -43,7 +43,7 @@ awful.keyboard.append_global_keybindings({
         {modkey, 'Shift'},
         'l',
         function()
-            awful.screen.focus_relative(1)
+            awful.screen.focus_bydirection("right")
         end,
         { description = 'focus the next screen', group = 'screen'}
         ),
