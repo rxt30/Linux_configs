@@ -1,16 +1,11 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local init_modules = {
+    "plugins.plugins",
+    "core"
+}
 
-if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-    execute 'packadd packer.nvim'
+for _, module in ipairs(init_modules) do
+    local ok, err = pcall(require, module)
+    if not ok then
+        error("Error loading " .. module .. "\n\n" .. err)
+    end
 end
-
-require "packerInit"
-require "packages"
-require "options"
-require "theme"
-require "highlights"
-require "mappings"
-require "utils"

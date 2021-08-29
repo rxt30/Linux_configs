@@ -236,6 +236,20 @@ local top_panel = function(s)
                         s.mypromptbox,
                         wrap_widget(s.mytasklist)
                     },
+                    nil,
+                    {
+                        wrap_widget(make_pill(time_pill, beautiful.xcolor0)),
+                        wrap_widget(make_pill(date_pill, beautiful.xcolor0)),
+                        wrap_widget(make_pill({
+                            s.mylayoutbox,
+                            top = dpi(7),
+                            bottom = dpi(7),
+                            right = dpi(7),
+                            left = dpi(7),
+                            widget = wibox.container.margin
+                            }, beautiful.xcolor8)),
+                        layout = wibox.layout.fixed.horizontal
+                    }
                 },
                 widget = wibox.container.background,
             }
