@@ -92,6 +92,7 @@ theme.xcolor8                                   = "#3b4b58"
 theme.xcolor9                                   = "#fca2aa"
 theme.xcolor10                                  = "#2b3b38"
 theme.wibar_bg                                  = "#1a2026B0"
+theme.notification_bg                           = "#1a2026B0"
 --theme.wibar_bg                                  = "#AARRGGBB"
 theme.bg_systray                                = theme.xcolor8 
 
@@ -115,6 +116,6 @@ theme.titlebar_maximized_button_normal_inactive_hover = theme.dir .. "/../../ico
 theme.titlebar_minimize_button_focus_hover      = theme.dir .. "/../../icons/stoplight/minimize_focus_hover.svg"
 theme.titlebar_minimize_button_normal_hover     = theme.dir .. "/../../icons/stoplight/minimize_normal_hover.svg"
 
-theme.notification_max_height = dpi(30)
+theme.notification_max_height = dpi(60)
 
 return theme
