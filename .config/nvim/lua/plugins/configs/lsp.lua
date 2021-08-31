@@ -33,10 +33,10 @@ M.cmp = function ()
         },
         mapping = {
             ['<C-Space>'] = cmp.mapping.complete(),
-            ['<CR>'] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = true
-            }),
+--            ['<CR>'] = cmp.mapping.confirm({
+--                    behavior = cmp.ConfirmBehavior.Replace,
+--                    select = true
+--            }),
             ['<TAB>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
             ['<S-TAB>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
         },

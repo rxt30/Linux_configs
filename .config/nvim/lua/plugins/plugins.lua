@@ -90,4 +90,20 @@ return packer.startup(function ()
             require('onedark').setup()
         end
     }
+
+    use {
+        "Raimondi/delimitMate"
+    }
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function ()
+          require 'nvim-autopairs'.setup()
+          require 'nvim-autopairs.completion.cmp'.setup({
+            map_cr = true,
+            map_complete = true,
+            auto_select = true
+          })
+        end
+    }
 end)
