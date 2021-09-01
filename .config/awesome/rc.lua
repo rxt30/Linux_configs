@@ -17,7 +17,7 @@ require('configuration.client')
 require('configuration.autorun')
 
 -- Start picom for transparent terminal windows
---awful.spawn.easy_async_with_shell('picom -b --experimental-backends --dbus')
+awful.spawn.easy_async_with_shell('picom -b --experimental-backends --dbus')
 bling.signal.playerctl.enable{
     backend = "playerctl_lib",
     ignore = "firefox"
