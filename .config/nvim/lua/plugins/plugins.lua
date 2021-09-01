@@ -56,7 +56,7 @@ return packer.startup(function ()
         run = ":TSUpdate"
     }
 
-    use {
+--[[    use {
         "kabouzeid/nvim-lspinstall",
         config = function ()
             require "plugins.configs.lsp".lspinstall()
@@ -79,7 +79,7 @@ return packer.startup(function ()
     use 'hrsh7th/cmp-nvim-lsp'
     use "hrsh7th/cmp-buffer"
     use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
+    use 'saadparwaiz1/cmp_luasnip']]--
 
     use {
         "kyazdani42/nvim-tree.lua",
@@ -101,11 +101,18 @@ return packer.startup(function ()
         "windwp/nvim-autopairs",
         config = function ()
           require 'nvim-autopairs'.setup()
-          require 'nvim-autopairs.completion.cmp'.setup({
-            map_cr = true,
-            map_complete = true,
-            auto_select = true
-          })
+          --require 'nvim-autopairs.completion.cmp'.setup({
+          --  map_cr = true,
+          --  map_complete = true,
+          --  auto_select = true
+          --})
+        end
+    }
+
+    use {
+        "neoclide/coc.nvim", branch = 'release',
+        config = function ()
+          require 'plugins.configs.coc' 
         end
     }
 end)
