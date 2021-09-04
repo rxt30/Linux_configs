@@ -150,8 +150,6 @@ local top_panel = function(s)
             }
     }
 
-    naughty.notify({ title = ""})
-
     if s == screen.primary then
         s.mywibox:setup {
             layout = wibox.layout.align.vertical,

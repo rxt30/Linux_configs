@@ -166,6 +166,15 @@ awful.keyboard.append_global_keybindings({
         ),
 
     awful.key(
+        {modkey},
+        's',
+        function()
+            awful.spawn(apps.default.settings)
+        end,
+        { description = 'open settings-manager', group = 'launcher'}
+        ),
+
+    awful.key(
         {modkey, 'Shift'},
         'Left',
         function()
