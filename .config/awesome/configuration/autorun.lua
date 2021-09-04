@@ -2,7 +2,9 @@ local awful = require('awful')
 local autoRunApps = {
     "nm-applet",
     --"picom -b --experimental-backends --dbus"
-    "pasystray"
+    "pasystray",
+    "xfsettingsd",
+    "xfce4-power-manager"
 }
 
 for i, app in ipairs(autoRunApps) do

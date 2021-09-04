@@ -13,6 +13,12 @@ awful.keyboard.append_global_keybindings({
        -- hotkeys_popup.show_help,
         --{description = 'reload awesome', group = 'awesome'}
         --),
+    awful.key(
+        {modkey, 'Control'},
+        'q',
+        awesome.quit,
+        {description = 'quit awesome', group = 'awesome'}
+        ),
 
     awful.key(
         {modkey, 'Control'},
