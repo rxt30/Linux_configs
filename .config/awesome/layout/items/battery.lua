@@ -15,6 +15,15 @@ local battery_text = wibox.widget {
     widget = wibox.widget.textbox
 }
 
+local remaining_time = wibox.widget {
+  font = beautiful.font,
+  text = "Hello world",
+  align = "center",
+  valign = "center",
+  visible = false,
+  widget = wibox.widget.textbox
+}
+
 local battery_icon = wibox.widget {
     image = beautiful.battery,
     resize = true,
@@ -42,6 +51,7 @@ local battery_pill = wibox.widget {
             right = dpi(5),
             widget = wibox.container.margin
         },
+        remaining_time,
         layout = wibox.layout.fixed.horizontal,
     },
     left = dpi(10),
@@ -89,7 +99,8 @@ local setDischarging = function (batteryPercentage)
 end
 
 awesome.connect_signal("signal::battery",
-    function (batteryStatus, batteryPercentage)
+    function (batteryStatus, batteryPercentage, remainingTimeText)
+        remaining_time.text = "Remaining: " .. remainingTimeText
         if batteryStatus == "charging" then
             setCharging(batteryPercentage)
             battery_pill.visible = true
@@ -107,5 +118,19 @@ awesome.connect_signal("signal::battery",
         battery_text.text = batteryPercentage .. "%"
     end
     )
+
+battery_pill:connect_signal(
+  "mouse::enter",
+  function  ()
+    remaining_time.visible = true
+  end
+)
+
+battery_pill:connect_signal(
+  "mouse::leave",
+  function  ()
+    remaining_time.visible = false
+  end
+)
 
 return battery_pill
