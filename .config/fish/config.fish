@@ -5,7 +5,7 @@ end
 # Check if omf is installed, else install omf
 if [ ! -e ~/.local/share/omf ]
   curl -L https://get.oh-my.fish | fish
-fi
+end
 alias please="sudo"
 alias xclip="xclip -sel clip"
 if command -q exa
