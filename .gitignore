@@ -30,3 +30,7 @@
 !.config/polybar
 !.config/i3/**/*
 !.config/polybar/**/*
+!.config/fish
+!.config/fish/**/*
+!.config/omf
+!.config/omf/**/*
