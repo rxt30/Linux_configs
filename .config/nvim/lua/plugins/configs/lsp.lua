@@ -43,7 +43,8 @@ M.cmp = function ()
         sources = {
             { name = 'nvim_lsp' },
             { name = 'buffer' },
-            { name = 'luasnip' }
+            { name = 'luasnip' },
+            { name = 'nvim_lua' }
         }
     })
 end
