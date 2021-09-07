@@ -1,6 +1,7 @@
 local beautiful = require('beautiful')
 local dpi = beautiful.xresources.apply_dpi
 local wibox = require('wibox')
+local clickable_container = require('modules.clickable-container')
 
 local sys_icon = wibox.widget {
     widget = wibox.widget.imagebox,
@@ -21,4 +22,16 @@ local awesome_icon = wibox.widget {
     widget = wibox.container.background
 }
 
-return awesome_icon
+local awesome_button = wibox.widget {
+  awesome_icon,
+  widget = clickable_container
+}
+
+awesome_button:connect_signal(
+  'button::release',
+  function ()
+    awesome.emit_signal('module::exit_screen:show')
+  end
+)
+
+return awesome_button
