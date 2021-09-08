@@ -6,8 +6,8 @@ end
 if [ ! -e /usr/local/bin/starship ]
     curl -fsSL https://starship.rs/install.sh
     chmod +x install.sh && ./install.sh
-    starship init fish | source
 end
+starship init fish | source
 alias please="sudo"
 alias xclip="xclip -sel clip"
 if command -q exa
