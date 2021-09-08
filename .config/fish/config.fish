@@ -2,9 +2,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# Check if omf is installed, else install omf
-if [ ! -e ~/.local/share/omf ]
-  curl -L https://get.oh-my.fish | fish
+# Check if starship is installed, else install starship
+if [ ! -e /usr/local/bin/starship ]
+    curl -fsSL https://starship.rs/install.sh
+    chmod +x install.sh && ./install.sh
+    starship init fish | source
 end
 alias please="sudo"
 alias xclip="xclip -sel clip"
