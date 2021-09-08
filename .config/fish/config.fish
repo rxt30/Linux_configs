@@ -4,7 +4,7 @@ end
 
 # Check if starship is installed, else install starship
 if [ ! -e /usr/local/bin/starship ]
-    curl -fsSL https://starship.rs/install.sh
+    curl -fsSL https://starship.rs/install.sh -O install.sh
     chmod +x install.sh && ./install.sh
 end
 starship init fish | source
