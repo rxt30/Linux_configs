@@ -8,6 +8,7 @@ if [ ! -e /usr/local/bin/starship ]
     chmod +x install.sh && ./install.sh
 end
 starship init fish | source
+export EDITOR="vim"
 alias please="sudo"
 alias xclip="xclip -sel clip"
 if command -q exa
