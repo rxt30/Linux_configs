@@ -2,7 +2,13 @@ from libqtile import bar, widget
 
 primaryBar = bar.Bar([
     widget.GroupBox(),
-    widget.WindowName(),
+    widget.Battery(),
+    widget.BatteryIcon(),
+    widget.CPU(),
+    widget.Memory(),
+    widget.PulseVolume(),
+    widget.Systray(),
+    widget.Clock(),
     widget.CurrentLayoutIcon()
 ], 30)
 
