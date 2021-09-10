@@ -3,7 +3,7 @@ from libqtile import bar, widget
 primaryBar = bar.Bar([
     widget.GroupBox(),
     widget.WindowName(),
-    widget.KeyboardLayout(configured_keyboards=['de'])
+    widget.CurrentLayoutIcon()
 ], 30)
 
 secondaryBar = bar.Bar([

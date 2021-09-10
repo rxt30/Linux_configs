@@ -6,7 +6,7 @@ mod = "mod1"
 
 def getKeys():
     keys = [
-            Key([mod], "z", lazy.layout.left(), desc="Move focus to left"),
+            Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
             Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
             Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
             Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
