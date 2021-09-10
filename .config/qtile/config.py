@@ -1,4 +1,7 @@
-print("Hello world")
-import modules.keys
-import modules.layouts
-import modules.screens
+from modules.layouts import getLayouts
+from modules.screens import getScreens
+from modules.keys import getKeys
+
+layouts = getLayouts()
+keys = getKeys() 
+screens = getScreens()
