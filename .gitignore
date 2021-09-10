@@ -35,3 +35,6 @@
 !.config/fish/**/*
 !.config/omf
 !.config/omf/**/*
+!.config/qtile
+!.config/qtile/**/*
+.config/qtile/**/__pycache__
