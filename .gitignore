@@ -38,3 +38,7 @@
 !.config/qtile
 !.config/qtile/**/*
 .config/qtile/**/__pycache__/*
+!.config/sway
+!.config/sway/**/*
+!.config/waybar
+!.config/waybar/**/*
