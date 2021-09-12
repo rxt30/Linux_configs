@@ -1,6 +1,19 @@
 {
-"position" : "top",
-"height" : 30,
-"modules-left" : ["sway/workspaces", "sway/mode", "wlr/taskbar" ],
-"modules-right" : ["tray", "battery", "backlight", "clock"]
+  "position" : "top",
+    "height" : 30,
+    "modules-left" : ["sway/workspaces", "sway/mode", "wlr/taskbar" ],
+    "modules-center" : ["sway/window"],
+    "modules-right" : ["tray", "cpu", "memory", "pulseaudio", "battery", "backlight", "clock", "custom/power"],
+
+    "clock": {
+      "format": "{:%d/%m/%Y %H:%M}" 
+    },
+
+    "memory": {
+      "format": "{used:0.1f} GB/{total:0.1f} GB"
+    },
+
+    "custom/power": {
+      "format": ""
+    }
 }

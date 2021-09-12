@@ -8,7 +8,8 @@ floating_modifier $mod
 
 bindsym $mod+Return exec kitty
 bindsym $mod+q kill
-bindsym $mod+p exec "rofi -modi drun,run -show drun"
+bindsym $mod+p exec "ulauncher"
+bindsym $mod+Shift+p exec "nwggrid"
 bindsym $mod+b exec firefox
 
 bindsym $mod+h focus left
@@ -67,6 +68,7 @@ bindsym $mod+Shift+minus exec light -U 5
 exec_always swaybg -i ~/.config/sway/wall.png 
 exec_always kanshi
 
+# Dont show title on ulauncher 
 
 #Style configuration
 font pango:DejaVu Sans Mono 9
