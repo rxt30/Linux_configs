@@ -2,8 +2,7 @@
   "position" : "top",
     "height" : 30,
     "modules-left" : ["custom/searchMenu", "sway/workspaces", "sway/mode", "wlr/taskbar" ],
-    "modules-center" : ["sway/window"],
-    "modules-right" : ["tray", "cpu", "memory", "pulseaudio", "battery", "backlight", "clock", "custom/power"],
+    "modules-right" : ["tray", "custom/spotify", "memory", "pulseaudio", "battery", "backlight", "clock", "custom/power"],
 
     "clock": {
       "format": "{:%d/%m/%Y %H:%M}" 
@@ -26,4 +25,9 @@
       "format": "<span size=\"x-large\"></span>",
       "on-click": "nwggrid"
     },
+
+    "custom/spotify": {
+      "format": "{}",
+      "exec": "playerctl --no-messages metadata --follow --format ' {{title}}   {{artist}}'"
+    }
 }

@@ -1,0 +1,38 @@
+window#waybar {
+  background-color: rgba(46, 52, 64, 0.8);
+}
+
+#custom-searchMenu,
+#workspaces,
+#taskbar,
+#window,
+#tray,
+#cpu,
+#memory,
+#pulseaudio,
+#battery,
+#backlight,
+#clock,
+#custom-spotify,
+#custom-power {
+  color: rgb(46, 52, 64);
+  padding: 0 10px;
+  margin: 4px 4px;
+  background-color: rgb( 96, 106, 126);
+  border: 1px;
+  border-radius: 10;
+  font-size: 13px;
+}
+
+#custom-searchMenu {
+}
+
+#taskbar button {
+  margin: 2px 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#taskbar button.active {
+  background-color: rgb(163, 190, 140);
+}

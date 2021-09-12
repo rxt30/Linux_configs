@@ -65,7 +65,7 @@ bindsym $mod+Shift+plus exec light -A 5
 bindsym $mod+Shift+minus exec light -U 5
 
 # Automatic execution of some processes
-exec_always swaybg -i ~/.config/sway/wall.png 
+exec_always swaybg -i ~/.config/sway/wall.jpg 
 exec_always kanshi
 
 # Dont show title on ulauncher 
