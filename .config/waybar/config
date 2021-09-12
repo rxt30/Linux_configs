@@ -1,7 +1,7 @@
 {
   "position" : "top",
     "height" : 30,
-    "modules-left" : ["sway/workspaces", "sway/mode", "wlr/taskbar" ],
+    "modules-left" : ["custom/searchMenu", "sway/workspaces", "sway/mode", "wlr/taskbar" ],
     "modules-center" : ["sway/window"],
     "modules-right" : ["tray", "cpu", "memory", "pulseaudio", "battery", "backlight", "clock", "custom/power"],
 
@@ -10,10 +10,20 @@
     },
 
     "memory": {
-      "format": "{used:0.1f} GB/{total:0.1f} GB"
+      "format": "<span size='x-large'></span> {used:0.1f} GB/{total:0.1f} GB",
+    },
+
+    "backlight": {
+      "format": " {percent}%"
     },
 
     "custom/power": {
-      "format": ""
-    }
+      "format": "<span size=\"x-large\"></span>",
+      "on-click": "nwgbar"
+    },
+
+    "custom/searchMenu": {
+      "format": "<span size=\"x-large\"></span>",
+      "on-click": "nwggrid"
+    },
 }
