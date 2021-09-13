@@ -2,7 +2,7 @@
   "position" : "top",
     "height" : 30,
     "modules-left" : ["custom/searchMenu", "sway/workspaces", "sway/mode", "wlr/taskbar" ],
-    "modules-right" : ["tray", "custom/spotify", "memory", "pulseaudio", "battery", "backlight", "clock", "custom/power"],
+    "modules-right" : ["tray", "custom/spotify", "memory", "pulseaudio", "battery", "battery#bat2", "backlight", "clock", "custom/power"],
 
     "clock": {
       "format": "{:%d/%m/%Y %H:%M}" 
@@ -29,5 +29,18 @@
     "custom/spotify": {
       "format": "{}",
       "exec": "playerctl --no-messages metadata --follow --format ' {{title}}   {{artist}}'"
+    },
+
+    "battery": {
+      "interval": 10,
+      "format": "{icon} {capacity}%",
+      "format-icons": {
+        "discharging": ["", "", "", "", "", "", "", "", "", "", ""],
+        "charging": [""]
+      },
+    },
+
+    "battery#bat2": {
+      "format": "{power} W"
     }
 }
