@@ -8,7 +8,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec kitty
 bindsym $mod+q kill
-bindsym $mod+p exec "ulauncher"
+bindsym $mod+p exec "GDK_BACKEND=wayland ulauncher"
 bindsym $mod+Shift+p exec "nwggrid"
 bindsym $mod+b exec firefox
 
@@ -58,17 +58,17 @@ bindsym $mod+Shift+0 move container to workspace number "10"
 bindsym $mod+r reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q quit
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Some configuration for things like adjust brightness
-bindsym $mod+Shift+plus exec light -A 5
-bindsym $mod+Shift+minus exec light -U 5
+bindsym $mod+plus exec light -A 5
+bindsym $mod+minus exec light -U 5
 
 # Automatic execution of some processes
 exec_always swaybg -i ~/.config/sway/wall.jpg 
 exec_always kanshi
 
 # Dont show title on ulauncher 
+for_window [app_id="ulauncher"] floating enable, border none
 
 #Style configuration
 font pango:DejaVu Sans Mono 9
