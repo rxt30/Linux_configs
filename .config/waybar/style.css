@@ -3,8 +3,6 @@ window#waybar {
 }
 
 #custom-searchMenu,
-#workspaces,
-#taskbar,
 #window,
 #tray,
 #cpu,
@@ -15,7 +13,7 @@ window#waybar {
 #clock,
 #custom-spotify,
 #custom-power {
-  color: rgb(46, 52, 64);
+  color: rgb( 143, 188, 187);
   padding: 0 10px;
   margin: 4px 4px;
   background-color: rgb( 96, 106, 126);
@@ -27,12 +25,20 @@ window#waybar {
 #custom-searchMenu {
 }
 
-#taskbar button {
-  margin: 2px 0;
-  padding-top: 2px;
-  padding-bottom: 2px;
+#taskbar button,
+#workspaces button {
+  color: rgb( 143, 188, 187);
+  margin: 4px 4px;
+  padding: 0 10px;
 }
 
 #taskbar button.active {
+  border-radius: 10;
   background-color: rgb(163, 190, 140);
+}
+
+#workspaces button.focused {
+  color: rgb( 46, 52, 64);
+  background-color: rgb(163, 190, 140);
+  border-radius: 10;
 }
