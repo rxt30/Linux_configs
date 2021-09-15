@@ -111,5 +111,10 @@ return packer.startup(function ()
         end
     }
         
-    use 'machakann/vim-sandwich'
+    use {
+        "blackCauldron7/surround.nvim",
+        config = function()
+            require"surround".setup {mappings_style = "sandwich"}
+        end
+    }
 end)
