@@ -1,4 +1,5 @@
 set $mod Mod1
+set $win Mod4
 
 input * {
     xkb_layout "de"
@@ -58,6 +59,9 @@ bindsym $mod+Shift+0 move container to workspace number "10"
 bindsym $mod+r reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q quit
+
+# Special lock command
+bindsym $win+l exec swaylock --clock --fade-in 1 --screenshots --effect-blur 7x5 --indicator
 
 # Some configuration for things like adjust brightness
 bindsym $mod+plus exec light -A 5
