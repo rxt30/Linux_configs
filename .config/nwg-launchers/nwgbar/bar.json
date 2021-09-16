@@ -1,7 +1,7 @@
 [
   {
     "name": "Lock screen",
-    "exec": "swaylock --clock --fade-in 2 --screenshots --effect-blur 7x5 --indicator",
+    "exec": "swaylock -f --clock --fade-in 2 --screenshots --effect-blur 7x5 --indicator",
     "icon": "/home/maxh/.config/nwg-launchers/nwgbar/lock.svg"
   },
   {
@@ -11,7 +11,7 @@
   },
   {
     "name": "Sleep",
-    "exec": "swaylock --clock --screenshots --effect-blur 7x5 --indicator && systemctl hybrid-sleep",
+    "exec": "swaylock -f --clock --screenshots --effect-blur 7x5 --indicator && systemctl hybrid-sleep",
     "icon": "/home/maxh/.config/nwg-launchers/nwgbar/power-sleep.svg"
   },
   {

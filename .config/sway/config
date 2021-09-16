@@ -70,6 +70,14 @@ bindsym $mod+minus exec light -U 5
 # Automatic execution of some processes
 exec_always swaybg -i ~/.config/sway/wall.jpg 
 exec_always kanshi
+exec_always swayidle -w \
+              timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
+              timeout 300 'if `cat /sys/class/power_supply/BAT0/status` == "Discharging"; then swaylock -f --clock --screenshots --effect-blur 7x5 --indicator; fi' \
+              timeout 600 'if `cat /sys/class/power_supply/BAT0/status` != "Discharging"; then swaylock -f --clock --screenshots --effect-blur 7x5 --indicator; fi' \
+              timeout 900 'if `cat /sys/class/power_supply/BAT0/status` == "Discharging"; then systemctl hybrid-sleep; fi' \
+              timeout 1200 'if `cat /sys/class/power_supply/BAT0/status` != "Discharging"; then systemctl hybrid-sleep; fi' \
+              resume 'swaymsg "output * dpms on"'
+
 
 # Dont show title on ulauncher 
 for_window [app_id="ulauncher"] floating enable, border none
