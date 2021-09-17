@@ -11,7 +11,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 bindsym $mod+p exec "GDK_BACKEND=wayland ulauncher"
 bindsym $mod+Shift+p exec "nwggrid"
-bindsym $win+p exec "~/.config/sway/duplicateDisplay.sh"
+bindsym $win+p exec "nwgbar -o 0.5 -t ~/.config/nwg-launchers/nwgbar/screen.json"
+bindsym $win+Shift+p exec "~/.config/sway/duplicateDisplay.sh"
 bindsym $mod+b exec firefox
 
 bindsym $mod+h focus left

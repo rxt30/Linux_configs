@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Mirror laptop screen",
+    "exec": "~/.config/sway/duplicateDisplay.sh",
+    "icon": "/home/maxh/.config/nwg-launchers/nwgbar/mirror.png"
+  },
+  {
+    "name": "Seperate screens",
+    "exec": "~/.config/sway/duplicateDisplay.sh kill",
+    "icon": "/home/maxh/.config/nwg-launchers/nwgbar/extend.png"
+  }
+]
