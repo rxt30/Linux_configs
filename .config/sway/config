@@ -11,13 +11,13 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 bindsym $mod+p exec "GDK_BACKEND=wayland ulauncher"
 bindsym $mod+Shift+p exec "nwggrid"
+bindsym $win+p exec "~/.config/sway/duplicateDisplay.sh"
 bindsym $mod+b exec firefox
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -77,6 +77,7 @@ exec_always swayidle -w \
               timeout 900 'if `cat /sys/class/power_supply/BAT0/status` == "Discharging"; then systemctl hybrid-sleep; fi' \
               timeout 1200 'if `cat /sys/class/power_supply/BAT0/status` != "Discharging"; then systemctl hybrid-sleep; fi' \
               resume 'swaymsg "output * dpms on"'
+exec wayvnc -o eDP-1
 
 
 # Dont show title on ulauncher 
