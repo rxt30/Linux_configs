@@ -22,7 +22,16 @@ window#waybar {
   font-size: 13px;
 }
 
-#custom-searchMenu {
+#battery.warning {
+  background-color: rgb( 235, 203, 139);
+}
+
+#battery.recharge {
+  background-color: rgb( 208, 135, 112);
+}
+
+#battery.critical {
+  background-color: rgb( 191, 97, 106);
 }
 
 #taskbar button,
