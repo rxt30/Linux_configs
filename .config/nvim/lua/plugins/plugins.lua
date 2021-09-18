@@ -38,7 +38,7 @@ return packer.startup(function ()
         config = function ()
 
           require("indent_blankline").setup {
-            char = "│",
+            char = "|",
             show_current_context = true,
           }
         end

@@ -22,7 +22,7 @@
     },
 
     "custom/searchMenu": {
-      "format": "<span size=\"x-large\"></span>",
+      "format": "<span size=\"x-large\"></span>",
       "on-click": "nwggrid"
     },
 
