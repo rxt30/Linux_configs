@@ -23,11 +23,11 @@ return packer.startup(function ()
 
     use {
         "hoob3rt/lualine.nvim",
-        after = "onedark.nvim",
+        --after = "onedark.nvim",
         config = function ()
             require 'lualine'.setup {
                 options = {
-                    theme = 'onedark'
+                    theme = 'nord'
                 }
             }
         end
@@ -87,9 +87,10 @@ return packer.startup(function ()
     }
 
     use {
-        "navarasu/onedark.nvim",
+        "shaunsingh/nord.nvim",
         config = function ()
-            require('onedark').setup()
+            --require('onedark').setup()
+            vim.cmd[[colorscheme nord]]
         end
     }
 
