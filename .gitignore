@@ -46,3 +46,5 @@
 !.config/kanshi/**/*
 !.config/nwg-launchers
 !.config/nwg-launchers/**/*
+!.config/alacritty
+!.config/alacritty/**/*

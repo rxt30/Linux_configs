@@ -7,7 +7,7 @@ input * {
 
 floating_modifier $mod
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 bindsym $mod+p exec "GDK_BACKEND=wayland ulauncher"
 bindsym $mod+Shift+p exec "nwggrid"
