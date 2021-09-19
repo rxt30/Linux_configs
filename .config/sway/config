@@ -10,6 +10,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 bindsym $mod+p exec "GDK_BACKEND=wayland ulauncher"
+bindsym Print exec "grimshot save area - | swappy -f -"
 bindsym $mod+Shift+p exec "nwggrid"
 bindsym $win+p exec "nwgbar -o 0.5 -t ~/.config/nwg-launchers/nwgbar/screen.json"
 bindsym $win+Shift+p exec "~/.config/sway/duplicateDisplay.sh"
