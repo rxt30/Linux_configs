@@ -11,7 +11,7 @@
   },
   {
     "name": "Sleep",
-    "exec": "swaylock -f --clock --screenshots --effect-blur 7x5 --indicator && systemctl hybrid-sleep",
+    "exec": "swaylock -f --clock --screenshots --effect-blur 7x5 --indicator && systemctl suspend",
     "icon": "/home/maxh/.config/nwg-launchers/nwgbar/power-sleep.svg"
   },
   {

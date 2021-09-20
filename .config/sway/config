@@ -1,5 +1,7 @@
 set $mod Mod1
 set $win Mod4
+set $lock swaylock --clock --fade-in 1 --screenshots --effect-blur 7x5 --indicator
+
 
 input * {
     xkb_layout "de"
@@ -62,7 +64,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+q quit
 
 # Special lock command
-bindsym $win+l exec swaylock --clock --fade-in 1 --screenshots --effect-blur 7x5 --indicator
+bindsym $win+l exec $lock 
 
 # Some configuration for things like adjust brightness
 bindsym $mod+plus exec light -A 5
@@ -72,12 +74,15 @@ bindsym $mod+minus exec light -U 5
 exec_always swaybg -i ~/.config/sway/wall.jpg 
 exec_always kanshi
 exec_always swayidle -w \
-              timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
-              timeout 300 'if `cat /sys/class/power_supply/BAT0/status` == "Discharging"; then swaylock -f --clock --screenshots --effect-blur 7x5 --indicator; fi' \
-              timeout 600 'if `cat /sys/class/power_supply/BAT0/status` != "Discharging"; then swaylock -f --clock --screenshots --effect-blur 7x5 --indicator; fi' \
-              timeout 900 'if `cat /sys/class/power_supply/BAT0/status` == "Discharging"; then systemctl hybrid-sleep; fi' \
-              timeout 1200 'if `cat /sys/class/power_supply/BAT0/status` != "Discharging"; then systemctl hybrid-sleep; fi' \
-              resume 'swaymsg "output * dpms on"'
+    timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
+    timeout 240 'light -G > /tmp/brightness && light -S 10' \ 
+    timeout 300 'exec $lock' \
+    timeout 900 'exec $lock && systemctl suspend' \
+    after-resume 'swaymsg "output * dpms on"' \
+    resume 'swaymsg "output * dpms on"' \
+    resume 'light -S $([ -f /tmp/brightness ] && cat /tmp/brightness || echo 100%)' \
+    before-sleep 'playerctl pause' \
+    before-sleep 'exec $lock'
 exec wayvnc -o eDP-1
 
 
