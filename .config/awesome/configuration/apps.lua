@@ -2,7 +2,7 @@ return {
     
     default = {
 
-        terminal = "kitty",
+        terminal = "alacritty",
         
         web_browser = "firefox",
 
