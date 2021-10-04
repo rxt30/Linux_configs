@@ -70,7 +70,7 @@ awful.rules.rules = {
         {
             id = 'terminal',
             rule_any = {
-                class = {'kitty'}
+                class = {'alacritty'}
             },
             properties = {
                 titlebars_enabled = false
@@ -84,6 +84,28 @@ awful.rules.rules = {
             properties = {
                 titlebars_enabled = false
             }
+        },
+        {
+          rule_any = {
+            class = {
+              "Plasma-desktop",
+              "Plasma",
+              "plasmashell"
+            }
+          },
+          properties = { 
+            floating = true,
+            below = true,
+            sticky = true
+          }
+        },
+        {
+          rule_any = {
+            class = "Desktop - Plasma"
+          },
+          properties = {
+            hidden = true
+          }
         }
 }
 

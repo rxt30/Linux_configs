@@ -103,7 +103,7 @@ local top_panel = function(s)
             height = dpi(38),
             screen = s,
             type = "dock",
-            ontop = false,
+            ontop = true,
         })
 
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.noempty , awful.util.taglist_buttons)
@@ -178,7 +178,7 @@ local top_panel = function(s)
                                 layout = wibox.layout.fixed.horizontal
                                 })),
                         s.mypromptbox,
-                        wrap_widget(s.mytasklist)
+                        --wrap_widget(s.mytasklist)
                     },
                     nil,
                     {
@@ -207,6 +207,7 @@ local top_panel = function(s)
     else
         s.mywibox:setup {
             layout = wibox.layout.align.vertical,
+            ontop = true,
             nil,
             {
                 {

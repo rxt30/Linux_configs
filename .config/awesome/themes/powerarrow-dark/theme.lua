@@ -91,9 +91,9 @@ theme.xcolor7                                   = "#ffffff"
 theme.xcolor8                                   = "#3b4b58"
 theme.xcolor9                                   = "#fca2aa"
 theme.xcolor10                                  = "#2b3b38"
-theme.wibar_bg                                  = "#1a2026B0"
+--theme.wibar_bg                                  = "#1a2026B0"
 theme.notification_bg                           = "#1a2026B0"
---theme.wibar_bg                                  = "#AARRGGBB"
+theme.wibar_bg                                  = "#AARRGGBB"
 theme.bg_systray                                = theme.xcolor8 
 
 theme.useless_gap                               = dpi(0)
