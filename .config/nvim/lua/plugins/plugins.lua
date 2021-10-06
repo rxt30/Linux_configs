@@ -27,7 +27,7 @@ return packer.startup(function ()
         config = function ()
             require 'lualine'.setup {
                 options = {
-                    theme = 'nord'
+                    theme = 'everforest'
                 }
             }
         end
@@ -87,10 +87,12 @@ return packer.startup(function ()
     }
 
     use {
-        "shaunsingh/nord.nvim",
+        "sainnhe/everforest",
         config = function ()
             --require('onedark').setup()
-            vim.cmd[[colorscheme nord]]
+            vim.cmd[[colorscheme everforest]]
+            vim.cmd[[let g:everforest_diagnostic_text_highlight = 1]]
+            vim.cmd[[let g:everforest_diagnostic_line_highlight = 1]]
         end
     }
 
