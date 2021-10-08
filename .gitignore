@@ -48,3 +48,5 @@
 !.config/nwg-launchers/**/*
 !.config/alacritty
 !.config/alacritty/**/*
+!.config/rofi
+!.config/rofi/**/*
