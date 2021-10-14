@@ -1,3 +1,5 @@
+exec_always /usr/lib/disman_backend_launcher
+exec_always dismanctl -o
 set $mod Mod1
 set $win Mod4
 set $lock swaylock --clock --fade-in 1 --screenshots --effect-blur 7x5 --indicator
@@ -72,10 +74,9 @@ bindsym $mod+minus exec light -U 5
 
 # Automatic execution of some processes
 exec_always swaybg -i ~/.config/sway/wall.jpg 
-exec_always kanshi
 exec_always swayidle -w \
     timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
-    timeout 240 'light -G > /tmp/brightness && light -S 10' \ 
+    timeout 240 'light -G > /tmp/brightness && light -S 10' \
     timeout 300 'exec $lock' \
     timeout 900 'exec $lock && systemctl suspend' \
     after-resume 'swaymsg "output * dpms on"' \
@@ -83,7 +84,7 @@ exec_always swayidle -w \
     resume 'light -S $([ -f /tmp/brightness ] && cat /tmp/brightness || echo 100%)' \
     before-sleep 'playerctl pause' \
     before-sleep 'exec $lock'
-exec wayvnc -o eDP-1
+#exec wayvnc -o eDP-1
 
 
 # Dont show title on ulauncher 
