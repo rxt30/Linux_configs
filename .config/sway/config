@@ -107,7 +107,7 @@ exec wayvnc -o eDP-1
 
 # Laptop lid config
 bindswitch --reload --locked lid:on exec dismanctl output.eDP-1.disable
-bindswitch --reload --locked lid:on exec dismanctl output.eDP-1.enable
+bindswitch --reload --locked lid:off exec dismanctl output.eDP-1.enable
 
 
 # Dont show title on ulauncher 
