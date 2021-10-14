@@ -2,11 +2,12 @@ exec_always /usr/lib/disman_backend_launcher
 exec_always dismanctl -o
 set $mod Mod1
 set $win Mod4
-set $lock swaylock --clock --fade-in 1 --screenshots --effect-blur 7x5 --indicator
+set $lock swaylock --clock --fade-in 0 --screenshots --effect-blur 7x5 --indicator
 
 
 input * {
     xkb_layout "de"
+    xkb_options caps:escape
 }
 
 floating_modifier $mod
@@ -18,7 +19,7 @@ bindsym Print exec "grimshot save area - | swappy -f -"
 bindsym $mod+Shift+p exec "nwggrid"
 bindsym $win+p exec "nwgbar -o 0.5 -t ~/.config/nwg-launchers/nwgbar/screen.json"
 bindsym $win+Shift+p exec "~/.config/sway/duplicateDisplay.sh"
-bindsym $mod+b exec firefox
+bindsym $mod+b exec "MOZ_ENABLE_WAYLAND=1 firefox"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -68,23 +69,45 @@ bindsym $mod+Shift+q quit
 # Special lock command
 bindsym $win+l exec $lock 
 
-# Some configuration for things like adjust brightness
-bindsym $mod+plus exec light -A 5
-bindsym $mod+minus exec light -U 5
+# Bind special keyboard keys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Workspaces assigned to specific screens
+workspace 1 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 2 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 3 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 4 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 5 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 6 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 7 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 8 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 9 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 10 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+
 
 # Automatic execution of some processes
 exec_always swaybg -i ~/.config/sway/wall.jpg 
 exec_always swayidle -w \
-    timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
-    timeout 240 'light -G > /tmp/brightness && light -S 10' \
-    timeout 300 'exec $lock' \
-    timeout 900 'exec $lock && systemctl suspend' \
-    after-resume 'swaymsg "output * dpms on"' \
-    resume 'swaymsg "output * dpms on"' \
-    resume 'light -S $([ -f /tmp/brightness ] && cat /tmp/brightness || echo 100%)' \
-    before-sleep 'playerctl pause' \
-    before-sleep 'exec $lock'
-#exec wayvnc -o eDP-1
+  timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
+  timeout 600 'swaylock --clock --screenshots --effect-blur 7x5 --indicator' \
+  timeout 605 'swaymsg "output * dpms off"' \
+  timeout 1800 'systemctl suspend' \
+  before-sleep 'playerctl pause' \
+  before-sleep 'swaylock' \
+  resume 'swaymsg "output * dpms on"'
+exec wayvnc -o eDP-1
+
+# Laptop lid config
+bindswitch --reload --locked lid:on exec dismanctl output.eDP-1.disable
+bindswitch --reload --locked lid:on exec dismanctl output.eDP-1.enable
 
 
 # Dont show title on ulauncher 
