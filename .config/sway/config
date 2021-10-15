@@ -80,6 +80,10 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Scratchpad keys
+bindsym $mod+m move scratchpad
+bindsym $mod+Tab scratchpad show
+
 # Workspaces assigned to specific screens
 workspace 1 output 'Acer Technologies XV242Y TL1EE0018521'
 workspace 2 output 'Acer Technologies XV242Y TL1EE0018521'
@@ -112,6 +116,7 @@ bindswitch --reload --locked lid:off exec dismanctl output.eDP-1.enable
 
 # Dont show title on ulauncher 
 for_window [app_id="ulauncher"] floating enable, border none
+for_window [title="Firefox — Sharing Indicator"] floating enable, border none
 
 #Style configuration
 font pango:DejaVu Sans Mono 9

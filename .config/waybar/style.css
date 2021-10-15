@@ -12,7 +12,8 @@ window#waybar {
 #backlight,
 #clock,
 #custom-spotify,
-#custom-power {
+#custom-power,
+#network {
   color: rgb( 143, 188, 187);
   padding: 0 10px;
   margin: 4px 4px;

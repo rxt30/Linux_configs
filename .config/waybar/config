@@ -2,7 +2,7 @@
   "position" : "top",
     "height" : 30,
     "modules-left" : ["custom/searchMenu", "sway/workspaces", "sway/mode", "wlr/taskbar" ],
-    "modules-right" : ["tray", "custom/spotify", "memory", "pulseaudio", "battery", "battery#bat2", "backlight", "clock", "custom/power"],
+    "modules-right" : ["tray", "custom/spotify", "memory", "pulseaudio", "battery", "battery#bat2", "network", "backlight", "clock", "custom/power"],
 
     "clock": {
       "format": "{:%d/%m/%Y %H:%M}" 
@@ -51,12 +51,31 @@
     },
 
     "pulseaudio": {
-      "on-click": "kitty pulsemixer",
+      "on-click": "alacritty -e pulsemixer",
       "on-click-right": "pulsemixer --toggle-mute",
       "format": "{icon} {volume}%",
       "format-muted": "婢 Muted",
       "format-icons": {
         "default": ["奄", "奔", "墳"]
       }
+    },
+
+    "wlr/taskbar": {
+      "on-click": "activate",
+      "on-click-middle": "close",
+      "on-click-right": "maximize"
+    },
+
+    "network": {
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "alacritty -e nmtui"
     }
 }
