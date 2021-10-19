@@ -25,6 +25,8 @@ local mappings = function ()
     map("n", "<C-j>", "<C-w>j")
 
     map("n", "<C-n>", ":NvimTreeToggle <CR>")
+    map("n", "<C-n>", ":NvimTreeToggle <CR>")
+    map("n", "<F5>", ":QuickRun <CR>")
 end
 
 mappings()

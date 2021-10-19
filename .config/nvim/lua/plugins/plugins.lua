@@ -120,4 +120,8 @@ return packer.startup(function ()
             require"surround".setup {mappings_style = "sandwich"}
         end
     }
+
+    use {
+      "thinca/vim-quickrun"
+    }
 end)

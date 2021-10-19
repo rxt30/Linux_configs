@@ -3,9 +3,11 @@ exec_always dismanctl -o
 set $mod Mod1
 set $win Mod4
 set $lock swaylock --clock --fade-in 0 --screenshots --effect-blur 7x5 --indicator
+exec_always systemctl --user set-environment _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
+exec_always systemctl --user set-environment _JAVA_AWT_WM_NONREPARENTING=1
 
 
-input * {
+input * { 
     xkb_layout "de"
     xkb_options caps:escape
 }
@@ -14,7 +16,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
-bindsym $mod+p exec "GDK_BACKEND=wayland ulauncher"
+bindsym $mod+p exec "wofi --show drun"
 bindsym Print exec "grimshot save area - | swappy -f -"
 bindsym $mod+Shift+p exec "nwggrid"
 bindsym $win+p exec "nwgbar -o 0.5 -t ~/.config/nwg-launchers/nwgbar/screen.json"
@@ -101,17 +103,20 @@ workspace 10 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
 exec_always swaybg -i ~/.config/sway/wall.jpg 
 exec_always swayidle -w \
   timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
-  timeout 600 'swaylock --clock --screenshots --effect-blur 7x5 --indicator' \
-  timeout 605 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  timeout 600 'swaymsg "output * dpms off" && swaylock --clock --screenshots --effect-blur 7x5 --indicator' \
+  resume 'swaymsg "output * dpms on"' \
   timeout 1800 'systemctl suspend' \
   before-sleep 'playerctl pause' \
-  before-sleep 'swaylock' \
-  resume 'swaymsg "output * dpms on"'
+  before-sleep 'swaylock --clock --fade-in 0 --screenshots --effect-blur 7x5 --indicator' \
+  after-resume 'swaymsg "output * dpms on"'
 exec wayvnc -o eDP-1
+exec dunst
 
 # Laptop lid config
 bindswitch --reload --locked lid:on exec dismanctl output.eDP-1.disable
 bindswitch --reload --locked lid:off exec dismanctl output.eDP-1.enable
+bindsym $mod+Shift+s exec dismanctl output.eDP-1.enable
 
 
 # Dont show title on ulauncher 
@@ -129,3 +134,4 @@ gaps inner 5
 bar {
   swaybar_command waybar
 }
+
