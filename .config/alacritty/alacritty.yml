@@ -1,9 +1,9 @@
 # Define
 font:
   normal:
-    family: DejaVuSansMono Nerd Font
+    family: Noto Mono Nerd Font
     style:  Book
-  size: 11
+  size: 10
 schemes:
   everforest_dark_hard: &everforest_dark_hard
     primary:
