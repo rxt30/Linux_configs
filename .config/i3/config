@@ -1,21 +1,26 @@
+exec_always /usr/lib/disman_backend_launcher
+exec_always dismanctl -o
 set $mod Mod1
-
-font pango:DejaVu Sans Mono 9
-
-exec --no-startup-id nm-applet
+set $win Mod4
+set $lock i3-lock --clock --fade-in 0 --screenshots --effect-blur 7x5 --indicator
+exec_always systemctl --user set-environment _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
+exec_always systemctl --user set-environment _JAVA_AWT_WM_NONREPARENTING=1
 
 floating_modifier $mod
 
 bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
-bindsym $mod+p exec "rofi -modi drun,run -show drun"
-bindsym $mod+b exec firefox
+bindsym $mod+p exec "rofi -modi drun, run -show drun"
+bindsym Print exec "grimshot save area - | swappy -f -"
+bindsym $mod+Shift+p exec "nwggrid"
+bindsym $win+p exec "nwgbar -o 0.5 -t ~/.config/nwg-launchers/nwgbar/screen.json"
+bindsym $win+Shift+p exec "~/.config/sway/duplicateDisplay.sh"
+bindsym $mod+b exec "MOZ_ENABLE_WAYLAND=1 firefox"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -54,27 +59,56 @@ bindsym $mod+Shift+8 move container to workspace number "8"
 bindsym $mod+Shift+9 move container to workspace number "9"
 bindsym $mod+Shift+0 move container to workspace number "10"
 
-bindsym $mod+r reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+q quit
+
+# Special lock command
+bindsym $win+l exec $lock 
+
+# Bind special keyboard keys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Scratchpad keys
+bindsym $mod+m move scratchpad
+bindsym $mod+Tab scratchpad show
+
+# Workspaces assigned to specific screens
+workspace 1 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 2 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 3 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 4 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 5 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 6 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 7 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 8 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 9 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 10 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+
+
+# Automatic execution of some processes
+
+# Laptop lid config
+
+# Dont show title on ulauncher 
+for_window [app_id="ulauncher"] floating enable, border none
+for_window [title="Firefox — Sharing Indicator"] floating enable, border none
 
 #Style configuration
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
-no_focus [class="plasmashell" window_type="notification"]
-
-for_window [class=".*"] border pixel 1
+font pango:DejaVu Sans Mono 9
+default_border pixel
+client.focused #d75f5f #212121 #000000 #d75f5f #d75f5f
 
 smart_gaps on
 gaps inner 5
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh --colorblocks
+bar {
+  status_command i3status
+}

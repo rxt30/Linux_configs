@@ -2,7 +2,7 @@ exec_always /usr/lib/disman_backend_launcher
 exec_always dismanctl -o
 set $mod Mod1
 set $win Mod4
-set $lock swaylock --clock --fade-in 0 --screenshots --effect-blur 7x5 --indicator
+set $lock swaylock -efF -c 000000F0 --indicator-idle-visible --indicator-radius 75 --indicator-thickness 15 --inside-clear-color FFFF00 --ring-clear-color FFFF00
 exec_always systemctl --user set-environment _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 exec_always systemctl --user set-environment _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -10,6 +10,10 @@ exec_always systemctl --user set-environment _JAVA_AWT_WM_NONREPARENTING=1
 input * { 
     xkb_layout "de"
     xkb_options caps:escape
+}
+
+input "type:touchpad" {
+  
 }
 
 floating_modifier $mod
@@ -103,12 +107,19 @@ workspace 10 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
 exec_always swaybg -i ~/.config/sway/wall.jpg 
 exec_always swayidle -w \
   timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
-  resume 'swaymsg "output * dpms on"' \
-  timeout 600 'swaymsg "output * dpms off" && swaylock --clock --screenshots --effect-blur 7x5 --indicator' \
+  timeout 600 'swaylock -efF -c 00000099 \
+          --indicator-idle-visible --indicator-radius 75 \
+          --indicator-thickness 15 --inside-clear-color FFFF00 \
+          --ring-clear-color FFFF00' \
+  timeout 605 'swaymsg "output * dpms off"'  \
   resume 'swaymsg "output * dpms on"' \
   timeout 1800 'systemctl suspend' \
+  resume 'swaymsg "output * dpms on"' \
   before-sleep 'playerctl pause' \
-  before-sleep 'swaylock --clock --fade-in 0 --screenshots --effect-blur 7x5 --indicator' \
+  before-sleep 'swaylock -efF -c 00000099 \
+          --indicator-idle-visible --indicator-radius 75 \
+          --indicator-thickness 15 --inside-clear-color FFFF00 \
+          --ring-clear-color FFFF00' \
   after-resume 'swaymsg "output * dpms on"'
 exec wayvnc -o eDP-1
 exec dunst
@@ -126,7 +137,7 @@ for_window [title="Firefox — Sharing Indicator"] floating enable, border none
 #Style configuration
 font pango:DejaVu Sans Mono 9
 default_border pixel
-client.focused #d75f5f #212121 #000000 #d75f5f #d75f5f
+client.focused #a7c080 #212121 #000000 #a7c080 #a7c080
 
 smart_gaps on
 gaps inner 5
