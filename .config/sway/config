@@ -5,6 +5,7 @@ set $win Mod4
 set $lock swaylock -efF -c 000000F0 --indicator-idle-visible --indicator-radius 75 --indicator-thickness 15 --inside-clear-color FFFF00 --ring-clear-color FFFF00
 exec_always systemctl --user set-environment _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 exec_always systemctl --user set-environment _JAVA_AWT_WM_NONREPARENTING=1
+exec_always /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr
 
 
 input * { 
