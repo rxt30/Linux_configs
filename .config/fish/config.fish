@@ -1,4 +1,3 @@
-eval (ssh-agent -c)
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -27,3 +26,4 @@ if [ (echo $TERM) = "xterm-kitty" ]
 end
 
 alias cht="cht.sh"
+alias discord="discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy"
