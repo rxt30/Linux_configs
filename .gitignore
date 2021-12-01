@@ -50,3 +50,5 @@
 !.config/alacritty/**/*
 !.config/rofi
 !.config/rofi/**/*
+!.config/foot
+!.config/foot/**/*
