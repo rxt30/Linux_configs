@@ -27,7 +27,7 @@ return packer.startup(function ()
         config = function ()
             require 'lualine'.setup {
                 options = {
-                    theme = 'everforest'
+                    theme = 'catppuccin'
                 }
             }
         end
@@ -89,12 +89,13 @@ return packer.startup(function ()
     }
 
     use {
-        "sainnhe/everforest",
+        "catppuccin/nvim",
+        as  = "catppuccin",
         config = function ()
             --require('onedark').setup()
-            vim.cmd[[colorscheme everforest]]
-            vim.cmd[[let g:everforest_diagnostic_text_highlight = 1]]
-            vim.cmd[[let g:everforest_diagnostic_line_highlight = 1]]
+            vim.cmd[[colorscheme catppuccin]]
+            --vim.cmd[[let g:everforest_diagnostic_text_highlight = 1]]
+            --vim.cmd[[let g:everforest_diagnostic_line_highlight = 1]]
         end
     }
 
