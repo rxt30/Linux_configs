@@ -1,5 +1,6 @@
 local present, packer = pcall(require, "plugins.packerInit")
 vim.cmd([[autocmd BufWritePost init.lua source <afile> | PackerCompile]])
+vim.cmd [[autocmd BufWritePre <buffer> silent! EslintFixAll]]
 
 if not present then
     return false
@@ -56,30 +57,6 @@ return packer.startup(function ()
         run = ":TSUpdate"
     }
 
---[[    use {
-        "kabouzeid/nvim-lspinstall",
-        config = function ()
-            require "plugins.configs.lsp".lspinstall()
-        end
-    }
-
-    use {
-        "neovim/nvim-lspconfig",
-    }
-
-    --Autocompletion and snippets
-    use {
-        "hrsh7th/nvim-cmp",
-        config = function ()
-            require "plugins.configs.lsp".cmp()
-        end
-    }
-
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use "hrsh7th/cmp-buffer"
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip']]--
 
     use {
         "kyazdani42/nvim-tree.lua",
@@ -103,19 +80,19 @@ return packer.startup(function ()
         "Raimondi/delimitMate"
     }
 
-    use {
+    --[[use {
         "windwp/nvim-autopairs",
         config = function ()
           require 'nvim-autopairs'.setup()
         end
-    }
+    }]]--
 
-    use {
+    --[[use {
         "neoclide/coc.nvim", branch = 'release',
         config = function ()
           require 'plugins.configs.coc' 
         end
-    }
+    }]]--
         
     use {
         "blackCauldron7/surround.nvim",
@@ -126,5 +103,43 @@ return packer.startup(function ()
 
     use {
       "thinca/vim-quickrun"
+    }
+
+    use {
+      "neovim/nvim-lspconfig",
+    }
+
+    use {
+      "ms-jpq/coq_nvim", branch = "coq",
+      requires = "neovim/nvim-lspconfig",
+      config = function ()
+        vim.g.coq_settings = {
+          auto_start = true,
+          clients = {
+            tabnine = {
+              enabled = true
+            }
+          }
+        }
+        local lsp = require "lspconfig"
+        local coq = require "coq"
+        lsp.pyright.setup(coq.lsp_ensure_capabilities({}))
+        lsp.tsserver.setup(coq.lsp_ensure_capabilities({}))
+        lsp.texlab.setup(coq.lsp_ensure_capabilities({}))
+        lsp.cssls.setup(coq.lsp_ensure_capabilities({}))
+        lsp.eslint.setup{
+          settings = {
+            codeActionOnSave = {
+              enable = true
+            }
+          },
+          autoFixOnSave = true
+        }
+        lsp.ltex.setup(coq.lsp_ensure_capabilities({}))
+      end
+    }
+
+    use {
+      "ms-jpq/coq.artifacts", branch = "artifacts"
     }
 end)
