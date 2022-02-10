@@ -142,4 +142,8 @@ return packer.startup(function ()
     use {
       "ms-jpq/coq.artifacts", branch = "artifacts"
     }
+
+    use {
+      "jiangmiao/auto-pairs"
+    }
 end)
