@@ -1,10 +1,15 @@
 local present, packer = pcall(require, "plugins.packerInit")
 vim.cmd([[autocmd BufWritePost init.lua source <afile> | PackerCompile]])
 vim.cmd [[autocmd BufWritePre <buffer> silent! EslintFixAll]]
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+  local coq = require ("coq")
+  local opts = {}
+  server:setup(coq.lsp_ensure_capabilities(opts))
+end)
 
 if not present then
-    return false
-end
+    return false end
 
 local use = packer.use
 
@@ -80,12 +85,13 @@ return packer.startup(function ()
         "Raimondi/delimitMate"
     }
 
-    --[[use {
+    use {
+        "rcarriga/nvim-notify",
         "windwp/nvim-autopairs",
         config = function ()
           require 'nvim-autopairs'.setup()
         end
-    }]]--
+    }
 
     --[[use {
         "neoclide/coc.nvim", branch = 'release',
@@ -102,40 +108,34 @@ return packer.startup(function ()
     }
 
     use {
-      "thinca/vim-quickrun"
+      "michaelb/sniprun",
+      run = "bash ./install.sh",
+      config = function ()
+        require'sniprun'.setup({
+          display = {
+            "Terminal"
+          }
+        })
+      end
     }
 
     use {
       "neovim/nvim-lspconfig",
+      "williamboman/nvim-lsp-installer",
     }
 
-    use {
+    use{
       "ms-jpq/coq_nvim", branch = "coq",
-      requires = "neovim/nvim-lspconfig",
+      require = "neovim/nvim-lspconfig",
       config = function ()
         vim.g.coq_settings = {
           auto_start = true,
-          clients = {
+          --[[clients = {
             tabnine = {
               enabled = true
             }
-          }
+          }]]--
         }
-        local lsp = require "lspconfig"
-        local coq = require "coq"
-        lsp.pyright.setup(coq.lsp_ensure_capabilities({}))
-        lsp.tsserver.setup(coq.lsp_ensure_capabilities({}))
-        lsp.texlab.setup(coq.lsp_ensure_capabilities({}))
-        lsp.cssls.setup(coq.lsp_ensure_capabilities({}))
-        lsp.eslint.setup{
-          settings = {
-            codeActionOnSave = {
-              enable = true
-            }
-          },
-          autoFixOnSave = true
-        }
-        lsp.ltex.setup(coq.lsp_ensure_capabilities({}))
       end
     }
 
@@ -143,7 +143,4 @@ return packer.startup(function ()
       "ms-jpq/coq.artifacts", branch = "artifacts"
     }
 
-    use {
-      "jiangmiao/auto-pairs"
-    }
 end)

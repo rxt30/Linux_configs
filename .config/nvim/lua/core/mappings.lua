@@ -26,7 +26,7 @@ local mappings = function ()
 
     map("n", "<C-n>", ":NvimTreeToggle <CR>")
     map("n", "<C-n>", ":NvimTreeToggle <CR>")
-    map("n", "<F5>", ":QuickRun <CR>")
+    map("n", "<F5>", ":let b:caret = winsaveview() <CR>:%SnipRun <CR>:call winrestview(b:caret) <CR>") 
 end
 
 mappings()
