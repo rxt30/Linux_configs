@@ -1,5 +1,5 @@
 local awful = require('awful')
-local apps = require('configuration.apps')
+local apps = require('apps')
 local hotkeys_popup = require('awful.hotkeys_popup')
 
 local modkey = 'Mod1'
@@ -7,12 +7,6 @@ local altkey = 'Mod4'
 
 awful.keyboard.append_global_keybindings({
 
-    --awful.key(
-     --   {altkey},
-      --  nil,
-       -- hotkeys_popup.show_help,
-        --{description = 'reload awesome', group = 'awesome'}
-        --),
     awful.key(
         {modkey, 'Control'},
         'q',
