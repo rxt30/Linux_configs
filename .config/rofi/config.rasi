@@ -1,4 +1,3 @@
 configuration {
-  theme: "slate";
   show-icons : true;
 }
