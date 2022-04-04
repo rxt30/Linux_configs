@@ -1,4 +1,6 @@
 # Catppuccin!
+font:
+  size: 9.5
 colors:
   # Default colors
   primary:
