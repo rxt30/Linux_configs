@@ -77,6 +77,15 @@ awful.rules.rules = {
             }
         },
         {
+          id = 'chromium',
+          rule_any = {
+            class = {'chromium','Chromium'}
+          },
+          properties = {
+            titlebars_enabled = false
+          }
+        },
+        {
             id = 'fullscreen',
             rule_any = {
                 fullscreen = true

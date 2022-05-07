@@ -2,9 +2,9 @@ return {
     
     default = {
 
-        terminal = "alacritty",
+        terminal = "kitty",
         
-        web_browser = "firefox",
+        web_browser = "chromium",
 
         file_manger = "thunar",
 
