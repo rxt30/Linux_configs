@@ -99,13 +99,6 @@ return packer.startup(function ()
           require 'plugins.configs.coc' 
         end
     }]]--
-        
-    use {
-        "blackCauldron7/surround.nvim",
-        config = function()
-            require"surround".setup {mappings_style = "sandwich"}
-        end
-    }
 
     use {
       "michaelb/sniprun",
@@ -127,6 +120,7 @@ return packer.startup(function ()
     use{
       "ms-jpq/coq_nvim", branch = "coq",
       require = "neovim/nvim-lspconfig",
+      require = "windwp/nvim-autopairs",
       config = function ()
         vim.g.coq_settings = {
           auto_start = true,
@@ -136,6 +130,7 @@ return packer.startup(function ()
             }
           }]]--
         }
+        require 'plugins.configs.coq'
       end
     }
 
