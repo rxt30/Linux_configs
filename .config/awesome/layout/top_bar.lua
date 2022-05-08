@@ -66,10 +66,7 @@ local final_systray = wibox.widget {
     bg = beautiful.xcolor8,
     shape = helpers.rrect(10),
     widget = wibox.container.background
-}
-
-local wrap_widget = function(w)
-    local wrapped = wibox.widget {
+} local wrap_widget = function(w) local wrapped = wibox.widget {
         w,
         top = dpi(5),
         left = dpi(4),
@@ -92,7 +89,21 @@ end
 
 local top_panel = function(s)
      
-    gears.wallpaper.maximized(beautiful.wallpaper_self, s, true)
+    --gears.wallpaper.set(beautiful.wallpaper_self, s, true)
+    awful.wallpaper {
+      screen = s,
+      widget = {
+        {
+          image = beautiful.wallpaper_self,
+          resize = true,
+          widget = wibox.widget.imagebox
+        },
+      valign = "center",
+      halign = "center",
+      tiled = false,
+      widget = wibox.container.tile
+      },
+    }
 
     s.mypromptbox = awful.widget.prompt()
 
