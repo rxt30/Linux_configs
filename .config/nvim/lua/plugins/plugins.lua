@@ -124,6 +124,9 @@ return packer.startup(function ()
       config = function ()
         vim.g.coq_settings = {
           auto_start = true,
+          keymap = {
+            recommended = false
+          }
           --[[clients = {
             tabnine = {
               enabled = true
