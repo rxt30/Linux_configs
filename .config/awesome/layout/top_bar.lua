@@ -33,13 +33,13 @@ local mysystray_container = {
 }
 
 -- Only show name of the focused client
-local showFocused = function (self, c)
-  if c.active then
-    self:get_children_by_id('task_text')[1].markup = "<span foreground='" .. beautiful.tasklist_fg_focus .. "'>" .. c.name .. "</span>"
-  else
-    self:get_children_by_id('task_text')[1].markup = ""
-  end
-end
+--local showFocused = function (self, c)
+--  if c.active then
+--    self:get_children_by_id('task_text')[1].markup = "<span foreground='" .. beautiful.tasklist_fg_focus .. "'>" .. c.name .. "</span>"
+--  else
+--    self:get_children_by_id('task_text')[1].markup = ""
+--  end
+--end
 
 -- Tasklist Buttons
 
@@ -161,6 +161,7 @@ local top_panel = function(s)
             }
     }
 
+
     if s == screen.primary then
         s.mywibox:setup {
             layout = wibox.layout.align.vertical,
@@ -189,7 +190,7 @@ local top_panel = function(s)
                                 layout = wibox.layout.fixed.horizontal
                                 })),
                         s.mypromptbox,
-                        --wrap_widget(s.mytasklist)
+                        wrap_widget(s.mytasklist)
                     },
                     nil,
                     {

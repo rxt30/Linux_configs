@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.03 for maxh on Sun May  8 18:07:24 2022.
+# Written by xscreensaver-settings 6.03 for maxh on Thu May 12 19:11:49 2022.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -19,17 +19,17 @@ unfade:		True
 fadeSeconds:	0:00:01
 ignoreUninstalledPrograms:False
 font:		
-dpmsEnabled:	False
-dpmsQuickOff:	False
-dpmsStandby:	0:01:00
-dpmsSuspend:	0:03:00
-dpmsOff:	0:00:00
+dpmsEnabled:	True
+dpmsQuickOff:	True
+dpmsStandby:	0:10:00
+dpmsSuspend:	0:10:00
+dpmsOff:	15:00:00
 grabDesktopImages:  True
 grabVideoFrames:    False
 chooseRandomImages: False
 imageDirectory:	
 
-mode:		one
+mode:		blank
 selected:	205
 
 textMode:	file

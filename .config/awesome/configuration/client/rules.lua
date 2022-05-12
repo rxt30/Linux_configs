@@ -86,6 +86,22 @@ awful.rules.rules = {
           }
         },
         {
+          rule_any = {
+            class = {'rofi','Rofi'}
+          },
+          properties = {
+            floating = true, 
+            titlebars_enabled = false,
+            above = true,
+          },
+          callback = function (c)
+            if c.name == "rofi -    Apps " then
+              c.maximized_vertical = true
+              --awful.placement.left(c)
+            end
+          end
+        },
+        {
             id = 'fullscreen',
             rule_any = {
                 fullscreen = true

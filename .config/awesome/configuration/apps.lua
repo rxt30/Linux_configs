@@ -8,7 +8,7 @@ return {
 
         file_manger = "thunar",
 
-        lock = "i3lock-fancy",
+        lock = "xdg-screensaver lock",
 
         launcher = "rofi -show drun -theme main",
 
