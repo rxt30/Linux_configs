@@ -20,7 +20,8 @@ local battery_pill = require('layout.items.battery')
 local mem_pill = require('layout.items.mem')
 -- CPU Usage
 local cpu_pill = require('layout.items.cpu')
-
+-- Power off menu
+local power_pill = require('layout.items.power')
 -- Systray
 
 local mysystray = wibox.widget.systray()
@@ -209,8 +210,9 @@ local top_panel = function(s)
                             widget = wibox.container.margin
                             }, beautiful.xcolor8)),
                         wrap_widget(make_pill(final_systray, beautiful.xcolor0)),
+                        wrap_widget(make_pill(power_pill, beautiful.xcolor8)),
                         helpers.horizontal_pad(4),
-                        layout = wibox.layout.fixed.horizontal
+                        layout = wibox.layout.fixed.horizontal,
                     }
                 },
                 widget = wibox.container.background,

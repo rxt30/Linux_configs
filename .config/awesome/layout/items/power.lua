@@ -6,9 +6,13 @@ local clickable_container = require('modules.clickable-container')
 local apps = require 'configuration.apps'
 
 local sys_icon = wibox.widget {
-    widget = wibox.widget.imagebox,
-    image = beautiful.system_icon,
-    resize = true
+    widget = wibox.widget.textbox,
+    markup = "",
+    font = "Sans 15",
+    align = "center",
+    valign = "center"
+    --image = beautiful.system_icon,
+    --resize = true
 }
 
 local awesome_icon = wibox.widget {
@@ -17,10 +21,10 @@ local awesome_icon = wibox.widget {
         top = dpi(5),
         bottom = dpi(5),
         left = dpi(10),
-        right = dpi(5),
+        right = dpi(10),
         widget = wibox.container.margin,
     },
-    bg = beautiful.xcolor0,
+    bg = beautiful.xcolor8,
     widget = wibox.container.background
 }
 
@@ -32,8 +36,7 @@ local awesome_button = wibox.widget {
 awesome_button:connect_signal(
   'button::release',
   function ()
-    awful.spawn.with_shell(apps.default.launcher)
-    --awesome.emit_signal('module::exit_screen:show')
+    awesome.emit_signal('module::exit_screen:show')
   end
 )
 
