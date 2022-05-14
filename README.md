@@ -1,24 +1,54 @@
 # Linux_configs
-Configs for zsh and vim    
-Configs for kitty and neofetch are taken from [Dragonsight91 dotfiles](https://github.com/Dragonsight91/dotfiles)
+Welcome to my Linux configuration files.    
+It's a collection of various configuration files, with different WMs, editors and terminals.    
 
-## zsh
-The .zshrc file is configured for using with [oh-my-zsh](https://ohmyz.sh/).<br>
-And you can use 'please' instead of 'sudo' [:)](https://twitter.com/ctrlshifti/status/1160812366293901314?s=20).
+In this README, the needed dependencies and some information are described for:
+- awesome (window manager)
+- neovim (text editor)
+- fish (shell)
+, as these are my main tools.
+All requirements are mainly to their according Arch Linux/AUR-Package
+The above listed are all styled according to the theme [`catppuccin`](https://github.com/catppuccin/catppuccin).
+<!--Configs for kitty and neofetch are taken from [Dragonsight91 dotfiles](https://github.com/Dragonsight91/dotfiles)--->
 
-## vim
-After placing the .vimrc in your home-directory, enter ':PlugInstall' to install the plugins.<br>
-The plugin used for autocompletion is [coc.nvim](https://github.com/neoclide/coc.nvim). For aviable autcompletes see the [List of Coc-Extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions)<br>
-NerdTree, a in vim file explorere, is mapped to CTRL + n.<br>
-CTRL+C to comment out a line.$<br>
-F8 to compile*<br>
-F9 to run program*<br>
-F10 to debug program*<br>
-<br>
-\* = C,C++,Java,Python<br>
-$ = Python,Latex,C-like Syntax
+## awesome
+### Dependencies
+- `awesome-git`
+  - Will be locked to `4.4` if it's released
+- `lxqt`
+  - It's better to install the whole DE, as several daemons are used, and the menus provide quite a nice interface
+- `kitty`
+- `chromium`
+- `xscreensaver`
+- `rofi`
+- `nm-applet`
+- `pasystray`
+- `disman-kwinft`
+- `kdisplay-kwinft`
 
-### vimspector
-For debugging inside vim the plugin [vimspector](https://github.com/puremourning/vimspector) is used.    
-To use the debugger, a [.vimspector.json](https://github.com/puremourning/vimspector#debug-profile-configuration) must be defined inside the root directory of the program.    
-For more information about the hotkeys [see here](https://github.com/puremourning/vimspector#human-mode).
+If any of the above listed daemons/programms should be not used, they can be removed or changed at [`.config/awesome/configuration/apps.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/apps.lua) and [`.config/awesome/configuration/autorun.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/autorun.lua).    
+The system wide key mapping can be found in [`.config/awesome/configuration/keys/global.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/keys/global.lua), the client specific configuration in [`.config/awesome/configuration/client/keys.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/client/keys.lua).
+
+## neovim
+### Dependencies
+- [`packer.nvim`](https://github.com/wbthomason/packer.nvim)
+
+### Usage
+To install all plugins, just call `nvim +PackerSync`.    
+The list of all plugins can be found at [`.config/nvim/lua/plugins/plugins.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/nvim/lua/plugins/plugins.lua).
+
+#### Autocomplete and LSP
+Autocomplete is automatically enabled with [`coq_nvim`](https://github.com/ms-jpq/coq_nvim).     
+It is powered by [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) and [`nvim-lsp-installer`](https://github.com/williamboman/nvim-lsp-installer).    
+New LSPs can be installed by opening a file with the according file type and execute the command `:LspInstall`.
+
+#### Running the currently open file
+The content of specific currently open file can be run by pressing `F5`.    
+The plugin and the list of compatible files can be found at [`sniprun`](https://github.com/michaelb/sniprun)
+
+## fish
+`fish` is the default shell used by me.     
+### Aliases
+All these aliases are only used, if command is aviable.   
+- `nvim` mapped `vim`
+- `exa -l` mapped `ls -l`
