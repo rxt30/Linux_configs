@@ -13,7 +13,8 @@ local autoRunApps = {
       "setxkbmap -option caps:escape -layout de",
       "nm-applet",
       "pasystray",
-      "xscreensaver -no-splash"
+      "xscreensaver -no-splash",
+      "xset -b"
 }
 
 for i, app in ipairs(autoRunApps) do
