@@ -119,7 +119,7 @@ local top_panel = function(s)
             height = dpi(38),
             screen = s,
             type = "dock",
-            ontop = true,
+            ontop = false,
         })
 
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.noempty , awful.util.taglist_buttons)

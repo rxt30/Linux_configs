@@ -50,7 +50,7 @@ awful.rules.rules = {
                 }
             },
             properties = {
-                titlebars_enabled = true
+                titlebars_enabled = false
             }
         },
 
