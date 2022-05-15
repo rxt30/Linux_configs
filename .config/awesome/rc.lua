@@ -10,11 +10,11 @@ awful.util.terminal = 'kitty'
 
 beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/powerarrow-dark/theme.lua")
 
+require('configuration.autorun')
 require('layout')
 -- Configurations
 require('configuration.keys')
 require('configuration.client')
-require('configuration.autorun')
 require('modules.exit-screen')
 
 -- Start picom for transparent terminal windows

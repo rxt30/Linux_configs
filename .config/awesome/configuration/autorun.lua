@@ -5,16 +5,16 @@ local autoRunApps = {
 --    "pasystray",
 --    "xfsettingsd",
 --    "xfce4-power-manager",
+      "/usr/lib/disman_backend_launcher & dismanctl -o",
+      "setxkbmap -option caps:escape -layout de",
+      "xset -b",
       "lxqt-powermanagement",
       "lxqt-notificationd",
       "lxqt-policykit-agent",
       "lxqt-globalkeysd",
-      "/usr/lib/disman_backend_launcher",
-      "setxkbmap -option caps:escape -layout de",
       "nm-applet",
       "pasystray",
       "xscreensaver -no-splash",
-      "xset -b"
 }
 
 for i, app in ipairs(autoRunApps) do

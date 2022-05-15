@@ -88,8 +88,8 @@ local make_pill = function(w, c)
     return pill
 end
 
+
 local top_panel = function(s)
-     
     --gears.wallpaper.set(beautiful.wallpaper_self, s, true)
     awful.wallpaper {
       screen = s,
@@ -109,6 +109,10 @@ local top_panel = function(s)
     s.mypromptbox = awful.widget.prompt()
 
     s.mylayoutbox =awful.widget.layoutbox(s)
+
+    if s.mywibox then
+      s.mywibox:remove()
+    end
 
     s.mywibox = awful.wibar({
             position = "top",
@@ -269,5 +273,7 @@ local top_panel = function(s)
         }
     end
 end
+
+screen.connect_signal("primary_changed", top_panel)
 
 return top_panel
