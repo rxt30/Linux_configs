@@ -6,7 +6,7 @@ opt.cmdheight = 1
 opt.cul = true
 
 opt.expandtab = true
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 opt.tabstop = 4
 
 opt.hidden = true
