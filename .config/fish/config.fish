@@ -12,9 +12,9 @@ export EDITOR="vim"
 alias please="sudo"
 alias xclip="xclip -sel clip"
 if command -q exa
-    alias lss="exa"
-    alias ls="exa -l"
-    alias l="exa -la"
+    alias lss="exa -la"
+    alias ls="exa -l --icons"
+    alias l="exa"
 end
 
 if command -q nvim
