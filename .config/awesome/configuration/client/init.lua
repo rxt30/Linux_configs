@@ -1,2 +1,2 @@
 require('configuration.client.rules')
-require('configuration.client.titlebar')
+--require('configuration.client.titlebar')

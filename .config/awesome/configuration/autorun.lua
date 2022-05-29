@@ -5,8 +5,7 @@ local autoRunApps = {
 --    "pasystray",
 --    "xfsettingsd",
 --    "xfce4-power-manager",
-      "/usr/lib/disman_backend_launcher & dismanctl -o",
---      "xlayoutdisplay",
+      "xlayoutdisplay",
       "setxkbmap -option caps:escape -layout de",
       "xset -b",
       "xset r rate 200 30",
@@ -17,6 +16,7 @@ local autoRunApps = {
       "nm-applet",
       "pasystray",
       "xscreensaver -no-splash",
+--      "/usr/lib/disman_backend_launcher & dismanctl -o",
 --      "lxqt-config-monitor -l"
 }
 

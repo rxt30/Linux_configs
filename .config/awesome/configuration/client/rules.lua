@@ -22,7 +22,7 @@ awful.rules.rules = {
                 keys = client_keys,
                 buttons = client_buttons,
                 screen = awful.screen.preferred,
-                titlebars_enabled = false
+                titlebars_enabled = true
             }
         },
 
@@ -73,7 +73,7 @@ awful.rules.rules = {
                 class = {'alacritty'}
             },
             properties = {
-                titlebars_enabled = false
+                titlebars_enabled = true
             }
         },
         {
@@ -82,7 +82,7 @@ awful.rules.rules = {
             class = {'chromium','Chromium'}
           },
           properties = {
-            titlebars_enabled = false
+            titlebars_enabled = true
           }
         },
         {

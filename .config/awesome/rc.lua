@@ -3,12 +3,13 @@ local awful = require('awful')
 require('awful.autofocus')
 local naughty = require('naughty')
 local gears = require('gears')
-local bling = require('modules.bling')
 
 awful.util.shell = 'sh'
 awful.util.terminal = 'kitty'
 
 beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/powerarrow-dark/theme.lua")
+local nice = require('nice')
+nice()
 
 require('configuration.autorun')
 require('layout')
