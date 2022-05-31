@@ -57,10 +57,10 @@ return packer.startup(function ()
         end
     }
 
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
-    }
+--    use {
+--        "nvim-treesitter/nvim-treesitter",
+--        run = ":TSUpdate"
+--    }
 
 
     use {
@@ -139,6 +139,13 @@ return packer.startup(function ()
 
     use {
       "ms-jpq/coq.artifacts", branch = "artifacts"
+    }
+
+    use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
     }
 
 end)
