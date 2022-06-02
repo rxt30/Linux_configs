@@ -17,6 +17,10 @@ if command -q exa
     alias l="exa"
 end
 
+if command -q fdfind
+    alias fd="fdfind"
+end
+
 if command -q nvim
     alias vim="nvim"
 end
