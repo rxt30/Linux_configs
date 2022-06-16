@@ -4,7 +4,7 @@ return {
 
         terminal = "kitty",
         
-        web_browser = "chromium",
+        web_browser = "firefox",
 
         file_manger = "thunar",
 

@@ -10,18 +10,18 @@ local tags = {
 	{
 		type = 'internet',
 		default_app = apps.default.web_browser,
-		layout = awful.layout.suit.tile,
+		layout = awful.layout.suit.fair,
 		gap = beautiful.useless_gap
 	},
 	{
 		type = 'terminal',
 		default_app = apps.default.terminal,
-		layout = awful.layout.suit.tile,
+		layout = awful.layout.suit.fair,
 		gap = beautiful.useless_gap
 	},
 	{
 		type = 'code',
-		layout = awful.layout.suit.tile,
+		layout = awful.layout.suit.fair,
 		gap = beautiful.useless_gap
 	},
 	{
@@ -31,17 +31,25 @@ local tags = {
 	},
 	{
 		type = 'sandbox',
-		layout = awful.layout.suit.tile,
+		layout = awful.layout.suit.fair,
 		gap = 0
 	},
 	{
 		type = 'files',
 		gap = beautiful.useless_gap,
-		layout = awful.layout.suit.tile
+		layout = awful.layout.suit.fair
 	},
 	{
 	   type = 'social',
-       layout = awful.layout.suit.tile
+       layout = awful.layout.suit.fair
+	},
+	{
+	   type = '8',
+       layout = awful.layout.suit.fair
+	},
+	{
+	   type = '9',
+       layout = awful.layout.suit.fair
 	}
 }
 
@@ -52,8 +60,9 @@ tag.connect_signal(
 	    awful.layout.append_default_layouts({
 			awful.layout.suit.max,
 			awful.layout.suit.tile,
+            awful.layout.suit.fair,
 			awful.layout.suit.spiral.dwindle,
-			awful.layout.suit.floating
+			awful.layout.suit.floating,
 	    })
 	end
 )

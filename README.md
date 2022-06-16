@@ -19,7 +19,8 @@ The above listed are all styled according to the theme [`catppuccin`](https://gi
   - It's better to install the whole DE, as several daemons are used, and the menus provide quite a nice interface
 - `kitty`
 - `chromium`
-- `xscreensaver`
+- `xsecurelock`
+- `xss-lock`
 - `rofi`
 - `nm-applet`
 - `pasystray`

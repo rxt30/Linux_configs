@@ -50,7 +50,7 @@ awful.rules.rules = {
                 }
             },
             properties = {
-                titlebars_enabled = false
+                titlebars_enabled = true
             }
         },
 
@@ -70,10 +70,10 @@ awful.rules.rules = {
         {
             id = 'terminal',
             rule_any = {
-                class = {'alacritty'}
+                class = {'kitty', 'Kitty'}
             },
             properties = {
-                titlebars_enabled = true
+                titlebars_enabled = false
             }
         },
         {
