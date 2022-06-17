@@ -8,7 +8,7 @@ return {
 
         file_manger = "thunar",
 
-        lock = "xdg-screensaver lock",
+        lock = "xset s activate",
 
         launcher = "rofi -show drun -theme main",
 
