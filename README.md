@@ -24,8 +24,7 @@ The above listed are all styled according to the theme [`catppuccin`](https://gi
 - `rofi`
 - `nm-applet`
 - `pasystray`
-- `disman-kwinft`
-- `kdisplay-kwinft`
+- `xlayoutdisplay`
 
 If any of the above listed daemons/programms should be not used, they can be removed or changed at [`.config/awesome/configuration/apps.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/apps.lua) and [`.config/awesome/configuration/autorun.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/autorun.lua).    
 The system wide key mapping can be found in [`.config/awesome/configuration/keys/global.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/keys/global.lua), the client specific configuration in [`.config/awesome/configuration/client/keys.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/client/keys.lua).
