@@ -111,7 +111,7 @@ return packer.startup(function ()
         config = function ()
           require("plugins.configs.lspconfig")
         end
-      }
+        }
     }
 
     use{
