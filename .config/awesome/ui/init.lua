@@ -1,8 +1,8 @@
 local awful = require('awful')
 local beautiful = require('beautiful')
 local gears = require('gears')
-local top_panel = require('layout.top_bar')
-local tag_creation = require('layout.tags')
+local top_panel = require('ui.top_bar')
+local tag_creation = require('ui.tags')
 
 
 beautiful.wallpaper = gears.filesystem.get_configuration_dir() .. "/theme/wallpapers/bg.jpg"

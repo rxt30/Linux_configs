@@ -7,21 +7,21 @@ local wibox = require('wibox')
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- System-icon
-local awesome_icon = require("layout.items.sys")
+local awesome_icon = require("ui.items.sys")
 -- Date
-local date_pill = require('layout.items.date')
+local date_pill = require('ui.items.date')
  -- Clock
-local time_pill = require('layout.items.time')
+local time_pill = require('ui.items.time')
 -- Musicplayer
---local playerctl_bar = require('layout.items.music')
+--local playerctl_bar = require('ui.items.music')
 -- Battery
-local battery_pill = require('layout.items.battery')
+local battery_pill = require('ui.items.battery')
 -- RAM Usage
-local mem_pill = require('layout.items.mem')
+local mem_pill = require('ui.items.mem')
 -- CPU Usage
-local cpu_pill = require('layout.items.cpu')
+local cpu_pill = require('ui.items.cpu')
 -- Power off menu
-local power_pill = require('layout.items.power')
+local power_pill = require('ui.items.power')
 -- Systray
 
 local mysystray = wibox.widget.systray()
@@ -41,18 +41,6 @@ local mysystray_container = {
 --    self:get_children_by_id('task_text')[1].markup = ""
 --  end
 --end
-
--- Tasklist Buttons
-
-local tasklist_buttons = gears.table.join(
-        awful.button({}, 1, function (c)
-            if c == client.focus then
-                c.minimized = true
-            else 
-                c:emit_signal("request::activate", "tasklist", {raise=true})
-            end
-        end)
-    )
 
 -- Panel bar
 local final_systray = wibox.widget {
@@ -124,48 +112,7 @@ local top_panel = function(s)
 
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.noempty , awful.util.taglist_buttons)
 
-    s.mytasklist = awful.widget.tasklist {
-        screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons,
-        bg = beautiful.wibar_bg,
-        style = {
-            bg = beautiful.xcolor2,
-            shape = helpers.rrect(10),
-        },
-        layout = {
-            spacing = dpi(8),
-            layout = wibox.layout.fixed.horizontal
-        },
-        widget_template = {
-            {
-                {
-                    {
-                        {
-                            id = "icon_role",
-                            widget = wibox.widget.imagebox,
-                        },
-                        margins = 2,
-                        widget = wibox.container.margin
-                    },
-                    helpers.horizontal_pad(6),
-                    {
-                        id = 'text_role',
-                        widget = wibox.widget.textbox,
-                    },
-                    layout = wibox.layout.fixed.horizontal,
-                },
-                left = dpi(10),
-                right = dpi(10),
-                widget = wibox.container.margin
-                },
-                id = 'background_role',
-                widget = wibox.container.background,
-                --update_callback = showFocused,
-                --create_callback = showFocused
-            }
-    }
-
+    s.mytasklist = require("ui.items.tasklist")(s)
 
     if s == screen.primary then
         s.mywibox:setup {

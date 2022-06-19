@@ -12,7 +12,7 @@ local nice = require('nice')
 nice()
 
 require('configuration.autorun')
-require('layout')
+require('ui')
 -- Configurations
 require('configuration.keys')
 require('configuration.client')
