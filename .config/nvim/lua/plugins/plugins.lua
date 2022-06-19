@@ -1,12 +1,6 @@
 local present, packer = pcall(require, "plugins.packerInit")
 vim.cmd([[autocmd BufWritePost init.lua source <afile> | PackerCompile]])
 vim.cmd [[autocmd BufWritePre <buffer> silent! EslintFixAll]]
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.on_server_ready(function(server)
-  local coq = require ("coq")
-  local opts = {}
-  server:setup(coq.lsp_ensure_capabilities(opts))
-end)
 
 if not present then
     return false end
@@ -93,13 +87,6 @@ return packer.startup(function ()
         end
     }
 
-    --[[use {
-        "neoclide/coc.nvim", branch = 'release',
-        config = function ()
-          require 'plugins.configs.coc' 
-        end
-    }]]--
-
     use {
       "michaelb/sniprun",
       run = "bash ./install.sh",
@@ -113,8 +100,18 @@ return packer.startup(function ()
     }
 
     use {
-      "neovim/nvim-lspconfig",
-      "williamboman/nvim-lsp-installer",
+      {
+        "williamboman/nvim-lsp-installer",
+        config = function ()
+          require("nvim-lsp-installer").setup {}
+        end
+      },
+      {
+        "neovim/nvim-lspconfig",
+        config = function ()
+          require("plugins.configs.lspconfig")
+        end
+      }
     }
 
     use{
