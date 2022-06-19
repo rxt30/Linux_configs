@@ -9,25 +9,3 @@ for _, lsp in ipairs(all_servers) do
 end
 
 -- Custom configurations
-lspconfig['sumneko_lua'].setup(coq.lsp_ensure_capabilities {
-  settings = {
-    Lua = {
-      diagnostics = {
-        neededFileStatus = {
-          ["codestyle-check"] = "Any",
-        },
-      },
-      runtime = {
-        version = 'LuaJIT',
-      },
-      format = {
-        enable = true,
-        defaultConfig = {
-          indent_style = "space",
-          indent_size = 2
-        }
-      }
-    }
-  }
-})
--- lspconfig['pylsp'].setup(coq.lsp_ensure_capabilities({}))
