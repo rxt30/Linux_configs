@@ -1,3 +1,3 @@
 return {
-    global = require('configuration.keys.global')
+  global = require("configuration.keys.global"),
 }

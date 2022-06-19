@@ -1,17 +1,17 @@
 return {
-    
-    default = {
 
-        terminal = "kitty",
-        
-        web_browser = "firefox",
+  default = {
 
-        file_manger = "thunar",
+    terminal = "kitty",
 
-        lock = "xset s activate",
+    web_browser = "firefox",
 
-        launcher = "rofi -show drun -theme main",
+    file_manger = "thunar",
 
-        settings = "xfce4-settings-manager"
-    }
+    lock = "xset s activate",
+
+    launcher = "rofi -show drun -theme main",
+
+    settings = "xfce4-settings-manager",
+  },
 }
