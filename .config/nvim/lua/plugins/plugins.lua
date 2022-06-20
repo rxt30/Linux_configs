@@ -1,156 +1,159 @@
 local present, packer = pcall(require, "plugins.packerInit")
 vim.cmd([[autocmd BufWritePost init.lua source <afile> | PackerCompile]])
-vim.cmd [[autocmd BufWritePre <buffer> silent! EslintFixAll]]
+vim.cmd([[autocmd BufWritePre <buffer> silent! EslintFixAll]])
 
 if not present then
-    return false end
+  return false
+end
 
 local use = packer.use
 
-return packer.startup(function ()
-    use {
-        "nvim-lua/plenary.nvim"
-    }
+return packer.startup(function()
+  use({
+    "nvim-lua/plenary.nvim",
+  })
 
-    use {
-       "wbthomason/packer.nvim",
-       event = "VimEnter"
-    }
+  use({
+    "wbthomason/packer.nvim",
+    event = "VimEnter",
+  })
 
-    use {
-        "kyazdani42/nvim-web-devicons"
-    }
+  use({
+    "kyazdani42/nvim-web-devicons",
+  })
 
-    use {
-        "hoob3rt/lualine.nvim",
-        --after = "onedark.nvim",
-        config = function ()
-            require 'lualine'.setup {
-                options = {
-                    theme = 'catppuccin'
-                }
-            }
-        end
-    }
+  use({
+    "hoob3rt/lualine.nvim",
+    --after = "onedark.nvim",
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "catppuccin",
+        },
+      })
+    end,
+  })
 
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = function ()
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("indent_blankline").setup({
+        char = "|",
+        show_current_context = true,
+      })
+    end,
+  })
 
-          require("indent_blankline").setup {
-            char = "|",
-            show_current_context = true,
-          }
-        end
-    }
+  use({
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  })
 
-    use {
-        "norcalli/nvim-colorizer.lua",
-        config = function ()
-            require("colorizer").setup()
-        end
-    }
+  --    use {
+  --        "nvim-treesitter/nvim-treesitter",
+  --        run = ":TSUpdate"
+  --    }
 
---    use {
---        "nvim-treesitter/nvim-treesitter",
---        run = ":TSUpdate"
---    }
+  use({
+    "kyazdani42/nvim-tree.lua",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("nvim-tree").setup({})
+    end,
+    cmd = { "NvimTreeToggle" },
+  })
 
+  use({
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+      --require('onedark').setup()
+      vim.cmd([[colorscheme catppuccin]])
+      --vim.cmd[[let g:everforest_diagnostic_text_highlight = 1]]
+      --vim.cmd[[let g:everforest_diagnostic_line_highlight = 1]]
+    end,
+  })
 
-    use {
-        "kyazdani42/nvim-tree.lua",
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require'nvim-tree'.setup{} end,
-        cmd = { "NvimTreeToggle" }
-    }
+  use({
+    "Raimondi/delimitMate",
+  })
 
-    use {
-        "catppuccin/nvim",
-        as  = "catppuccin",
-        config = function ()
-            --require('onedark').setup()
-            vim.cmd[[colorscheme catppuccin]]
-            --vim.cmd[[let g:everforest_diagnostic_text_highlight = 1]]
-            --vim.cmd[[let g:everforest_diagnostic_line_highlight = 1]]
-        end
-    }
+  use({
+    "rcarriga/nvim-notify",
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
+  })
 
-    use {
-        "Raimondi/delimitMate"
-    }
+  use({
+    "michaelb/sniprun",
+    run = "bash ./install.sh",
+    config = function()
+      require("sniprun").setup({
+        display = {
+          "Terminal",
+        },
+      })
+    end,
+  })
 
-    use {
-        "rcarriga/nvim-notify",
-        "windwp/nvim-autopairs",
-        config = function ()
-          require 'nvim-autopairs'.setup()
-        end
-    }
+  use({
+    {
+      "williamboman/nvim-lsp-installer",
+      config = function()
+        require("nvim-lsp-installer").setup({})
+      end,
+    },
+    {
+      "neovim/nvim-lspconfig",
+      config = function()
+        require("plugins.configs.lspconfig")
+      end,
+    },
+  })
 
-    use {
-      "michaelb/sniprun",
-      run = "bash ./install.sh",
-      config = function ()
-        require'sniprun'.setup({
-          display = {
-            "Terminal"
-          }
-        })
-      end
-    }
-
-    use {
-      {
-        "williamboman/nvim-lsp-installer",
-        config = function ()
-          require("nvim-lsp-installer").setup {}
-        end
-      },
-      {
-        "neovim/nvim-lspconfig",
-        config = function ()
-          require("plugins.configs.lspconfig")
-        end
-        }
-    }
-
-    use{
-      "ms-jpq/coq_nvim", branch = "coq",
-      require = "neovim/nvim-lspconfig",
-      require = "windwp/nvim-autopairs",
-      config = function ()
-        vim.g.coq_settings = {
-          auto_start = true,
-          keymap = {
-            recommended = false
-          }
-          --[[clients = {
+  use({
+    "ms-jpq/coq_nvim",
+    branch = "coq",
+    require = "neovim/nvim-lspconfig",
+    require = "windwp/nvim-autopairs",
+    config = function()
+      vim.g.coq_settings = {
+        auto_start = true,
+        keymap = {
+          recommended = false,
+        },
+        --[[clients = {
             tabnine = {
               enabled = true
             }
-          }]]--
-        }
-        require("coq")
-        require 'plugins.configs.coq'
-      end
-    }
+          }]]
+        --
+      }
+      require("coq")
+      require("plugins.configs.coq")
+    end,
+  })
 
-    use {
-      "ms-jpq/coq.artifacts", branch = "artifacts"
-    }
+  use({
+    "ms-jpq/coq.artifacts",
+    branch = "artifacts",
+  })
 
-    use {
-      'numToStr/Comment.nvim',
-      config = function()
-          require('Comment').setup()
-      end
-    }
+  use({
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  })
 
-    use {
-      "mhartington/formatter.nvim",
-      config = function()
-        require("plugins.configs.formatter")
-      end
-    }
-
+  use({
+    "mhartington/formatter.nvim",
+    config = function()
+      require("plugins.configs.formatter")
+    end,
+  })
 end)

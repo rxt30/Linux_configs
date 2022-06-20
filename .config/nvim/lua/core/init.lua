@@ -1,11 +1,11 @@
 local init_modules = {
-    "core.mappings",
-    "core.options"
+  "core.mappings",
+  "core.options",
 }
 
 for _, module in ipairs(init_modules) do
-    local ok, err = pcall(require, module)
-    if not ok then
-        error("Error loading " .. module .. "\n\n" .. err)
-    end
+  local ok, err = pcall(require, module)
+  if not ok then
+    error("Error loading " .. module .. "\n\n" .. err)
+  end
 end
