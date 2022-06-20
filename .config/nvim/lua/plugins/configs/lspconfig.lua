@@ -9,3 +9,11 @@ for _, lsp in ipairs(all_servers) do
 end
 
 -- Custom configurations
+lspconfig.ltex.setup(coq.lsp_ensure_capabilities({
+  on_attach = on_attach,
+  settings = {
+    ltex = {
+      language = 'de'
+    }
+  }
+}))

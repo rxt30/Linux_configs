@@ -130,6 +130,7 @@ return packer.startup(function ()
             }
           }]]--
         }
+        require("coq")
         require 'plugins.configs.coq'
       end
     }
