@@ -146,4 +146,11 @@ return packer.startup(function ()
       end
     }
 
+    use {
+      "mhartington/formatter.nvim",
+      config = function()
+        require("plugins.configs.formatter")
+      end
+    }
+
 end)
