@@ -10,4 +10,8 @@ formatter.setup {
 
 vim.cmd [[
   nnoremap <silent> F :FormatWrite<CR>
+  augroup FormatAutogroup
+    autocmd!
+    autocmd BufWritePost * silent! FormatWrite
+  augroup END
 ]]
