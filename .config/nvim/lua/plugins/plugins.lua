@@ -125,6 +125,7 @@ return packer.startup(function()
         auto_start = true,
         keymap = {
           recommended = false,
+          jump_to_mark = "<C-f>",
         },
         --[[clients = {
             tabnine = {

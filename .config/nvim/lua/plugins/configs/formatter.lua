@@ -33,6 +33,6 @@ vim.cmd([[
   nnoremap <silent> F :FormatWrite<CR>
   augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePost * silent! FormatWrite
+    autocmd BufWritePost silent! * FormatWrite
   augroup END
 ]])
