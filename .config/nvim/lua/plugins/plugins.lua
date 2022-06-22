@@ -109,9 +109,9 @@ return packer.startup(function()
     },
     {
       "neovim/nvim-lspconfig",
-      config = function()
-        require("plugins.configs.lspconfig")
-      end,
+      -- config = function()
+      --   require("plugins.configs.lspconfig")
+      -- end,
     },
   })
 
@@ -135,6 +135,7 @@ return packer.startup(function()
       }
       require("coq")
       require("plugins.configs.coq")
+      require("plugins.configs.lspconfig")
     end,
   })
 
