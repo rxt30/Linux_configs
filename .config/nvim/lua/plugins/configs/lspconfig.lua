@@ -13,7 +13,7 @@ lspconfig.ltex.setup(coq.lsp_ensure_capabilities({
   on_attach = on_attach,
   settings = {
     ltex = {
-      completionEnabled = true,
+      checkFrequency = "save",
       language = "de",
     },
   },

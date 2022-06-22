@@ -1,4 +1,4 @@
-local formatter = require('formatter')
+local formatter = require("formatter")
 local util = require("formatter.util")
 
 formatter.setup({
@@ -11,16 +11,21 @@ formatter.setup({
         return {
           exe = "stylua",
           args = {
-            "--indent-type Spaces",
-            "--indent-width 2",
-            "--quote-style ForceDouble",
+            "--indent-type",
+            "Spaces",
+            "--indent-width",
+            "2",
+            "--quote-style",
+            "ForceDouble",
             "--stdin-filepath",
-            util.escape_path(util.get_current_buffer_file_path())
+            util.escape_path(util.get_current_buffer_file_path()),
+            "--",
+            "-",
           },
-          stdin = true
+          stdin = true,
         }
-      end
-    }
+      end,
+    },
   },
 })
 
