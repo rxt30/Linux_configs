@@ -101,18 +101,14 @@ return packer.startup(function()
   })
 
   use({
-    {
-      "williamboman/nvim-lsp-installer",
-      config = function()
-        require("nvim-lsp-installer").setup({})
-      end,
-    },
-    {
-      "neovim/nvim-lspconfig",
-      -- config = function()
-      --   require("plugins.configs.lspconfig")
-      -- end,
-    },
+    "williamboman/nvim-lsp-installer",
+    config = function()
+      require("nvim-lsp-installer").setup({})
+    end,
+  })
+
+  use({
+    "neovim/nvim-lspconfig",
   })
 
   use({
