@@ -18,3 +18,6 @@ lspconfig.ltex.setup(coq.lsp_ensure_capabilities({
     },
   },
 }))
+vim.cmd([[
+  autocmd BufNewFile,BufRead *.tex :set filetype=tex
+]])
