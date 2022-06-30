@@ -15,6 +15,13 @@ lspconfig.ltex.setup(coq.lsp_ensure_capabilities({
     ltex = {
       checkFrequency = "save",
       language = "de-DE",
+      dictionary = {
+        ["de-DE"] = {
+          "Zertifizierungsinstanz",
+          "CA",
+          "CAs",
+        },
+      },
     },
   },
 }))
