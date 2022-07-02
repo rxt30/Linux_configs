@@ -51,10 +51,10 @@ return packer.startup(function()
     end,
   })
 
-  --    use {
-  --        "nvim-treesitter/nvim-treesitter",
-  --        run = ":TSUpdate"
-  --    }
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  })
 
   use({
     "kyazdani42/nvim-tree.lua",
