@@ -24,8 +24,8 @@ local mappings = function()
   map("n", "<C-k>", "<C-w>k")
   map("n", "<C-j>", "<C-w>j")
 
-  map("n", "<C-n>", ":NvimTreeToggle <CR>")
-  map("n", "<C-n>", ":NvimTreeToggle <CR>")
+  map("n", "<C-n>", ":Telescope find_files <CR>")
+  map("n", "<C-g>", ":Telescope live_grep <CR>")
   map("n", "<F5>", ":let b:caret = winsaveview() <CR>:%SnipRun <CR>:call winrestview(b:caret) <CR>")
 end
 

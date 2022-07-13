@@ -63,14 +63,14 @@ return packer.startup(function()
     end,
   })
 
-  use({
-    "kyazdani42/nvim-tree.lua",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("nvim-tree").setup({})
-    end,
-    cmd = { "NvimTreeToggle" },
-  })
+  -- use({
+  --   "kyazdani42/nvim-tree.lua",
+  --   requires = "kyazdani42/nvim-web-devicons",
+  --   config = function()
+  --     require("nvim-tree").setup({})
+  --   end,
+  --   cmd = { "NvimTreeToggle" },
+  -- })
 
   use({
     "catppuccin/nvim",
@@ -160,5 +160,11 @@ return packer.startup(function()
     config = function()
       require("plugins.configs.formatter")
     end,
+  })
+
+  use({
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    requires = "nvim-lua/plenary.nvim",
   })
 end)
