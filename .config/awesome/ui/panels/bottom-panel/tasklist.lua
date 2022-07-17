@@ -32,12 +32,10 @@ return function(s)
           {
             {
               id = "icon_role",
-              forced_height = 16,
-              forced_width = 16,
               resize = true,
               widget = wibox.widget.imagebox,
             },
-            margins = 6,
+            margins = 2,
             widget = wibox.container.margin,
           },
           layout = wibox.layout.fixed.horizontal,
@@ -49,6 +47,14 @@ return function(s)
       id = "background_role",
       widget = wibox.container.background,
     },
+    top = dpi(5),
+    bottom = dpi(5),
+    widget = wibox.container.margin,
   })
-  return tasklist
+
+  return wibox.widget({
+    tasklist,
+    margins = dpi(5),
+    widget = wibox.container.margin,
+  })
 end
