@@ -90,9 +90,9 @@ theme.fg_urgent = theme.xcolor1
 theme.fg_minimize = theme.xcolor0
 
 -- Tasklist colors
-theme.tasklist_bg_focus = "#A6DA95"
-theme.tasklist_bg_normal = "#8AADF4"
-theme.tasklist_bg_minimize = "#EE99A0"
+theme.tasklist_bg_focus = "#A6D189"
+theme.tasklist_bg_normal = "#8CAAEE"
+theme.tasklist_bg_minimize = "#EE999C"
 --- Accent colors
 function theme.random_accent_color()
   local accents = {
@@ -162,10 +162,10 @@ theme.layout_machi = icons.machi
 theme.icon_theme = "WhiteSur-dark"
 
 --- Borders
-theme.border_width = 0
-theme.oof_border_width = 0
+theme.border_width = dpi(1.5)
+theme.oof_border_width = dpi(1.5)
 theme.border_color_marked = theme.titlebar_bg
-theme.border_color_active = theme.titlebar_bg
+theme.border_color_active = "#A6D189"
 theme.border_color_normal = theme.titlebar_bg
 theme.border_color_new = theme.titlebar_bg
 theme.border_color_urgent = theme.titlebar_bg
