@@ -18,6 +18,7 @@ return function(s)
   s.clock = require("ui.panels.bottom-panel.clock")(s)
   s.battery = require("ui.panels.bottom-panel.battery")()
   s.network = require("ui.panels.bottom-panel.network")()
+  s.tasklist = require("ui.panels.bottom-panel.tasklist")(s)
 
   --- Animated tag list
   --- ~~~~~~~~~~~~~~~~~
@@ -257,7 +258,7 @@ return function(s)
         {
           layout = wibox.layout.align.horizontal,
           expand = "none",
-          s.clock,
+          s.tasklist,
           tag_list(s),
           {
             system_tray(),
