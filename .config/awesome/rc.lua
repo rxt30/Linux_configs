@@ -1,52 +1,50 @@
-local beautiful = require("beautiful")
-local awful = require("awful")
-require("awful.autofocus")
-local naughty = require("naughty")
+--- ░█▀▄░█░█░█░█░█░█░█▀█░▀░█▀▀░░░█▀█░█░█░█▀▀░█▀▀░█▀█░█▄█░█▀▀
+--- ░█▀▄░▄▀▄░░█░░█▀█░█░█░░░▀▀█░░░█▀█░█▄█░█▀▀░▀▀█░█░█░█░█░█▀▀
+--- ░▀░▀░▀░▀░░▀░░▀░▀░▀░▀░░░▀▀▀░░░▀░▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀
+--- ~~~~~~~~~~~~~~~~~~  @author rxyhn ~~~~~~~~~~~~~~~~~~~~~~
+--- ~~~~~~~~~~~~ https://github.com/rxyhn ~~~~~~~~~~~~~~~~~~
+
+pcall(require, "luarocks.loader")
 local gears = require("gears")
+local beautiful = require("beautiful")
 
-awful.util.shell = "sh"
-awful.util.terminal = "kitty"
+--- ░▀█▀░█░█░█▀▀░█▄█░█▀▀
+--- ░░█░░█▀█░█▀▀░█░█░█▀▀
+--- ░░▀░░▀░▀░▀▀▀░▀░▀░▀▀▀
 
-beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/powerarrow-dark/theme.lua")
-local nice = require("nice")
-nice()
+local theme_dir = gears.filesystem.get_configuration_dir() .. "theme/"
+beautiful.init(theme_dir .. "theme.lua")
 
-require("configuration.autorun")
+--- ░█▀▀░█▀█░█▀█░█▀▀░▀█▀░█▀▀░█░█░█▀▄░█▀█░▀█▀░▀█▀░█▀█░█▀█░█▀▀
+--- ░█░░░█░█░█░█░█▀▀░░█░░█░█░█░█░█▀▄░█▀█░░█░░░█░░█░█░█░█░▀▀█
+--- ░▀▀▀░▀▀▀░▀░▀░▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀
+
+require("configuration")
+
+--- ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
+--- ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
+--- ░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+
+require("modules")
+
+--- ░█░█░▀█▀
+--- ░█░█░░█░
+--- ░▀▀▀░▀▀▀
+
 require("ui")
--- Configurations
-require("configuration.keys")
-require("configuration.client")
-require("modules.exit-screen")
 
--- Start picom for transparent terminal windows
---awful.spawn.easy_async_with_shell('picom -b --experimental-backends --dbus')
---bling.signal.playerctl.enable{
---    backend = "playerctl_lib",
---    ignore = "firefox"
---}
+--- ░█▀▀░█▀█░█▀▄░█▀▄░█▀█░█▀▀░█▀▀
+--- ░█░█░█▀█░█▀▄░█▀▄░█▀█░█░█░█▀▀
+--- ░▀▀▀░▀░▀░▀░▀░▀▀░░▀░▀░▀▀▀░▀▀▀
 
-if awesome.startup_errors then
-  naughty.notify({
-    preset = naughty.config.presets.critical,
-    title = "Error",
-    text = awesome.startup_errors,
-  })
-end
-
-do
-  local in_error = false
-  awesome.connect_signal("debug::error", function(err)
-    if in_error then
-      return
-    end
-    in_error = true
-
-    naughty.notify({
-      preset = naughty.config.presets.critical,
-      title = "Error",
-      text = tostring(err),
-    })
-
-    in_error = false
-  end)
-end
+--- Enable for lower memory consumption
+collectgarbage("setpause", 110)
+collectgarbage("setstepmul", 1000)
+gears.timer({
+	timeout = 5,
+	autostart = true,
+	call_now = true,
+	callback = function()
+		collectgarbage("collect")
+	end,
+})
