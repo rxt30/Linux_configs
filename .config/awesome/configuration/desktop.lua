@@ -35,11 +35,6 @@ awesome.connect_signal("widgets::splash::visibility", function(vis)
   end
 end)
 
---- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-  c:emit_signal("request::activate", "mouse_enter", { raise = false })
-end)
-
 --- Wallpapers
 --- ~~~~~~~~~-
 awful.screen.connect_for_each_screen(function(s)
