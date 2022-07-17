@@ -17,6 +17,7 @@ local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dark"
 theme.wallpaper_self = theme.dir .. "/wall.jpg"
 theme.font = "Roboto 9"
+theme.font_name = theme.font
 theme.fg_normal = "#D9E0EE"
 theme.fg_focus = "#EA6F81"
 theme.fg_urgent = "#CC9393"
