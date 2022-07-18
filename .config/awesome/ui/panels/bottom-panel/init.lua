@@ -19,6 +19,8 @@ return function(s)
   s.battery = require("ui.panels.bottom-panel.battery")()
   s.network = require("ui.panels.bottom-panel.network")()
   s.tasklist = require("ui.panels.bottom-panel.tasklist")(s)
+  s.sys_icon = require("ui.panels.bottom-panel.sys")()
+  s.power = require("ui.panels.bottom-panel.power")()
 
   --- Animated tag list
   --- ~~~~~~~~~~~~~~~~~
@@ -258,7 +260,12 @@ return function(s)
         {
           layout = wibox.layout.align.horizontal,
           expand = "none",
-          s.tasklist,
+          {
+            s.sys_icon,
+            s.tasklist,
+            layout = wibox.layout.fixed.horizontal,
+          },
+          -- s.tasklist,
           tag_list(s),
           {
             system_tray(),
@@ -267,6 +274,7 @@ return function(s)
             notif_panel(),
             layoutbox(),
             s.clock,
+            s.power,
             layout = wibox.layout.fixed.horizontal,
           },
         },
