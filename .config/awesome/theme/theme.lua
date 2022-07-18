@@ -162,8 +162,8 @@ theme.layout_machi = icons.machi
 theme.icon_theme = "WhiteSur-dark"
 
 --- Borders
-theme.border_width = dpi(1.5)
-theme.oof_border_width = dpi(1.5)
+theme.border_width = dpi(1)
+theme.oof_border_width = dpi(1)
 theme.border_color_marked = theme.titlebar_bg
 theme.border_color_active = "#A6D189"
 theme.border_color_normal = theme.titlebar_bg
