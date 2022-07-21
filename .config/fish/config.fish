@@ -29,7 +29,7 @@ if [ (echo $TERM) = "xterm-kitty" ]
     alias ssh="kitty +kitten ssh"
 end
 
-if test -z (pgrep ssh-agent)
+if test -z (pgrep ssh-agent -o)
   eval (ssh-agent -c)
   set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
   set -Ux SSH_AGENT_PID $SSH_AGENT_PID
