@@ -77,6 +77,8 @@ return packer.startup(function()
     as = "catppuccin",
     config = function()
       --require('onedark').setup()
+      vim.g.catppuccin_flavour = "mocha"
+      require("catppuccin").setup()
       vim.cmd([[colorscheme catppuccin]])
       --vim.cmd[[let g:everforest_diagnostic_text_highlight = 1]]
       --vim.cmd[[let g:everforest_diagnostic_line_highlight = 1]]
