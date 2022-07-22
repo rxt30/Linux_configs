@@ -1,11 +1,12 @@
 local cmd = vim.cmd
 
 local map = function(mode, keys, cmd, opt)
-  local options = { noremap = true, silent = true }
+  options = { noremap = true, silent = true }
   if opt then
     options = vim.tbl_extend("force", options, opt)
   end
-  vim.api.nvim_set_keymap(mode, keys, cmd, options)
+  -- vim.api.nvim_set_keymap(mode, keys, cmd, options)
+  vim.keymap.set(mode, keys, cmd, options)
 end
 
 local mappings = function()
@@ -28,6 +29,7 @@ local mappings = function()
   map("n", "<C-g>", ":Telescope live_grep <CR>")
   map("n", "<F5>", ":let b:caret = winsaveview() <CR>:%SnipRun <CR>:call winrestview(b:caret) <CR>")
   map("n", "m", ":lua vim.diagnostic.open_float() <CR>")
+  map("n", "gd", vim.lsp.buf.definition)
 end
 
 mappings()
