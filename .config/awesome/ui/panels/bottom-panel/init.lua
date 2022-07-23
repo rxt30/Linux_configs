@@ -181,7 +181,7 @@ return function(s)
 
   --- Layoutbox
   --- ~~~~~~~~~
-  local function layoutbox()
+  local function layoutbox(s)
     local layoutbox_buttons = gears.table.join(
       --- Left click
       awful.button({}, 1, function(c)
@@ -202,7 +202,7 @@ return function(s)
       end)
     )
 
-    s.mylayoutbox = awful.widget.layoutbox()
+    s.mylayoutbox = awful.widget.layoutbox(s)
     s.mylayoutbox:buttons(layoutbox_buttons)
 
     local widget = wbutton.elevated.state({
@@ -242,7 +242,7 @@ return function(s)
             s.battery,
             s.network,
             notif_panel(),
-            layoutbox(),
+            layoutbox(s),
             s.clock,
             s.power,
             layout = wibox.layout.fixed.horizontal,
