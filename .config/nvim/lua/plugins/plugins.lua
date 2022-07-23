@@ -169,4 +169,14 @@ return packer.startup(function()
     branch = "0.1.x",
     requires = "nvim-lua/plenary.nvim",
   })
+
+  use({
+    "Maan2003/lsp_lines.nvim",
+    config = function()
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+      require("lsp_lines").register_lsp_virtual_lines()
+    end
+  })
 end)
