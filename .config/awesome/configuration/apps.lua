@@ -1,12 +1,13 @@
 local filesystem = require("gears.filesystem")
 local config_dir = filesystem.get_configuration_dir()
 local utils_dir = config_dir .. "utilities/"
+local terminal = "kitty"
 
 return {
   --- Default Applications
   default = {
     --- Default terminal emulator
-    terminal = "kitty",
+    terminal = terminal,
     --- Default music client
     music_player = "wezterm start --class music ncmpcpp",
     --- Default text editor
@@ -18,7 +19,7 @@ return {
     --- Default file manager
     file_manager = "nautilus",
     --- Default network manager
-    network_manager = "wezterm start nmtui",
+    network_manager = terminal .. " nmtui",
     --- Default bluetooth manager
     bluetooth_manager = "blueman-manager",
     --- Default power manager
