@@ -144,7 +144,7 @@ awful.keyboard.append_global_keybindings({
 
   --- Lockscreen
   awful.key({ alt }, "l", function()
-    lock_screen_show()
+    awful.spawn(apps.default.lock, false)
   end, { description = "lock screen", group = "hotkeys" }),
 
   --- Exit screen
