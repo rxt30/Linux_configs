@@ -28,7 +28,8 @@ local mappings = function()
   map("n", "<C-n>", ":Telescope find_files <CR>")
   map("n", "<C-g>", ":Telescope live_grep <CR>")
   map("n", "<F5>", ":let b:caret = winsaveview() <CR>:%SnipRun <CR>:call winrestview(b:caret) <CR>")
-  map("n", "m", ":lua vim.diagnostic.open_float() <CR>")
+  map("n", "m", require("lsp_lines").toggle)
+  map("n", "f", ":lua vim.diagnostic.open_float() <CR>")
   map("n", "gd", vim.lsp.buf.definition)
 end
 
