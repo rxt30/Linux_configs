@@ -176,7 +176,7 @@ return packer.startup(function()
       vim.diagnostic.config({
         virtual_text = false,
       })
-      require("lsp_lines").register_lsp_virtual_lines()
+      require("lsp_lines").setup()
     end
   })
 end)
