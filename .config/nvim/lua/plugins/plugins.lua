@@ -170,13 +170,13 @@ return packer.startup(function()
     requires = "nvim-lua/plenary.nvim",
   })
 
-  use({
-    "Maan2003/lsp_lines.nvim",
-    config = function()
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
-      require("lsp_lines").setup()
-    end
-  })
+  -- use({
+  --   "Maan2003/lsp_lines.nvim",
+  --   config = function()
+  --     vim.diagnostic.config({
+  --       virtual_text = false,
+  --     })
+  --     require("lsp_lines").setup()
+  --   end
+  -- })
 end)
