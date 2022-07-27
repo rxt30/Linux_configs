@@ -31,6 +31,7 @@ local mappings = function()
   map("n", "f", ":FormatWrite<CR>")
   map("n", "m", ":lua vim.diagnostic.open_float() <CR>")
   map("n", "gd", vim.lsp.buf.definition)
+  map("n", "t", "<cmd>TroubleToggle<CR>")
 end
 
 mappings()
