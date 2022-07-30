@@ -165,13 +165,6 @@ return packer.startup(function()
   })
 
   use({
-    "mhartington/formatter.nvim",
-    config = function()
-      require("plugins.configs.formatter")
-    end,
-  })
-
-  use({
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     requires = "nvim-lua/plenary.nvim",
@@ -192,6 +185,13 @@ return packer.startup(function()
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup({})
+    end,
+  })
+
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("plugins.configs.null")
     end,
   })
 end)
