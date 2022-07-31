@@ -55,7 +55,7 @@ local volume_slider = slider.volume_slider
 
 volume_slider:connect_signal("property::value", function()
   local volume_level = volume_slider:get_value()
-  awful.spawn("pamixer --set-volume " .. volume_level, false)
+  awful.spawn("pamixer -u --set-volume " .. volume_level, false)
 
   -- Update textbox widget text
   osd_value.text = volume_level .. "%"

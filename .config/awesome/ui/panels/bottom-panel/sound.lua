@@ -48,7 +48,7 @@ local widget = wbutton.elevated.state({
   end,
   on_secondary_release = function()
     awful.spawn.easy_async("pamixer -t --get-mute", function(stdout, _)
-      if string.lower(stdout) == "true" then
+      if stdout:gsub("%s+", "") == "true" then
         sound.icon:set_text("ﱝ")
       else
         awesome.emit_signal("widget::volume")
