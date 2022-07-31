@@ -21,6 +21,7 @@ return function(s)
   s.tasklist = require("ui.panels.bottom-panel.tasklist")(s)
   s.sys_icon = require("ui.panels.bottom-panel.sys")()
   s.power = require("ui.panels.bottom-panel.power")()
+  s.sound = require("ui.panels.bottom-panel.sound")
 
   --- Animated tag list
   --- ~~~~~~~~~~~~~~~~~
@@ -183,7 +184,7 @@ return function(s)
   --- ~~~~~~~~~
   local function layoutbox(s)
     local layoutbox_buttons = gears.table.join(
-      --- Left click
+    --- Left click
       awful.button({}, 1, function(c)
         awful.layout.inc(1)
       end),
@@ -241,6 +242,7 @@ return function(s)
             system_tray(),
             s.battery,
             s.network,
+            s.sound,
             notif_panel(),
             layoutbox(s),
             s.clock,

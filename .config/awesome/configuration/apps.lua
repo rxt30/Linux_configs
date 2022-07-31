@@ -24,6 +24,8 @@ return {
     bluetooth_manager = "blueman-manager",
     --- Default power manager
     power_manager = "xfce4-power-manager",
+    --- Default audio manager
+    audio_manager = "pavucontrol",
     --- Default rofi global menu
     app_launcher = "rofi -no-lazy-grab -show drun -modi drun -theme " .. config_dir .. "configuration/rofi.rasi",
     --- Default lock screen application
