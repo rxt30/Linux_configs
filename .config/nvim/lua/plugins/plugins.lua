@@ -168,6 +168,15 @@ return packer.startup(function()
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("telescope").setup({
+        pickers = {
+          find_files = {
+            theme = "dropdown",
+          },
+        },
+      })
+    end,
   })
 
   -- use({
