@@ -10,12 +10,12 @@ local map = function(mode, keys, cmd, opt)
 end
 
 local lsp_formatting = function(bufnr)
-	vim.lsp.buf.format({
-		filter = function(client)
-			return client.name == "null-ls"
-		end,
-		bufnr = bufnr
-	})
+  vim.lsp.buf.format({
+    filter = function(client)
+      return client.name == "null-ls"
+    end,
+    bufnr = bufnr,
+  })
 end
 
 local mappings = function()
@@ -36,6 +36,7 @@ local mappings = function()
 
   map("n", "<C-n>", ":Telescope find_files <CR>")
   map("n", "<C-g>", ":Telescope live_grep <CR>")
+  map("n", "<C-p>", ":Telescope projects <CR>")
   map("n", "<F5>", ":let b:caret = winsaveview() <CR>:%SnipRun <CR>:call winrestview(b:caret) <CR>")
   map("n", "f", lsp_formatting)
   map("n", "m", ":lua vim.diagnostic.open_float() <CR>")

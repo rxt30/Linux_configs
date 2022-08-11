@@ -203,4 +203,13 @@ return packer.startup(function()
       require("plugins.configs.null")
     end,
   })
+
+  use({
+    "ahmedkhalf/project.nvim",
+    requires = "nvim-telescope/telescope.nvim",
+    config = function()
+      require("project_nvim").setup({})
+      require("telescope").load_extension("projects")
+    end,
+  })
 end)
