@@ -29,6 +29,14 @@ The above listed are all styled according to the theme [`catppuccin`](https://gi
 If any of the above listed daemons/programms should be not used, they can be removed or changed at [`.config/awesome/configuration/apps.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/apps.lua) and [`.config/awesome/configuration/autorun.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/autorun.lua).    
 The system wide key mapping can be found in [`.config/awesome/configuration/keys/global.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/keys/global.lua), the client specific configuration in [`.config/awesome/configuration/client/keys.lua`](https://github.com/rxt30/Linux_configs/blob/master/.config/awesome/configuration/client/keys.lua).
 
+The following packages should also be installed
+```
+paru -Sy picom-igt wezterm rofi acpi acpid acpi_call upower lxappearance-gtk3 \
+jq inotify-tools polkit-gnome xdotool xclip gpick ffmpeg blueman redshift \
+pipewire pipewire-alsa pipewire-pulse pamixer brightnessctl feh maim \
+mpv mpd mpc mpdris2 python-mutagen ncmpcpp playerctl --needed
+```
+
 ## neovim
 ### Dependencies
 - [`packer.nvim`](https://github.com/wbthomason/packer.nvim)
