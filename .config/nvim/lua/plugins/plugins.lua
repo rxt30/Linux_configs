@@ -170,9 +170,13 @@ return packer.startup(function()
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("telescope").setup({
+        defaults = {
+          initial_mode = "normal",
+        },
         pickers = {
           find_files = {
             theme = "dropdown",
+            initial_mode = "insert",
           },
         },
       })
@@ -208,7 +212,9 @@ return packer.startup(function()
     "ahmedkhalf/project.nvim",
     requires = "nvim-telescope/telescope.nvim",
     config = function()
-      require("project_nvim").setup({})
+      require("project_nvim").setup({
+        manual_mode = true,
+      })
       require("telescope").load_extension("projects")
     end,
   })
