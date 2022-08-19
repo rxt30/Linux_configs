@@ -178,6 +178,10 @@ return packer.startup(function()
             -- theme = "dropdown",
             initial_mode = "insert",
           },
+          live_grep = {
+            -- theme = "dropdown",
+            initial_mode = "insert",
+          },
         },
       })
     end,
