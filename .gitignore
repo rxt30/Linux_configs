@@ -54,3 +54,5 @@
 !.config/rofi/**/*
 !.config/foot
 !.config/foot/**/*
+!.config/wezterm
+!.config/wezterm/**/*

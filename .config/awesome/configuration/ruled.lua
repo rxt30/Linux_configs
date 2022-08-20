@@ -40,6 +40,8 @@ ruled.client.connect_signal("request::rules", function()
       class = {
         "kitty",
         "Kitty",
+        "wezterm",
+        "Wezterm",
         "Peek",
       },
     },
