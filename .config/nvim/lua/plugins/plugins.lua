@@ -60,9 +60,6 @@ return packer.startup(function()
         highlight = {
           enable = true,
         },
-        indent = {
-          enable = true,
-        },
       })
     end,
   })
