@@ -1,11 +1,12 @@
 local set = vim.opt
 local npairs = require("nvim-autopairs")
+npairs.setup({map_cr = false})
 
 _G.MUtils = {}
 
 MUtils.completion_confirm = function()
-  if vim.fn.pumvisible() ~= 0 then
-    return vim.fn["coc#_select_confirm"]()
+  if vim.fn["coc#pum#visible"]() ~= 0 then
+    return vim.fn["coc#pum#confirm"]()
   else
     return npairs.autopairs_cr()
   end
@@ -22,6 +23,7 @@ set.shortmess = "c"
 
 set.signcolumn = "number"
 
-vim.cmd([[inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"]])
-vim.cmd([[inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
-vim.api.nvim_set_keymap("i", "<CR>", "v:lua.MUtils.completion_confirm()", { expr = true, noremap = true })
+vim.cmd([[inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"]])
+vim.cmd([[inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"]])
+vim.cmd([[inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"]])
+vim.api.nvim_set_keymap('i', '<CR>', 'v:lua.MUtils.completion_confirm()', {expr = true, noremap = true})

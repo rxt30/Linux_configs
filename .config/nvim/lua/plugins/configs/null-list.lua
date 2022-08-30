@@ -16,4 +16,14 @@ return {
       "-",
     },
   }),
+  null.builtins.formatting.gofmt,
+  -- null.builtins.formatting.shfmt,
+  null.builtins.formatting.shellharden,
+  null.builtins.formatting.markdownlint,
+
+  -- Diagnostics
+  null.builtins.diagnostics.write_good,
+  null.builtins.diagnostics.alex,
+  null.builtins.diagnostics.staticcheck,
+  -- null.builtins.diagnostics.shellcheck,
 }
