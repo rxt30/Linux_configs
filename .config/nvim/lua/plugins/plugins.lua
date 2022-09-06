@@ -110,12 +110,12 @@ return packer.startup(function()
     end,
   })
 
-  -- use({
-  --   "williamboman/mason.nvim",
-  --   config = function()
-  --     require("mason").setup({})
-  --   end,
-  -- })
+  use({
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup({})
+    end,
+  })
   --
   -- use({
   --   "williamboman/mason-lspconfig.nvim",
@@ -215,12 +215,12 @@ return packer.startup(function()
     end,
   })
 
-  -- use({
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   config = function()
-  --     require("plugins.configs.null")
-  --   end,
-  -- })
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("plugins.configs.null")
+    end,
+  })
 
   use({
     "ahmedkhalf/project.nvim",
