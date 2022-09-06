@@ -17,7 +17,7 @@ set.hidden = true
 --set.nobackup = true
 --set.nowritebackup = true
 
-set.cmdheight = 2
+set.cmdheight = 1
 set.updatetime = 300
 set.shortmess = "c"
 
