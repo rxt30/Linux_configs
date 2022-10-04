@@ -5,7 +5,6 @@ local helpers = require("helpers")
 
 local function autostart_apps()
   --- Lockscreen & Display configuration
-  awful.spawn.easy_async_with_shell("xlayoutdisplay")
   awful.spawn.easy_async_with_shell(
     "XSECURELOCK_PASSWORD_PROMPT=kaomoji XSECURELOCK_BLANK_TIMEOUT=5 XSECURELOCK_BLANK_DPMS_STATE=off xss-lock -l -- xsecurelock"
   )
