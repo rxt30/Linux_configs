@@ -1,3 +1,1 @@
-return {
-    playerctl = require(... .. ".playerctl"),
-}
+return { playerctl = require(... .. ".playerctl") }
