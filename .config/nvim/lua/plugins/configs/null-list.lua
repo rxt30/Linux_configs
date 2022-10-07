@@ -20,6 +20,7 @@ return {
   -- null.builtins.formatting.shfmt,
   null.builtins.formatting.shellharden,
   null.builtins.formatting.markdownlint,
+  null.builtins.formatting.black,
 
   -- Diagnostics
   null.builtins.diagnostics.write_good,

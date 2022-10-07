@@ -117,55 +117,55 @@ return packer.startup(function()
     end,
   })
   --
-  -- use({
-  --   "williamboman/mason-lspconfig.nvim",
-  --   config = function()
-  --     require("mason-lspconfig").setup({})
-  --   end,
-  -- })
-  --
-  -- use({
-  --   "neovim/nvim-lspconfig",
-  -- })
-  --
-  -- use({
-  --   "ms-jpq/coq_nvim",
-  --   branch = "coq",
-  --   require = "neovim/nvim-lspconfig",
-  --   require = "windwp/nvim-autopairs",
-  --   config = function()
-  --     vim.g.coq_settings = {
-  --       auto_start = true,
-  --       keymap = {
-  --         recommended = false,
-  --         jump_to_mark = "<C-f>",
-  --       },
-  --       --[[clients = {
-  --           tabnine = {
-  --             enabled = true
-  --           }
-  --         }]]
-  --       --
-  --     }
-  --     require("coq")
-  --     require("plugins.configs.coq")
-  --     require("plugins.configs.lspconfig")
-  --   end,
-  -- })
-  --
-  -- use({
-  --   "ms-jpq/coq.artifacts",
-  --   branch = "artifacts",
-  -- })
-  --
-  -- use({
-  --   "ray-x/lsp_signature.nvim",
-  --   config = function()
-  --     require("lsp_signature").setup({
-  --       hint_enable = false,
-  --     })
-  --   end,
-  -- })
+  use({
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup({})
+    end,
+  })
+
+  use({
+    "neovim/nvim-lspconfig",
+  })
+
+  use({
+    "ms-jpq/coq_nvim",
+    branch = "coq",
+    require = "neovim/nvim-lspconfig",
+    require = "windwp/nvim-autopairs",
+    config = function()
+      vim.g.coq_settings = {
+        auto_start = true,
+        keymap = {
+          recommended = false,
+          jump_to_mark = "<C-f>",
+        },
+        --[[clients = {
+            tabnine = {
+              enabled = true
+            }
+          }]]
+        --
+      }
+      require("coq")
+      require("plugins.configs.coq")
+      require("plugins.configs.lspconfig")
+    end,
+  })
+
+  use({
+    "ms-jpq/coq.artifacts",
+    branch = "artifacts",
+  })
+
+  use({
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require("lsp_signature").setup({
+        hint_enable = false,
+      })
+    end,
+  })
 
   use({
     "numToStr/Comment.nvim",
@@ -233,12 +233,19 @@ return packer.startup(function()
     end,
   })
 
+  -- use({
+  --   after = "catppuccin",
+  --   "neoclide/coc.nvim",
+  --   branch = "release",
+  --   config = function()
+  --     require("plugins.configs.coc")
+  --   end,
+  -- })
+  --
   use({
-    after = "catppuccin",
-    "neoclide/coc.nvim",
-    branch = "release",
-    config = function()
-      require("plugins.configs.coc")
+    "iamcco/markdown-preview.nvim",
+    run = function()
+      vim.fn["mkdp#util#install"]()
     end,
   })
 end)
