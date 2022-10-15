@@ -11,6 +11,7 @@ local sys_icon = wibox.widget({
   font = "Sans 15",
   align = "center",
   valign = "center",
+  forced_width = dpi(30),
   --image = beautiful.system_icon,
   --resize = true
 })

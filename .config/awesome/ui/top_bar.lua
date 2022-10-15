@@ -1,5 +1,5 @@
 local awful = require("awful")
-local naughty = require("naughty")
+-- local naughty = require("naughty")
 local helpers = require("helpers")
 local gears = require("gears")
 local beautiful = require("beautiful")
@@ -13,7 +13,7 @@ local date_pill = require("ui.items.date")
 -- Clock
 local time_pill = require("ui.items.time")
 -- Musicplayer
---local playerctl_bar = require('ui.items.music')
+-- local playerctl_bar = require("ui.items.music")
 -- Battery
 local battery_pill = require("ui.items.battery")
 -- RAM Usage
@@ -22,6 +22,10 @@ local mem_pill = require("ui.items.mem")
 local cpu_pill = require("ui.items.cpu")
 -- Power off menu
 local power_pill = require("ui.items.power")
+-- Volume
+local volume_pill = require("ui.items.volume")
+-- Backlight
+local backlight_pill = require("ui.items.backlight")
 -- Systray
 
 local mysystray = wibox.widget.systray()
@@ -146,10 +150,12 @@ local top_panel = function(s)
           },
           nil,
           {
-            --wrap_widget(make_pill(playerctl_bar, beautiful.xcolor8)),
+            -- wrap_widget(make_pill(playerctl_bar, beautiful.xcolor8)),
             --wrap_widget(make_pill(battery_pill, beautiful.xcolor8)),
             --wrap_widget(make_pill(cpu_pill, beautiful.xcolor8)),
             --wrap_widget(make_pill(mem_pill, beautiful.xcolor8)),
+            wrap_widget(make_pill(backlight_pill, beautiful.xcolor0)),
+            wrap_widget(make_pill(volume_pill, beautiful.xcolor0)),
             wrap_widget(make_pill(time_pill, beautiful.xcolor0)),
             wrap_widget(make_pill(date_pill, beautiful.xcolor0)),
             wrap_widget(make_pill({

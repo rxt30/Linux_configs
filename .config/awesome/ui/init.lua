@@ -3,7 +3,7 @@ local beautiful = require("beautiful")
 local gears = require("gears")
 local top_panel = require("ui.top_bar")
 local tag_creation = require("ui.tags")
-require("ui.notifications")
+-- require("ui.notifications")
 
 beautiful.wallpaper = gears.filesystem.get_configuration_dir() .. "/theme/wallpapers/bg.jpg"
 

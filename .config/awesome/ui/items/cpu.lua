@@ -1,6 +1,6 @@
 local beautiful = require("beautiful")
 local dpi = require("beautiful.xresources").apply_dpi
-local naughty = require("naughty")
+-- local naughty = require("naughty")
 local gears = require("gears")
 local wibox = require("wibox")
 

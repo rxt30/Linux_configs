@@ -15,8 +15,8 @@ local autoRunApps = {
   "lxqt-policykit-agent",
   "lxqt-globalkeysd",
   "nm-applet",
-  "pasystray",
   "XSECURELOCK_PASSWORD_PROMPT=kaomoji XSECURELOCK_BLANK_TIMEOUT=5 XSECURELOCK_BLANK_DPMS_STATE=off xss-lock -l -- xsecurelock",
+  "dunst",
   --      "xscreensaver -no-splash",
   --      "/usr/lib/disman_backend_launcher & dismanctl -o",
   --      "lxqt-config-monitor -l"

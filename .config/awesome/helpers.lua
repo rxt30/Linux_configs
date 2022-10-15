@@ -7,7 +7,7 @@ local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 local wibox = require("wibox")
-local naughty = require("naughty")
+-- local naughty = require("naughty")
 local helpers = {}
 
 function helpers.find(rule)
@@ -382,7 +382,7 @@ function helpers.float_and_edge_snap(c, direction)
   -- if not c.floating then
   --     c.floating = true
   -- end
-  naughty.notify({ text = "double tap" })
+  -- naughty.notify({ text = "double tap" })
   c.floating = true
   local workarea = awful.screen.focused().workarea
   if direction == "up" then

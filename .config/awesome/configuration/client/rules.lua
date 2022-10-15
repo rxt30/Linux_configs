@@ -58,6 +58,7 @@ awful.rules.rules = {
     id = "dialog",
     rule_any = {
       type = { "dialog" },
+      name = { "Screenshot" },
     },
     properties = {
       titlebars_enabled = false,

@@ -43,6 +43,7 @@ Here are the signals available:
 ### Example Implementation
 
 Lets say we have an imagebox. If I wanted to set the imagebox to show the album art, all I have to do is this:
+
 ```lua
 local art = wibox.widget {
     image = "default_image.png",
@@ -85,6 +86,7 @@ awesome.connect_signal("bling::playerctl::title_artist_album",
     artist_widget:set_markup_silently(artist)
 end)
 ```
+
 Thats all! You don't even have to worry about updating the widgets, the signals will handle that for you.
 
 Here's another example in which you get a notification with the album art, title, and artist whenever the song changes.
@@ -99,6 +101,7 @@ end)
 ```
 
 ### Theme Variables and Configuration
+
 By default, this module will output signals from the most recently active player. If you wish to customize the behavior furthur, the following configuration options are available depending on the selected backend. Here is a summary of the two backends and which configuration options they support.
 
 | Option              | playerctl_cli      | playerctl_lib      |
@@ -120,6 +123,7 @@ By default, this module will output signals from the most recently active player
 - `interval`: This option is a number specifying the update interval for fetching the player position. It is 1 by default.
 
 These options can be set through a call to `bling.signal.playerctl.enable()` or these theme variables:
+
 ```lua
 theme.playerctl_backend = "playerctl_cli"
 theme.playerctl_ignore = {}
@@ -129,6 +133,7 @@ theme.playerctl_position_update_interval = 1
 ```
 
 #### Example Configurations
+
 ```lua
 -- Prioritize ncspot over all other players and ignore firefox players (e.g. YouTube and Twitch tabs) completely
 bling.signal.playerctl.enable {
