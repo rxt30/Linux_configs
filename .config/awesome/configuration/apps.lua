@@ -2,7 +2,7 @@ return {
 
   default = {
 
-    terminal = "wezterm",
+    terminal = "alacritty",
 
     web_browser = "firefox",
 

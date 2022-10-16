@@ -71,7 +71,7 @@ awful.rules.rules = {
   {
     id = "terminal",
     rule_any = {
-      class = { "kitty", "Kitty", "wezterm", "Wezterm" },
+      class = { "kitty", "Kitty", "wezterm", "Wezterm", "alacritty", "Alacritty" },
     },
     properties = {
       titlebars_enabled = false,
