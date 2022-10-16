@@ -6,7 +6,10 @@ local gears = require("gears")
 local wibox = require("wibox")
 
 local volume_timer = require("signal.volume")
+
 volume_timer:start()
+
+currentVolume = 0
 
 local volume_text = wibox.widget({
   font = beautiful.font,
@@ -55,11 +58,12 @@ local volume_pill = wibox.widget({
 })
 
 awesome.connect_signal("signal::volume", function(volume)
+  currentVolume = volume
   volume_text.text = volume .. " %"
 end)
 
 awesome.connect_signal("signal::mute", function(mute)
-  if mute == 1 then
+  if string.find(mute, "true") then
     volume_icon.text = "婢"
   else
     volume_icon.text = "墳"
@@ -71,13 +75,21 @@ volume_pill:buttons(gears.table.join(
     awful.spawn("pavucontrol")
   end),
   awful.button({}, 2, function()
-    awful.spawn("pulsemixer --toggle-mute")
+    awful.spawn.easy_async_with_shell("pamixer -t --get-mute", function(stdout)
+      awesome.emit_signal("signal::mute", stdout)
+    end)
   end),
   awful.button({}, 4, function()
-    awful.spawn("pulsemixer --change-volume +5")
+    awful.spawn.easy_async_with_shell("pamixer -i 5 --get-volume", function(stdout)
+      local currentVolume = tonumber(stdout)
+      awesome.emit_signal("signal::volume", currentVolume)
+    end)
   end),
   awful.button({}, 5, function()
-    awful.spawn("pulsemixer --change-volume -5")
+    awful.spawn.easy_async_with_shell("pamixer -d 5 --get-volume", function(stdout)
+      local currentVolume = tonumber(stdout)
+      awesome.emit_signal("signal::volume", currentVolume)
+    end)
   end)
 ))
 

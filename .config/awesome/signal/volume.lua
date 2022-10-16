@@ -2,18 +2,17 @@ local awful = require("awful")
 local gears = require("gears")
 
 local getCurrentVolume = function()
-  awful.spawn.easy_async_with_shell("pulsemixer --get-volume | sed 's/ .*//'", function(stdout)
+  awful.spawn.easy_async_with_shell("pamixer --get-volume", function(stdout)
     local currentVolume = tonumber(stdout)
     awesome.emit_signal("signal::volume", currentVolume)
   end)
-  awful.spawn.easy_async_with_shell("pulsemixer --get-mute", function(stdout)
-    local currentVolume = tonumber(stdout)
-    awesome.emit_signal("signal::mute", currentVolume)
+  awful.spawn.easy_async_with_shell("pamixer --get-mute", function(stdout)
+    awesome.emit_signal("signal::mute", stdout)
   end)
 end
 
 local volume_timer = gears.timer({
-  timeout = 0.1,
+  timeout = 5,
   autostart = true,
   call_now = true,
   callback = getCurrentVolume,

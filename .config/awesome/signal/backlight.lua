@@ -9,7 +9,7 @@ local getCurrentBackLight = function()
 end
 
 local backlight_timer = gears.timer({
-  timeout = 0.1,
+  timeout = 5,
   autostart = true,
   call_now = true,
   callback = getCurrentBackLight,

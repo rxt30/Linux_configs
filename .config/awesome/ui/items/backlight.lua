@@ -61,9 +61,11 @@ end)
 backlight_pill:buttons(gears.table.join(
   awful.button({}, 4, function()
     awful.spawn("light -A +5")
+    backlight_timer:again()
   end),
   awful.button({}, 5, function()
     awful.spawn("light -U 5")
+    backlight_timer:again()
   end)
 ))
 
