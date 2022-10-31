@@ -77,12 +77,7 @@ return packer.startup(function()
     "catppuccin/nvim",
     as = "catppuccin",
     config = function()
-      --require('onedark').setup()
-      vim.g.catppuccin_flavour = "mocha"
-      require("catppuccin").setup()
-      vim.cmd([[colorscheme catppuccin]])
-      --vim.cmd[[let g:everforest_diagnostic_text_highlight = 1]]
-      --vim.cmd[[let g:everforest_diagnostic_line_highlight = 1]]
+      require("plugins.configs.catppuccin")
     end,
   })
 
@@ -162,7 +157,9 @@ return packer.startup(function()
     "ray-x/lsp_signature.nvim",
     config = function()
       require("lsp_signature").setup({
-        hint_enable = false,
+        floating_window = false,
+        hint_enable = true,
+        doc_lines = 0,
       })
     end,
   })
