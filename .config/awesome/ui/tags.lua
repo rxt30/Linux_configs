@@ -27,7 +27,7 @@ local tags = {
   {
     type = "games",
     gap = beautiful.useless_gap,
-    layout = awful.layout.suit.floating,
+    layout = awful.layout.suit.fair,
   },
   {
     type = "sandbox",

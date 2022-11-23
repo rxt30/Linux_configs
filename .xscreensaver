@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.03 for maxh on Thu May 12 19:11:49 2022.
+# Written by xscreensaver-settings 6.04 for maxh on Thu Jun 16 18:29:31 2022.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -21,8 +21,8 @@ ignoreUninstalledPrograms:False
 font:		
 dpmsEnabled:	True
 dpmsQuickOff:	True
-dpmsStandby:	0:10:00
-dpmsSuspend:	0:10:00
+dpmsStandby:	15:00:00
+dpmsSuspend:	15:00:00
 dpmsOff:	15:00:00
 grabDesktopImages:  True
 grabVideoFrames:    False
@@ -286,6 +286,8 @@ programs:								      \
 				marbling -root				    \n\
   GL: 				mapscroller -root			    \n\
   GL: 				squirtorus -root			    \n\
+  GL: 				chompytower -root			    \n\
+  GL: 				nakagin -root				    \n\
 
 
 pointerHysteresis:  10

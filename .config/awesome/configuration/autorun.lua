@@ -17,6 +17,7 @@ local autoRunApps = {
   "nm-applet",
   "XSECURELOCK_PASSWORD_PROMPT=kaomoji XSECURELOCK_BLANK_TIMEOUT=5 XSECURELOCK_BLANK_DPMS_STATE=off xss-lock -l -- xsecurelock",
   "dunst",
+  "flameshot",
   --      "xscreensaver -no-splash",
   --      "/usr/lib/disman_backend_launcher & dismanctl -o",
   --      "lxqt-config-monitor -l"

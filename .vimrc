@@ -72,6 +72,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-v> <C-w>v
 
+set clipboard = "unnamedplus"
+
 "Additional color configs
 
 "A dumb fizzbuzz function

@@ -1,7 +1,8 @@
 local wezterm = require("wezterm")
 
 return {
-  color_scheme = "Catppuccin Mocha",
+  color_scheme = "Catppuccin Latte",
+  -- color_scheme = "Catppuccin Latte",
   font = wezterm.font("Noto Sans Mono", { weight = "Regular" }),
   font_size = 10,
   enable_tab_bar = false,

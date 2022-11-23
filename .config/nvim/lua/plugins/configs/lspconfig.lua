@@ -13,7 +13,7 @@ mason.setup_handlers({
       settings = {
         ltex = {
           checkFrequency = "save",
-          language = "de-DE",
+          language = "en-US",
           dictionary = {
             ["de-DE"] = {
               "Zertifizierungsinstanz",

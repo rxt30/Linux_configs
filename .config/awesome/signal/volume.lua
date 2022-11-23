@@ -7,7 +7,7 @@ local getCurrentVolume = function()
     awesome.emit_signal("signal::volume", currentVolume)
   end)
   awful.spawn.easy_async_with_shell("pamixer --get-mute", function(stdout)
-    awesome.emit_signal("signal::mute", stdout)
+    awesome.emit_signal("signal::mute", currentVolume)
   end)
 end
 

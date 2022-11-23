@@ -1,5 +1,6 @@
 # Exclude all files except the one in the git-directory, to be easily clone the dir into your home dir
 *
+!.ideavimrc
 !.vimrc
 !.profile
 !.xinitrc

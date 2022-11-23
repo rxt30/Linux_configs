@@ -1,31 +1,23 @@
-exec_always /usr/lib/disman_backend_launcher
-exec_always dismanctl -o
 set $mod Mod1
 set $win Mod4
 set $lock swaylock -efF -c 000000F0 --indicator-idle-visible --indicator-radius 75 --indicator-thickness 15 --inside-clear-color FFFF00 --ring-clear-color FFFF00
-exec_always systemctl --user set-environment _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
-exec_always systemctl --user set-environment _JAVA_AWT_WM_NONREPARENTING=1
-exec_always /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr
-
 
 input * { 
     xkb_layout "de"
     xkb_options caps:escape
 }
 
-input "type:touchpad" {
-  
+input "type:keyboard" {
+    repeat_delay 200
+    repeat_rate 30
 }
 
-floating_modifier $mod
+# floating_modifier $mod
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec foot
 bindsym $mod+q kill
-bindsym $mod+p exec "wofi --show drun"
+bindsym $mod+p exec "rofi -show drun -theme main"
 bindsym Print exec "grimshot save area - | swappy -f -"
-bindsym $mod+Shift+p exec "nwggrid"
-bindsym $win+p exec "nwgbar -o 0.5 -t ~/.config/nwg-launchers/nwgbar/screen.json"
-bindsym $win+Shift+p exec "~/.config/sway/duplicateDisplay.sh"
 bindsym $mod+b exec "MOZ_ENABLE_WAYLAND=1 firefox"
 
 bindsym $mod+h focus left
@@ -36,6 +28,9 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Right move container to output right
+bindsym $mod+Shift+Left move container to output left
 
 bindsym $mod+Control+h split h
 bindsym $mod+Control+v split v
@@ -70,8 +65,8 @@ bindsym $mod+Shift+8 move container to workspace number "8"
 bindsym $mod+Shift+9 move container to workspace number "9"
 bindsym $mod+Shift+0 move container to workspace number "10"
 
-bindsym $mod+Shift+r reload
-bindsym $mod+Shift+q quit
+bindsym $mod+Control+r reload
+bindsym $mod+Control+q quit
 
 # Special lock command
 bindsym $win+l exec $lock 
@@ -92,11 +87,11 @@ bindsym $mod+m move scratchpad
 bindsym $mod+Tab scratchpad show
 
 # Workspaces assigned to specific screens
-workspace 1 output 'Acer Technologies XV242Y TL1EE0018521'
-workspace 2 output 'Acer Technologies XV242Y TL1EE0018521'
-workspace 3 output 'Acer Technologies XV242Y TL1EE0018521'
-workspace 4 output 'Acer Technologies XV242Y TL1EE0018521'
-workspace 5 output 'Acer Technologies XV242Y TL1EE0018521'
+workspace 1 output 'DP-3'
+workspace 2 output 'DP-3'
+workspace 3 output 'DP-3'
+workspace 4 output 'DP-3'
+workspace 5 output 'DP-3'
 workspace 6 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
 workspace 7 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
 workspace 8 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
@@ -105,25 +100,26 @@ workspace 10 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
 
 
 # Automatic execution of some processes
-exec_always swaybg -i ~/.config/sway/wall.jpg 
-exec_always swayidle -w \
-  timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
-  resume 'swaymsg "output * dpms on"' \
-  timeout 300 'swaylock -efF -c 00000099 \
-          --indicator-idle-visible --indicator-radius 75 \
-          --indicator-thickness 15 --inside-clear-color FFFF00 \
-          --ring-clear-color FFFF00' \
-  timeout 305 'swaymsg "output * dpms off"'  \
-  resume 'swaymsg "output * dpms on"' \
-  timeout 1800 'systemctl suspend' \
-  resume 'swaymsg "output * dpms on"' \
-  before-sleep 'playerctl pause' \
-  before-sleep 'swaylock -efF -c 00000099 \
-          --indicator-idle-visible --indicator-radius 75 \
-          --indicator-thickness 15 --inside-clear-color FFFF00 \
-          --ring-clear-color FFFF00' \
-  after-resume 'swaymsg "output * dpms on"'
-exec wayvnc -o eDP-1
+# exec_always swaybg -i ~/.config/sway/wall.jpg 
+# exec_always swayidle -w \
+#   timeout 10 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
+#   resume 'swaymsg "output * dpms on"' \
+#   timeout 300 'swaylock -efF -c 00000099 \
+#           --indicator-idle-visible --indicator-radius 75 \
+#           --indicator-thickness 15 --inside-clear-color FFFF00 \
+#           --ring-clear-color FFFF00' \
+#   timeout 305 'swaymsg "output * dpms off"'  \
+#   resume 'swaymsg "output * dpms on"' \
+#   timeout 1800 'systemctl suspend' \
+#   resume 'swaymsg "output * dpms on"' \
+#   before-sleep 'playerctl pause' \
+#   before-sleep 'swaylock -efF -c 00000099 \
+#           --indicator-idle-visible --indicator-radius 75 \
+#           --indicator-thickness 15 --inside-clear-color FFFF00 \
+#           --ring-clear-color FFFF00' \
+#   after-resume 'swaymsg "output * dpms on"'
+# Flameshot also needs grim
+exec flameshot 
 exec dunst
 
 # Laptop lid config
@@ -133,7 +129,6 @@ bindsym $mod+Shift+s exec dismanctl output.eDP-1.enable
 
 
 # Dont show title on ulauncher 
-for_window [app_id="ulauncher"] floating enable, border none
 for_window [title="Firefox — Sharing Indicator"] floating enable, border none
 
 #Style configuration
@@ -147,4 +142,3 @@ gaps inner 5
 bar {
   swaybar_command waybar
 }
-

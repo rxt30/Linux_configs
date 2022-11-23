@@ -1,4 +1,6 @@
 local beautiful = require("beautiful")
+local dbus = require("lgi")
+-- local bla = dbus.GDBus
 local awful = require("awful")
 require("awful.autofocus")
 -- local naughty = require("naughty")

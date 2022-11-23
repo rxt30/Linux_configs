@@ -7,3 +7,8 @@ fi
 if [ "$XDG_SESSION_DESKTOP" = "awesome" ] ; then
   export XDG_CURRENT_DESKTOP=LXQt
 fi
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/maxh/.local/share/JetBrains/Toolbox/scripts"
+
