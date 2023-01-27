@@ -59,6 +59,11 @@ return packer.startup(function()
         auto_install = true,
         highlight = {
           enable = true,
+          hlmap = {
+            punctuation = {
+              bracket = nil,
+            },
+          },
         },
       })
     end,
@@ -243,6 +248,14 @@ return packer.startup(function()
     "iamcco/markdown-preview.nvim",
     run = function()
       vim.fn["mkdp#util#install"]()
+    end,
+  })
+
+  use({
+    "luochen1990/rainbow",
+    config = function()
+      vim.g.rainbow_active = true
+      vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "" })
     end,
   })
 end)
