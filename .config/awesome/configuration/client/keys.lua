@@ -9,6 +9,11 @@ local client_keys = awful.util.table.join(
     c:raise()
   end, { description = "toggle fullscreen", group = "screen" }),
 
+  awful.key({ modkey, "Shift" }, "f", function(c)
+    c.fullscreen = not c.fullscreen
+    c:raise()
+  end, { description = "toggle fullscreen", group = "screen" }),
+
   awful.key({ modkey }, "n", function(c)
     c.minimized = true
   end, { description = "minimize client", group = "screen" }),

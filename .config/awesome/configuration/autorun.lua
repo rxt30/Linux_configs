@@ -18,6 +18,7 @@ local autoRunApps = {
   "XSECURELOCK_PASSWORD_PROMPT=kaomoji XSECURELOCK_BLANK_TIMEOUT=5 XSECURELOCK_BLANK_DPMS_STATE=off xss-lock -l -- xsecurelock",
   "dunst",
   "flameshot",
+  "discord --start-minimized --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy",
   --      "xscreensaver -no-splash",
   --      "/usr/lib/disman_backend_launcher & dismanctl -o",
   --      "lxqt-config-monitor -l"
