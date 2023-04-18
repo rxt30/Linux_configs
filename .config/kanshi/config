@@ -1,5 +1,14 @@
 profile {
-  output "Goldstar Company Ltd LG IPS FULLHD" mode 1920x1080@60Hz position 0,0
-  output "Acer Technologies XV242Y" mode 1920x1080@60Hz position 1920,0
+  output "Acer Technologies XV242Y TL1EE0018521" mode 1920x1080@60Hz position 0,0
+  output "Philips Consumer Electronics Company PHL 243V5 ZV01449014849" mode 1920x1080@60Hz position 1920,0
   output eDP-1 mode 1920x1080@60Hz position 3840,0
+}
+
+profile {
+  output "Acer Technologies XV242Y TL1EE0018521" mode 1920x1080@60Hz position 0,0
+  output eDP-1 mode 1920x1080@60Hz position 3840,0
+}
+
+profile {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
 }
