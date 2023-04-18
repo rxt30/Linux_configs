@@ -1,5 +1,8 @@
+@import "mocha.css";
+
 window#waybar {
-  background-color: rgba(46, 52, 64, 0.8);
+  background-color: @base;
+  /* background-color: rgba(46, 52, 64, 0.8); */
 }
 
 #custom-searchMenu,
