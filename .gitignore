@@ -57,3 +57,7 @@
 !.config/foot/**/*
 !.config/wezterm
 !.config/wezterm/**/*
+!.config/swayidle
+!.config/swayidle/**/*
+!.config/swaylock
+!.config/swaylock/**/*
