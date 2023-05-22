@@ -1,2 +1,3 @@
 timeout 600 "swaylock"
 timeout 610 "hyprctl dispatch dpms off"
+before-sleep "swaylock"

@@ -61,3 +61,5 @@
 !.config/swayidle/**/*
 !.config/swaylock
 !.config/swaylock/**/*
+!.config/hypr
+!.config/hypr/**/*

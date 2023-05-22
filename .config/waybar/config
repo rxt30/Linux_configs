@@ -1,6 +1,7 @@
 {
   "position" : "top",
     "height" : 30,
+    "layer":"top",
     "modules-left" : ["wlr/workspaces"],
     "modules-right" : ["custom/spotify", "pulseaudio", "battery", "battery#bat2", "network", "backlight", "clock", "tray"],
 
@@ -36,7 +37,6 @@
       "format": "{icon} {capacity}%",
       "states": {
         "warning": 25,
-        "recharge": 20,
         "critical": 15
       },
       "format-icons": {

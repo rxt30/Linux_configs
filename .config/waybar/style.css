@@ -1,7 +1,7 @@
 @import "mocha.css";
 
 window#waybar {
-  background-color: @base;
+  background-color: @crust;
   /* background-color: rgba(46, 52, 64, 0.8); */
 }
 
@@ -17,17 +17,20 @@ window#waybar {
 #custom-spotify,
 #custom-power,
 #network {
-  color: rgb( 143, 188, 187);
+  /* color: rgb( 143, 188, 187); */
+  color: @text;
   padding: 0 10px;
   margin: 4px 4px;
-  background-color: rgb( 96, 106, 126);
+  /* background-color: rgb( 96, 106, 126); */
+  background-color: @surface0;
   border: 1px;
   border-radius: 10;
   font-size: 13px;
 }
 
 #battery.warning {
-  background-color: rgb( 235, 203, 139);
+  background-color: @yellow;
+  color: @surface0;
 }
 
 #battery.recharge {
@@ -35,12 +38,14 @@ window#waybar {
 }
 
 #battery.critical {
-  background-color: rgb( 191, 97, 106);
+  background-color: @red;
+  color: @surface0;
 }
 
 #taskbar button,
 #workspaces button {
-  color: rgb( 143, 188, 187);
+  /* color: rgb( 143, 188, 187); */
+  color: @text;
   margin: 4px 4px;
   padding: 0 10px;
 }
@@ -51,7 +56,8 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  color: rgb( 46, 52, 64);
+  /* color: rgb( 46, 52, 64); */
+  color: @text;
   background-color: rgb(163, 190, 140);
   border-radius: 10;
 }
