@@ -3,7 +3,7 @@
     "height" : 30,
     "layer":"top",
     "modules-left" : ["wlr/workspaces"],
-    "modules-right" : ["custom/spotify", "pulseaudio", "battery", "battery#bat2", "network", "backlight", "clock", "tray"],
+    "modules-right" : ["pulseaudio", "battery", "battery#bat2", "network", "backlight", "clock", "tray"],
 
     "clock": {
       "format": "{:%d/%m/%Y %H:%M}" 
@@ -14,7 +14,10 @@
     },
 
     "backlight": {
-      "format": " {percent}%"
+      "format": " {percent}%",
+      "on-scroll-up": "light -A +5",
+      "on-scroll-down": "light -U 5"
+
     },
 
     "custom/power": {
@@ -41,7 +44,8 @@
       },
       "format-icons": {
         "discharging": ["", "", "", "", "", "", "", "", "", "", ""],
-        "charging": [""]
+        "plugged": "",
+        "charging": ""
       },
     },
 

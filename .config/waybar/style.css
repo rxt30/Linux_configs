@@ -18,6 +18,7 @@ window#waybar {
 #custom-power,
 #network {
   /* color: rgb( 143, 188, 187); */
+  font-family: "Noto Sans";
   color: @text;
   padding: 0 10px;
   margin: 4px 4px;
@@ -34,7 +35,7 @@ window#waybar {
 }
 
 #battery.recharge {
-  background-color: rgb( 208, 135, 112);
+  background-color: rgb(208, 135, 112);
 }
 
 #battery.critical {
