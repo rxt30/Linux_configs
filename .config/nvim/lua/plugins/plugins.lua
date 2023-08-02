@@ -180,9 +180,16 @@ return packer.startup(function()
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     requires = "nvim-lua/plenary.nvim",
+    requires = "williamboman/mason.nvim",
     config = function()
+      local actions = require("telescope.actions")
       require("telescope").setup({
         defaults = {
+          mappings = {
+            i = {
+              ["<CR>"] = actions.select_tab
+            }
+          },
           initial_mode = "normal",
         },
         pickers = {
