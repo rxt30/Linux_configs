@@ -5,6 +5,9 @@ set $win Mod4
 set $lock i3-lock --clock --fade-in 0 --screenshots --effect-blur 7x5 --indicator
 exec_always systemctl --user set-environment _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 exec_always systemctl --user set-environment _JAVA_AWT_WM_NONREPARENTING=1
+exec "setxkbmap -option caps:escape -layout de"
+exec "xset -b"
+exec "xset r rate 200 30"
 
 floating_modifier $mod
 
@@ -98,8 +101,8 @@ workspace 10 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
 # Laptop lid config
 
 # Dont show title on ulauncher 
-for_window [app_id="ulauncher"] floating enable, border none
-for_window [title="Firefox — Sharing Indicator"] floating enable, border none
+# for_window [app_id="ulauncher"] floating enable, border none
+# for_window [title="Firefox — Sharing Indicator"] floating enable, border none
 
 #Style configuration
 font pango:DejaVu Sans Mono 9
