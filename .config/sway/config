@@ -1,6 +1,13 @@
 set $mod Mod1
 set $win Mod4
 set $lock swaylock -efF -c 000000F0 --indicator-idle-visible --indicator-radius 75 --indicator-thickness 15 --inside-clear-color FFFF00 --ring-clear-color FFFF00
+set $mon1 "Acer Technologies XV242Y TL1EE0018521"
+set $mon2 "Philips Consumer Electronics Company PHL 243V5 ZV01449014849"
+set $laptop "eDP-1"
+output $mon1 pos 0 0
+output $mon2 pos 1920 0
+output $laptop pos 3840 0
+
 
 input * { 
     xkb_layout "de"
@@ -53,6 +60,18 @@ bindsym $mod+7 workspace number "7"
 bindsym $mod+8 workspace number "8"
 bindsym $mod+9 workspace number "9"
 bindsym $mod+0 workspace number "10"
+bindsym $win+1 workspace number "11"
+bindsym $win+2 workspace number "12"
+bindsym $win+3 workspace number "13"
+bindsym $win+4 workspace number "14"
+bindsym $win+5 workspace number "15"
+bindsym $win+6 workspace number "16"
+bindsym $win+7 workspace number "17"
+bindsym $win+8 workspace number "18"
+bindsym $win+9 workspace number "19"
+bindsym $win+0 workspace number "20"
+bindsym $mod+u exec "~/.config/sway/switch_workspace.py -b"
+bindsym $mod+o exec "~/.config/sway/switch_workspace.py"
 
 bindsym $mod+Shift+1 move container to workspace number "1"
 bindsym $mod+Shift+2 move container to workspace number "2"
@@ -64,6 +83,18 @@ bindsym $mod+Shift+7 move container to workspace number "7"
 bindsym $mod+Shift+8 move container to workspace number "8"
 bindsym $mod+Shift+9 move container to workspace number "9"
 bindsym $mod+Shift+0 move container to workspace number "10"
+bindsym $win+Shift+1 move container to workspace number "11"
+bindsym $win+Shift+2 move container to workspace number "12"
+bindsym $win+Shift+3 move container to workspace number "13"
+bindsym $win+Shift+4 move container to workspace number "14"
+bindsym $win+Shift+5 move container to workspace number "15"
+bindsym $win+Shift+6 move container to workspace number "16"
+bindsym $win+Shift+7 move container to workspace number "17"
+bindsym $win+Shift+8 move container to workspace number "18"
+bindsym $win+Shift+9 move container to workspace number "19"
+bindsym $win+Shift+0 move container to workspace number "20"
+bindsym $mod+Shift+u exec "~/.config/sway/switch_workspace.py -c -b"
+bindsym $mod+Shift+o exec "~/.config/sway/switch_workspace.py -c"
 
 bindsym $mod+Control+r reload
 bindsym $mod+Control+q quit
@@ -87,16 +118,16 @@ bindsym $mod+m move scratchpad
 bindsym $mod+Tab scratchpad show
 
 # Workspaces assigned to specific screens
-workspace 1 output 'DP-3'
-workspace 2 output 'DP-3'
-workspace 3 output 'DP-3'
-workspace 4 output 'DP-3'
-workspace 5 output 'DP-3'
-workspace 6 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
-workspace 7 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
-workspace 8 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
-workspace 9 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
-workspace 10 output 'Goldstar Company Ltd LG IPS FULLHD 508NTWGFR561'
+workspace 1 output $mon1
+workspace 2 output $mon1
+workspace 3 output $mon1
+workspace 4 output $mon1
+workspace 5 output $mon1
+workspace 6 output $mon2
+workspace 7 output $mon2
+workspace 8 output $mon2
+workspace 9 output $mon2
+workspace 10 output $mon2
 
 
 # Automatic execution of some processes
@@ -140,5 +171,6 @@ smart_gaps on
 gaps inner 5
 
 bar {
-  swaybar_command waybar
+  # swaybar_command waybar
+  swaybar_command swaybar
 }
