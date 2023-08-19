@@ -24,9 +24,9 @@ def get_number_of_next_ws(all_ws, focused_monitor_ws, focused_ws):
     global ARGS
     all_ws_num = [ws.num for ws in all_ws]
     num_filter = (
-        (lambda x: x.num > focused_ws.num)
-        if ARGS
-        else (lambda x: x.num < focused_ws.num)
+        (lambda x: x.num < focused_ws.num)
+        if ARGS.back
+        else (lambda x: x.num > focused_ws.num)
     )
     next_msg = "move container to " if ARGS.container else ""
     position_current_ws = list(filter(num_filter, focused_monitor_ws))

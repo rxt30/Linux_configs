@@ -70,8 +70,8 @@ bindsym $win+7 workspace number "17"
 bindsym $win+8 workspace number "18"
 bindsym $win+9 workspace number "19"
 bindsym $win+0 workspace number "20"
-bindsym $mod+u exec "~/.config/sway/switch_workspace.py -b"
-bindsym $mod+o exec "~/.config/sway/switch_workspace.py"
+bindsym $mod+u exec "python ~/.config/sway/switch_workspace.py -b"
+bindsym $mod+o exec "python ~/.config/sway/switch_workspace.py"
 
 bindsym $mod+Shift+1 move container to workspace number "1"
 bindsym $mod+Shift+2 move container to workspace number "2"
@@ -93,8 +93,8 @@ bindsym $win+Shift+7 move container to workspace number "17"
 bindsym $win+Shift+8 move container to workspace number "18"
 bindsym $win+Shift+9 move container to workspace number "19"
 bindsym $win+Shift+0 move container to workspace number "20"
-bindsym $mod+Shift+u exec "~/.config/sway/switch_workspace.py -c -b"
-bindsym $mod+Shift+o exec "~/.config/sway/switch_workspace.py -c"
+bindsym $mod+Shift+u exec "python ~/.config/sway/switch_workspace.py -c -b"
+bindsym $mod+Shift+o exec "python ~/.config/sway/switch_workspace.py -c"
 
 bindsym $mod+Control+r reload
 bindsym $mod+Control+q quit
@@ -118,16 +118,16 @@ bindsym $mod+m move scratchpad
 bindsym $mod+Tab scratchpad show
 
 # Workspaces assigned to specific screens
-workspace 1 output $mon1
-workspace 2 output $mon1
-workspace 3 output $mon1
-workspace 4 output $mon1
-workspace 5 output $mon1
-workspace 6 output $mon2
-workspace 7 output $mon2
-workspace 8 output $mon2
-workspace 9 output $mon2
-workspace 10 output $mon2
+# workspace 1 output $mon1
+# workspace 2 output $mon1
+# workspace 3 output $mon1
+# workspace 4 output $mon1
+# workspace 5 output $mon1
+# workspace 6 output $mon2
+# workspace 7 output $mon2
+# workspace 8 output $mon2
+# workspace 9 output $mon2
+# workspace 10 output $mon2
 
 
 # Automatic execution of some processes
