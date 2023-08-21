@@ -23,6 +23,7 @@ def get_ws():
 def get_number_of_next_ws(all_ws, focused_monitor_ws, focused_ws):
     global ARGS
     all_ws_num = [ws.num for ws in all_ws]
+    focused_monitor_ws_num = [ws.num for ws in focused_monitor_ws]
     num_filter = (
         (lambda x: x.num < focused_ws.num)
         if ARGS.back
@@ -30,16 +31,15 @@ def get_number_of_next_ws(all_ws, focused_monitor_ws, focused_ws):
     )
     next_msg = "move container to " if ARGS.container else ""
     position_current_ws = list(filter(num_filter, focused_monitor_ws))
-    if len(position_current_ws) > 0:
-        return (
-            next_msg
-            + f"workspace {'prev_on_output' if ARGS.back else 'next_on_output'}"
-        )
     if ARGS.back:
-        next_num = max(set(range(0, focused_ws.num)) - set(all_ws_num))
+        next_num = max(
+            set(range(0, focused_ws.num))
+            - (set(all_ws_num) - set(focused_monitor_ws_num))
+        )
     else:
         next_num = min(
-            set(range(focused_ws.num, max(all_ws_num) + 2)) - set(all_ws_num)
+            set(range(focused_ws.num + 1, max(all_ws_num) + 2))
+            - (set(all_ws_num) - set(focused_monitor_ws_num))
         )
     return next_msg + f"workspace {next_num}"
 
