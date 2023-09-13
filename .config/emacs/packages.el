@@ -50,3 +50,8 @@
   :hook (python-mode . (lambda ()
 			 (require 'lsp-pyright)
 			 (lsp))))
+
+;; Catppuccin
+(unless (package-installed-p 'lsp-mode)
+  (package-install 'catppuccin-theme))
+(load-theme 'catppuccin :no-confirm)
