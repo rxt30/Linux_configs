@@ -19,3 +19,9 @@
 (unless (package-installed-p 'rainbow-delimiters)
   (package-install 'rainbow-delimiters))
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Smart parens
+(unless (package-installed-p 'smartparens)
+  (package-install 'smartparens))
+(require 'smartparens-config)
+(add-hook 'prog-mode-hook #'smartparens-mode)

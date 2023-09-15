@@ -1,0 +1,5 @@
+(unless (package-installed-p 'format-all)
+  (package-install 'format-all))
+(require 'format-all)
+(add-hook 'prog-mode-hook 'format-all-mode)
+(define-key evil-normal-state-map "f" 'format-all-buffer)
