@@ -6,4 +6,4 @@
 (setq indent-line-function 'insert-tab)
 (global-set-key (kbd "TAB") 'indent-according-to-mode)
 (global-set-key [tab] 'indent-according-to-mode)
-(electric-pair-mode)
+;; (electric-pair-mode)
