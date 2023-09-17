@@ -6,4 +6,7 @@
 (setq indent-line-function 'insert-tab)
 (global-set-key (kbd "TAB") 'indent-according-to-mode)
 (global-set-key [tab] 'indent-according-to-mode)
+(global-set-key [f4] 'compile)
+(xterm-mouse-mode)
 ;; (electric-pair-mode)
+(setq backup-directory-alist '((".*" . "~/.trash")))

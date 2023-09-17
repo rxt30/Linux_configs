@@ -9,6 +9,8 @@
 (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
 (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
 (define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
 ;; Evil-commentary
 (unless (package-installed-p 'evil-commentary)
