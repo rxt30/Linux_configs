@@ -10,3 +10,4 @@
 (xterm-mouse-mode)
 ;; (electric-pair-mode)
 (setq backup-directory-alist '((".*" . "~/.trash")))
+(global-hl-line-mode 1)
