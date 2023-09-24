@@ -242,6 +242,23 @@ return packer.startup(function()
     end,
   })
 
+  use({
+    "mfussenegger/nvim-dap",
+    config = function()
+      require("plugins.configs.dap")
+    end,
+  })
+
+  use({
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require("plugins.configs.dapui")
+    end,
+  })
+
+  use 'mfussenegger/nvim-dap-python'
+
+
   -- use({
   --   after = "catppuccin",
   --   "neoclide/coc.nvim",
