@@ -14,6 +14,19 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.g.coq_settings = {
+  auto_start = true,
+  keymap = {
+    recommended = false,
+    jump_to_mark = "<C-f>",
+  },
+  --[[clients = {
+    tabnine = {
+      enabled = true
+    }
+  }]]
+  --
+}
 
 for _, module in ipairs(init_modules) do
   local ok, err = pcall(require, module)

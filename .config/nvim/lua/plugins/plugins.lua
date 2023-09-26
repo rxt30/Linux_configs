@@ -123,19 +123,6 @@ return {
     branch = "coq",
     dependencies = {"neovim/nvim-lspconfig", "windwp/nvim-autopairs"},
     config = function()
-      vim.g.coq_settings = {
-        auto_start = true,
-        keymap = {
-          recommended = false,
-          jump_to_mark = "<C-f>",
-        },
-        --[[clients = {
-            tabnine = {
-              enabled = true
-            }
-          }]]
-        --
-      }
       require("coq")
       require("plugins.configs.coq")
       require("plugins.configs.lspconfig")
