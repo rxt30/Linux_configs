@@ -14,6 +14,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.opt.termguicolors = true
 vim.g.coq_settings = {
   auto_start = true,
   keymap = {
@@ -27,6 +28,7 @@ vim.g.coq_settings = {
   }]]
   --
 }
+require("lazy").setup("plugins")
 
 for _, module in ipairs(init_modules) do
   local ok, err = pcall(require, module)
@@ -34,4 +36,3 @@ for _, module in ipairs(init_modules) do
     error("Error loading " .. module .. "\n\n" .. err)
   end
 end
-require("lazy").setup("plugins")

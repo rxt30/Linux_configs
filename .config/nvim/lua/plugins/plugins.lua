@@ -226,9 +226,6 @@ return {
 
   {
     "rcarriga/nvim-dap-ui",
-    config = function()
-      require("plugins.configs.dapui")
-    end,
   },
 
 
