@@ -252,4 +252,11 @@ return {
       vim.api.nvim_set_hl(0, "@punctuation.bracket", { link = "" })
     end,
   },
+
+  {
+    "akinsho/toggleterm.nvim",
+    opts = {
+      open_mapping = [[<F12>]]
+    }
+  }
 }
