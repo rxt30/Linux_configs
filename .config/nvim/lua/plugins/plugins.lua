@@ -4,11 +4,6 @@ return {
   },
 
   {
-    "wbthomason/packer.nvim",
-    event = "VimEnter",
-  },
-
-  {
     "kyazdani42/nvim-web-devicons",
   },
 
@@ -27,7 +22,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("indent_blankline").setup({
+      require("ibl").setup({
         char = "|",
         show_current_context = true,
       })
