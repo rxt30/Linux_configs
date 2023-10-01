@@ -30,6 +30,8 @@
 !.config/nvim/lua
 !.config/nvim/init.lua
 !.config/nvim/**/*
+.config/nvim/lua/plugin/plugins_device.lua
+.config/nvim/lua/plugin/configs/dap-list.lua
 .config/nvim/plugin
 !.config/i3
 !.config/polybar
@@ -65,4 +67,4 @@
 !.config/hypr
 !.config/hypr/**/*
 !.config/emacs
-!.config/emacs/**/*.el
+!.config/emacs/**/*
